@@ -1,132 +1,182 @@
-# Rare Disease Atlas Categories
+# Rare Disease Atlas Categories and Identifiers
+
+## Disease
+
+> Disease is the central entity and does not belong to the four UI categories.
+
+### Standard IDs
+- MONDO ID
+  - Example: `MONDO:0000001`
+- Orphanet ID
+  - Example: `ORPHA:355`
+- OMIM ID
+  - Example: `OMIM:230800`
+
+### Recommended canonical ID
+Use `MONDO ID` as the primary disease identifier whenever available.
+
+---
 
 ## 1. Mechanism
 
 ### Molecular Function
-- Protein dysfunction
+
+Examples:
+- Enzyme dysfunction
 - Loss of function
 - Gain of function
-- Enzyme activity changes
 - Ion-channel dysfunction
+- Protein dysfunction
+
+### Recommended IDs
+Depending on the entity:
+
+- Gene Ontology Molecular Function
+  - `GO:xxxxxxx`
+- Reactome reaction
+  - `R-HSA-xxxxxxx`
+- Protein
+  - UniProt ID, e.g. `P04062`
+
+> "Molecular Function" itself is only a UI category and does not need an ID.
+
+---
 
 ### Pathway / Process
-- Biological pathways
-- Metabolic pathways
+
+Examples:
 - Lysosomal degradation
 - Autophagy
+- Glycosphingolipid metabolism
 - Synaptic signaling
 - DNA repair
-- Other disease-relevant biological processes
+
+### Recommended IDs
+
+- Reactome pathway ID
+  - `R-HSA-xxxxxxx`
+- Gene Ontology Biological Process
+  - `GO:xxxxxxx`
+
+### Recommended canonical source
+Prefer Reactome for pathway nodes.
+
+---
 
 ### Cellular Effect
+
+Examples:
 - Lysosomal dysfunction
 - Mitochondrial dysfunction
 - Protein accumulation
 - ER stress
-- Inflammation
 - Neuroinflammation
-- Other downstream cellular effects
 
+### Recommended IDs
+
+Use a standard ontology ID when one exists:
+
+- Gene Ontology
+  - `GO:xxxxxxx`
+- HPO if the concept is actually an observable phenotype
+  - `HP:xxxxxxx`
+
+If no suitable canonical identifier exists:
+
+- Internal Atlas ID
+  - Example: `ATLAS:MECH:000123`
+
+The internal node must still carry supporting evidence.
+
+---
 
 ## 2. Phenotype
 
 ### Neurological
-- Seizures
-- Movement abnormalities
+
+Examples:
+- Seizure
+- Ataxia
 - Developmental delay
-- Cognitive abnormalities
-- Muscle tone abnormalities
-- Neurodegenerative manifestations
+- Hypotonia
 
 ### Blood
+
+Examples:
 - Anemia
 - Thrombocytopenia
-- Bleeding abnormalities
-- Other blood-related phenotypes
 
 ### Organs
+
+Examples:
 - Splenomegaly
 - Hepatomegaly
-- Cardiac abnormalities
-- Renal abnormalities
-- Other organ-related phenotypes
 
 ### Musculoskeletal
-- Bone abnormalities
-- Bone pain
+
+Examples:
 - Muscle weakness
-- Joint abnormalities
-- Other musculoskeletal phenotypes
+- Bone pain
+- Skeletal abnormalities
 
 ### Other
-- Phenotypes that do not clearly fit the major groups
 
-> The actual graph nodes should be standardized HPO terms.  
-> These subcategories are primarily for UI grouping and filtering.
+For phenotypes that do not fit the main UI groups.
 
+### Standard ID
+
+Use Human Phenotype Ontology:
+
+- HPO ID
+  - `HP:xxxxxxx`
+
+Examples:
+
+- Seizure → HPO ID
+- Splenomegaly → HPO ID
+- Anemia → HPO ID
+
+### Recommended canonical ID
+Always prefer `HPO ID`.
+
+> Neurological / Blood / Organs / Musculoskeletal are UI groups only.
+> They should not become graph nodes unless there is a specific product reason.
+
+---
 
 ## 3. Gene
 
 ### Disease Gene
-- Genes with established or well-supported disease associations
-- Causal genes
-- Strongly associated disease genes
 
-### Variant
-- Pathogenic variants
-- Likely pathogenic variants
-- Variants of uncertain significance
-- Variants with conflicting classifications
+Examples:
+- GBA1
+- MECP2
+- CFTR
 
-> Variant classification should normally be stored as metadata on the variant node rather than as separate graph node types.
+### Standard IDs
 
+Prefer one canonical gene identifier:
 
-## 4. Research & Community
+- HGNC ID
+  - `HGNC:xxxx`
+- NCBI Gene ID
+  - numeric Gene ID
+- Ensembl Gene ID
+  - `ENSGxxxxxxxxxxx`
 
-### Studies & Trials
-- Clinical trials
-- Natural-history studies
-- Observational studies
-- Biomarker studies
-- Registry studies
-- Therapeutic studies
+### Recommended canonical ID
+Use `HGNC ID` for human genes.
 
-### Researchers & Institutions
-- Researchers working on the disease
-- Principal investigators
-- Relevant research groups
-- Universities
-- Hospitals and medical centers
-- Research institutes
-- Companies involved in relevant studies
+Store other IDs as cross-references.
 
-### Patient Groups & Registries
-- Patient organizations
-- Disease foundations
-- Patient registries
-- Research registries
-- Natural-history communities
-- Disease-specific support or research communities
+Example:
 
-
-# Hidden / Supporting Graph Entities
-
-These entities can exist in the backend knowledge graph but do not need to appear as top-level Atlas categories.
-
-## Disease
-- Central entity used for search and graph navigation
-
-## Paper
-- Used as evidence for graph relationships
-- Usually shown in the Evidence Panel rather than directly on the main graph
-
-## Evidence
-- Source
-- Source ID
-- URL
-- Supporting text
-- Publication date
-- Retrieval date
-- Evidence type
-- Contradictory evidence
-- Confidence / review status
+```json
+{
+  "label": "GBA1",
+  "canonical_id": "HGNC:4177",
+  "xrefs": {
+    "ncbi_gene": "...",
+    "ensembl": "..."
+  }
+}
