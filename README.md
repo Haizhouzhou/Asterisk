@@ -26,13 +26,14 @@ Brand source files (logo, mark, app icon) are in [docs/brand](docs/brand).
 ## Run locally with Conda
 
 ```powershell
-cd Raraction
+git clone https://github.com/bqy12346/asterisk.git
+cd asterisk
 conda env create -f environment.yml
 conda activate raraction
 python -m atlas.server
 ```
 
-Open **http://127.0.0.1:8000**. Python's standard library provides the HTTP server, SQLite, HTTPS clients, XML parsing, jobs, and tests; there are no pip or JavaScript dependencies. An existing Conda environment with Python 3.12+ also works without environment creation. No separate database server is needed. (The repository and Conda environment keep the original `raraction` name.)
+Open **http://127.0.0.1:8000**. Python's standard library provides the HTTP server, SQLite, HTTPS clients, XML parsing, jobs, and tests; there are no pip or JavaScript dependencies. An existing Conda environment with Python 3.12+ also works without environment creation. No separate database server is needed. (The Conda environment keeps the original `raraction` name.)
 
 If Conda's optional plugins fail on your machine, use `conda --no-plugins env create -f environment.yml`. `--port 8001` and `--db data/another.sqlite` are supported.
 
@@ -171,6 +172,7 @@ Live papers exclude missing abstracts, flagged retractions, and preprints by def
 | GET | `/api/jobs/{id}` | Stage and completion state; jobs are ephemeral |
 | GET | `/api/reports/{id}` | Persisted evidence review and research actions |
 | GET | `/api/reports/{id}/proposal` | Downloadable sourced Markdown discussion draft |
+| POST | `/api/chat` | Grounded follow-up chat over the current map: `messages` (≤12 turns) plus the `/api/analysis` graph fields, `role`, `language`. Answers cite only packet IDs (fabricated citations are rejected); returns 503 when no live provider (OpenAI, Gemini or webhook) is configured |
 
 Example analysis body:
 

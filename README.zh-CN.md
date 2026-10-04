@@ -26,13 +26,14 @@ Asterisk 是一个以后端为核心的演示项目，实现了挑战题 [05.pdf
 ## 使用 Conda 在本地运行
 
 ```powershell
-cd Raraction
+git clone https://github.com/bqy12346/asterisk.git
+cd asterisk
 conda env create -f environment.yml
 conda activate raraction
 python -m atlas.server
 ```
 
-打开 **http://127.0.0.1:8000**。HTTP 服务器、SQLite、HTTPS 客户端、XML 解析、任务队列和测试全部由 Python 标准库提供，不需要任何 pip 或 JavaScript 依赖。已有的 Python 3.12+ Conda 环境也可以直接使用，无需新建环境，也不需要单独的数据库服务器。（代码仓库和 Conda 环境仍沿用原名 `raraction`。）
+打开 **http://127.0.0.1:8000**。HTTP 服务器、SQLite、HTTPS 客户端、XML 解析、任务队列和测试全部由 Python 标准库提供，不需要任何 pip 或 JavaScript 依赖。已有的 Python 3.12+ Conda 环境也可以直接使用，无需新建环境，也不需要单独的数据库服务器。（Conda 环境仍沿用原名 `raraction`。）
 
 如果 Conda 的可选插件在你的机器上报错，可以使用 `conda --no-plugins env create -f environment.yml`。支持 `--port 8001` 和 `--db data/another.sqlite` 参数。
 
@@ -171,6 +172,7 @@ python -m atlas.server
 | GET | `/api/jobs/{id}` | 阶段和完成状态；任务不持久保存 |
 | GET | `/api/reports/{id}` | 持久化的证据审阅和研究行动 |
 | GET | `/api/reports/{id}/proposal` | 可下载的带来源 Markdown 讨论稿 |
+| POST | `/api/chat` | 基于当前图谱的追问对话：`messages`（最多 12 轮），加上与 `/api/analysis` 相同的图谱参数、`role` 和 `language`。回答只能引用证据包中的 ID（伪造引用会被拒绝）；未配置实时 AI 服务（OpenAI、Gemini 或 webhook）时返回 503 |
 
 分析请求示例：
 

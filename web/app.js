@@ -43,7 +43,7 @@ function displayGraph(graph) {
     $('#progress').textContent = ''; $('#progress').classList.remove('error');
     graphViewport={x:0,y:0,w:800,h:680};applyViewport();
     $('#cluster-list').querySelectorAll('[data-cluster]').forEach(input=>input.addEventListener('change',()=>{state.positions={};drawGraph();}));
-    drawGraph(); renderDetails(); renderPapers(); renderActions(); loadLeads();
+    drawGraph(); renderDetails(); renderPapers(); renderActions(); loadLeads(); syncChatToGraph();
     const note=$('.scope-note');
     if(graph.graph_id)note.innerHTML='<span class="status-dot"></span><div>Live research graph<small>'+esc(graph.live.query)+'<br>Retrieved '+esc(graph.live.retrieved_at.slice(0,10))+'</small></div>';
 }
@@ -468,7 +468,7 @@ $('#home-example').addEventListener('click',()=>{history.pushState({example:true
 $('#brand-home').addEventListener('click',e=>{e.preventDefault();history.pushState({},'',location.pathname);showHome();});
 window.addEventListener('popstate',()=>{const q=hashQuery();if(q)openDetail(q);else if(location.hash==='#example')openDetail(null);else showHome();});
 async function init(){
-  try{state.health=await api('/api/health');const configured=state.health.agent?.configured;$('#use-openai').disabled=!configured;$('#use-openai').checked=configured;$('#agent-status').textContent=configured?'('+state.health.agent.provider+' available)':'(not configured)';}catch(error){showError(error);}
+  try{state.health=await api('/api/health');updateChatAvailability();const configured=state.health.agent?.configured;$('#use-openai').disabled=!configured;$('#use-openai').checked=configured;$('#agent-status').textContent=configured?'('+state.health.agent.provider+' available)':'(not configured)';}catch(error){showError(error);}
   const q=hashQuery();
   if(q)document.body.classList.remove('is-home');else if(location.hash==='#example')openDetail(null);else showHome();
   await loadGraph('MONDO:0012812');   // the starter map loads first, so a live search always replaces it rather than racing it
@@ -542,3 +542,76 @@ $('#expand-graph').addEventListener('click',()=>{const panel=$('#graph-optional'
 $('#graph-science').addEventListener('change',()=>{state.positions={};drawGraph();});
 // Experts start with the graph open; patients and families start with people and the AI guide.
 $('#audience-role').addEventListener('change',()=>{$('#graph-optional').open=$('#audience-role').value==='expert';});
+
+// ---- Ask-your-own-question chat (POST /api/chat). Grounded in the map on screen; citations are server-checked. ----
+const chat={messages:[],key:null,pending:false};
+const chatMark=()=>$('.chat-mark').innerHTML;
+function chatKey(){return state.graph?(state.graph.graph_id||state.graph.focus):null;}
+function syncChatToGraph(){ if(chatKey()!==chat.key){chat.key=chatKey();chat.messages=[];renderChat();} }
+function updateChatAvailability(){
+  const available=!!state.health?.chat;
+  $('#ai-chat').classList.toggle('unavailable',!available);
+  $('#chat-input').disabled=!available;$('#chat-send').disabled=!available;
+  $('#chat-suggestions').querySelectorAll('.chat-chip').forEach(b=>{b.disabled=!available;});
+  $('#chat-note').textContent=available?'Not medical advice. For decisions about your care, talk to your care team.':'The AI assistant is not available on this server yet (no AI provider is configured).';
+}
+// Edges read as "A → B" so two edges with the same relation stay distinguishable.
+function chatSource(c){
+  const edge=state.graph.edges.find(e=>e.id===c.id);
+  if(edge){const name=id=>state.graph.nodes.find(n=>n.id===id)?.label||id;return `<button class="text-button" data-select-edge="${esc(edge.id)}">${esc(shorten(name(edge.subject)+' → '+name(edge.object),60))}</button>`;}
+  return state.graph.sources.some(s=>s.id===c.id)?citation(c.id):link(c.url,c.name);
+}
+function chatParagraphs(text){return text.split(/\n{2,}/).map(p=>`<p>${esc(p).replace(/\n/g,'<br>')}</p>`).join('');}
+function renderChat(){
+  const log=$('#chat-log');
+  log.innerHTML=chat.messages.map(m=>{
+    if(m.role==='user')return `<div class="chat-msg user"><div class="chat-bubble"><div class="chat-text">${chatParagraphs(m.content)}</div></div></div>`;
+    if(m.role==='notice')return `<div class="chat-msg notice"><p>${esc(m.content)}</p></div>`;
+    const sources=(m.citations||[]).map(chatSource).join('');
+    return `<div class="chat-msg assistant"><span class="chat-avatar" aria-hidden="true">${chatMark()}</span><div class="chat-bubble"><div class="chat-text">${chatParagraphs(m.content)}</div>${sources?`<div class="chat-sources"><span class="chat-sources-label">Sources</span>${sources}</div>`:''}</div></div>`;
+  }).join('')+(chat.pending?`<div class="chat-msg assistant"><span class="chat-avatar" aria-hidden="true">${chatMark()}</span><div class="chat-bubble chat-typing" aria-label="…"><i></i><i></i><i></i></div></div>`:'');
+  log.hidden=!chat.messages.length&&!chat.pending;
+  $('#chat-reset').hidden=!chat.messages.length;
+  log.querySelectorAll('[data-select-edge]').forEach(b=>b.addEventListener('click',()=>{$('#graph-optional').open=true;select('edge',b.dataset.selectEdge);$('#graph-optional').scrollIntoView({behavior:'smooth'});}));
+  log.scrollTop=log.scrollHeight;
+}
+function setChatSuggestions(questions){
+  if(!questions.length)return;
+  $('#chat-suggestions').innerHTML=questions.map(q=>`<button type="button" class="chat-chip">${esc(q)}</button>`).join('');
+}
+async function sendChat(text){
+  text=text.trim();
+  if(!text||chat.pending||!state.graph)return;
+  syncChatToGraph();
+  chat.messages.push({role:'user',content:text});chat.pending=true;renderChat();
+  $('#chat-input').value='';autosizeChat();
+  const history=chat.messages.filter(m=>m.role==='user'||m.role==='assistant').slice(-12).map(({role,content})=>({role,content}));
+  const key=chat.key;
+  try{
+    const reply=await api('/api/chat',{...options(),messages:history,role:$('#audience-role').value,language:$('#language').value});
+    if(key!==chat.key)return;   // the map changed while waiting; this answer belongs to the old one
+    chat.messages.push({role:'assistant',content:reply.answer,citations:reply.citations});
+    setChatSuggestions(reply.follow_up_questions||[]);
+  }catch(error){ if(key===chat.key)chat.messages.push({role:'notice',content:error.message}); }
+  finally{ if(key===chat.key){chat.pending=false;renderChat();} else chat.pending=false; }
+}
+function autosizeChat(){const t=$('#chat-input');t.style.height='auto';t.style.height=Math.min(t.scrollHeight,160)+'px';}
+$('#chat-form').addEventListener('submit',e=>{e.preventDefault();sendChat($('#chat-input').value);});
+$('#chat-input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();sendChat($('#chat-input').value);}});
+$('#chat-input').addEventListener('input',autosizeChat);
+$('#chat-suggestions').addEventListener('click',e=>{const chip=e.target.closest('.chat-chip');if(chip&&!chip.disabled)sendChat(chip.textContent);});
+$('#chat-reset').addEventListener('click',()=>{chat.messages=[];renderChat();$('#chat-input').focus();});
+renderChat();
+
+// ---- Graph legend: a glass capsule floating on the graph by default; expands into the full sidebar. ----
+(function(){
+  const workspace=$('#workspace'), toggle=$('#legend-toggle');
+  function setLegend(expanded,remember){
+    workspace.classList.toggle('legend-collapsed',!expanded);
+    toggle.setAttribute('aria-expanded',String(expanded));
+    if(remember){try{localStorage.setItem('asterisk-legend',expanded?'expanded':'collapsed');}catch{}}
+  }
+  let saved=null;try{saved=localStorage.getItem('asterisk-legend');}catch{}
+  setLegend(saved==='expanded',false);
+  toggle.addEventListener('click',()=>setLegend(workspace.classList.contains('legend-collapsed'),true));
+})();

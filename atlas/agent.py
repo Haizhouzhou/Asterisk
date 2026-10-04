@@ -38,16 +38,16 @@ MODEL_SCHEMA = {'type': 'object', 'additionalProperties': False, 'properties': {
 }, 'required': ['summary', 'findings', 'actions', 'missing_evidence']}
 
 
-def model_call(packet, task, previous=None):
+def model_call(packet, task, previous=None, schema=MODEL_SCHEMA, schema_name='maria_evidence_review'):
     if configuration()['provider'] == 'gemini':
-        return gemini_agent(packet, SYSTEM + '\n' + task, MODEL_SCHEMA, previous)
+        return gemini_agent(packet, SYSTEM + '\n' + task, schema, previous)
     if configuration()['provider'] == 'webhook':
-        return external_agent(packet, SYSTEM + '\n' + task, MODEL_SCHEMA, previous)
+        return external_agent(packet, SYSTEM + '\n' + task, schema, previous)
     body = {'model': os.environ.get('OPENAI_MODEL', 'gpt-4.1-mini'), 'store': False,
             'instructions': SYSTEM + '\n' + task,
             'input': json.dumps({'evidence_packet': packet, 'previous_draft': previous}, ensure_ascii=False),
             'max_output_tokens': 3500,
-            'text': {'format': {'type': 'json_schema', 'name': 'maria_evidence_review', 'strict': True, 'schema': MODEL_SCHEMA}}}
+            'text': {'format': {'type': 'json_schema', 'name': schema_name, 'strict': True, 'schema': schema}}}
     response = request_json('https://api.openai.com/v1/responses', body,
                             {'Authorization': 'Bearer ' + os.environ['OPENAI_API_KEY']}, timeout=90)
     if response.get('status') != 'completed':
@@ -77,6 +77,12 @@ def validate_model_review(review, allowed_ids):
             if len(item['statement']) > 4000:
                 raise ValueError('Oversized review statement')
     return review
+
+
+def citable_ids(packet):
+    """IDs a model may cite: packet edges, sources and live candidates. Anything else is fabricated."""
+    return ({e['id'] for e in packet['edges']} | {s['id'] for s in packet['sources']} | {p['id'] for p in packet['live_candidates']}
+            | {t['id'] for t in packet['live_studies']} | {c['id'] for c in packet['community_candidates']})
 
 
 def evidence_packet(graph, live=None):
@@ -172,7 +178,7 @@ def analyze(graph, live=None, use_openai=False, progress=lambda stage: None, rol
             report['agent_error'] = 'Agent provider is not configured. Evidence checks completed; no model review was run.'
         else:
             packet = evidence_packet(graph, live)
-            allowed = {e['id'] for e in packet['edges']} | {s['id'] for s in packet['sources']} | {p['id'] for p in packet['live_candidates']} | {t['id'] for t in packet['live_studies']} | {c['id'] for c in packet['community_candidates']}
+            allowed = citable_ids(packet)
             try:
                 if configuration()['provider'] == 'codex_snapshot':
                     from atlas.codex_snapshot import load_review

@@ -6,6 +6,16 @@
     // First-visit intro (intro.js).
     "Who's exploring today?":'请选择你的身份', 'Patient & family':'患者与家属', 'I, or someone I love, lives with a rare disease.':'我或我爱的人正在面对罕见病。',
     'Expert':'专家', 'I research, treat or develop therapies for rare diseases.':'我从事罕见病的研究、诊疗或疗法开发。', 'You can change this anytime in the top right.':'之后可随时在右上角更改。',
+    'Toggle legend size':'切换图例大小',
+    // AI chat.
+    'Ask your own question':'提出你自己的问题', 'Answers use only the sources in this map and show which ones they rely on.':'回答只使用当前图谱中的资料，并注明依据的来源。',
+    'Ask about this condition, the research, or what to ask your care team…':'可以问这种疾病、相关研究，或者该向医护团队问些什么…',
+    'Not medical advice. For decisions about your care, talk to your care team.':'这不是医疗建议。涉及治疗和照护的决定，请咨询你的医护团队。',
+    'The AI assistant is not available on this server yet (no AI provider is configured).':'此服务器尚未启用 AI 助手（还没有配置 AI 服务）。',
+    'The AI assistant is not available: no live AI provider is configured on this server.':'AI 助手暂不可用：此服务器还没有配置实时 AI 服务。',
+    'What does this condition involve?':'这种疾病是怎么回事？', 'Which research or registries could I take part in?':'有哪些研究或登记项目可以参与？',
+    'What should I ask my care team?':'我应该问医护团队哪些问题？', 'New conversation':'新对话', 'Sources':'来源', 'Send':'发送',
+    'Ask a question':'提问', 'Conversation':'对话',
     // Sources & coverage dialog (text comes from atlas/graph.py coverage()).
     'Data sources':'数据来源', 'Baseline':'基线', 'Proposed':'设想目标', 'days':'天', 'Assumptions':'前提假设', 'How to validate':'验证方式',
     'Live disease, gene and symptom search across MONDO, HPO, NCBI Gene, PubMed, Europe PMC and ClinicalTrials.gov, with on-demand graphs. Curated STXBP1/SLC6A1 is a starter slice; no claim of complete coverage or validated biology for every rare disease.':'跨 MONDO、HPO、NCBI Gene、PubMed、Europe PMC 和 ClinicalTrials.gov 实时检索疾病、基因和症状，并按需生成图谱。人工整理的 STXBP1/SLC6A1 只是入门示例；不声称覆盖全部罕见病，也不声称每种罕见病的生物学机制都已验证。',
@@ -200,7 +210,7 @@
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) {
       const node = walker.currentNode;
-      if (node.parentElement.closest('script,style,#language,.locale-note,.glass-select')) continue;
+      if (node.parentElement.closest('script,style,#language,.locale-note,.glass-select,.chat-text')) continue;
       let record = records.get(node);
       if (!record || node.nodeValue !== record.rendered) record = {original: node.nodeValue};
       record.rendered = language === 'zh-CN' ? translate(record.original) : record.original;

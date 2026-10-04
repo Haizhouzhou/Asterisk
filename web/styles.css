@@ -353,3 +353,89 @@ dialog .dialog-top .quiet:hover{transform:scale(1.08) rotate(90deg)}
 .ai-jump-icon:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
 @media(max-width:700px){.ai-jump-icon{width:38px;height:38px}.ai-jump-icon svg{width:19px;height:19px}}
 @media(prefers-reduced-motion:reduce){.ai-jump-icon,.ai-jump-icon svg{transition:none}.ai-jump-icon:hover,.ai-jump-icon:hover svg{transform:none}}
+/* AI chat: ask-your-own-question thread inside the AI guide. */
+.ai-chat{margin:6px 24px 24px;padding:20px;border-radius:22px;background:rgba(255,255,255,.55);border:1px solid var(--glass-rim);box-shadow:var(--glass-lift)}
+.chat-head{display:flex;align-items:center;gap:12px}
+.chat-head>div{flex:1;min-width:0}
+.chat-head strong{display:block;font-size:16px}
+.chat-head small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.chat-mark,.chat-avatar{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--glass-fill-strong);border:1px solid var(--glass-rim);box-shadow:var(--glass-lift);color:var(--ink)}
+.chat-mark svg,.chat-avatar svg{width:20px;height:20px;fill:currentColor}
+.chat-reset{font-size:13px;white-space:nowrap}
+.chat-log{display:flex;flex-direction:column;gap:12px;max-height:min(520px,60vh);overflow:auto;margin-top:16px;padding:4px 2px;scroll-behavior:smooth}
+.chat-log[hidden]{display:none}
+.chat-msg{display:flex;gap:10px;align-items:flex-end;animation:chat-in .45s var(--spring) both}
+.chat-msg.user{justify-content:flex-end}
+.chat-avatar{width:30px;height:30px}
+.chat-avatar svg{width:16px;height:16px}
+.chat-bubble{max-width:min(78%,640px);padding:11px 15px;border-radius:18px;font-size:14.5px;line-height:1.6}
+.chat-bubble p{margin:0}
+.chat-bubble p+p{margin-top:8px}
+.chat-msg.user .chat-bubble{background:linear-gradient(180deg,#4053ea,#293fdf);color:#fff;border-bottom-right-radius:6px;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 6px 16px rgba(41,63,223,.22)}
+.chat-msg.assistant .chat-bubble{background:var(--glass-fill-strong);border:1px solid var(--glass-rim);border-bottom-left-radius:6px;box-shadow:var(--glass-lift);color:var(--ink)}
+.chat-sources{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-top:9px;padding-top:8px;border-top:1px solid rgba(36,55,70,.08);font-size:12.5px}
+.chat-sources-label{font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);font-weight:600}
+.chat-msg.notice{justify-content:center}
+.chat-msg.notice p{margin:0;font-size:12.5px;color:#9a5e48;background:#f9ebe5;border-radius:999px;padding:5px 12px;text-align:center}
+.chat-typing{display:flex;gap:5px;align-items:center;padding:14px 16px}
+.chat-typing i{width:7px;height:7px;border-radius:50%;background:var(--brand);opacity:.35;animation:chat-dot 1.1s ease-in-out infinite}
+.chat-typing i:nth-child(2){animation-delay:.15s}.chat-typing i:nth-child(3){animation-delay:.3s}
+@keyframes chat-dot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:.9;transform:translateY(-4px)}}
+@keyframes chat-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chat-chip{padding:7px 13px;border-radius:999px;font-size:13px;color:var(--navy);background:var(--glass-fill);border:1px solid var(--glass-rim);box-shadow:var(--glass-lift);transition:transform .45s var(--spring),box-shadow .3s}
+.chat-chip:hover:not(:disabled){transform:translateY(-1px);box-shadow:var(--glass-lift-hover)}
+.chat-chip:disabled{opacity:.5;cursor:not-allowed}
+.chat-form{display:flex;align-items:flex-end;gap:8px;margin-top:14px;padding:6px 6px 6px 18px;border-radius:26px;background:var(--glass-fill-strong);border:1px solid var(--glass-rim);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);box-shadow:var(--glass-lift);transition:box-shadow .3s,border-color .3s}
+.chat-form:focus-within{border-color:rgba(41,63,223,.45);box-shadow:inset 0 1px 0 #fff,0 0 0 4px rgba(41,63,223,.1),0 12px 32px rgba(41,63,223,.12)}
+.chat-form textarea{flex:1;min-width:0;border:0;outline:none;resize:none;background:transparent;font:inherit;font-size:15px;line-height:1.5;color:var(--ink);padding:9px 0;max-height:160px}
+.chat-form textarea:disabled{cursor:not-allowed}
+.chat-send{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:linear-gradient(180deg,#4053ea,#293fdf);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 16px rgba(41,63,223,.26);transition:transform .45s var(--spring)}
+.chat-send svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chat-send:hover:not(:disabled){transform:scale(1.06)}
+.chat-send:disabled{opacity:.4;cursor:not-allowed}
+.chat-note{margin:10px 4px 0;font-size:12px;color:var(--muted)}
+.ai-chat.unavailable .chat-note{color:#9a5e48}
+@media(max-width:700px){.ai-chat{margin:6px 12px 16px;padding:14px}.chat-bubble{max-width:88%}}
+@media(prefers-reduced-motion:reduce){.chat-msg,.chat-typing i{animation:none}.chat-chip,.chat-send{transition:none}}
+/* ==== Graph legend: graph-first layout. Collapsed (default) = glass capsule floating on the graph;
+   expanded = the full sidebar column. Toggle sits in the capsule's / sidebar's top-right corner. ==== */
+.workspace{position:relative}
+.sidebar{position:relative}
+.legend-toggle{position:absolute;top:12px;right:12px;z-index:2;display:grid;place-items:center;width:30px;height:30px;padding:0;border-radius:50%;color:var(--navy);cursor:pointer;
+  background:var(--glass-fill-strong);border:1px solid var(--glass-rim);box-shadow:var(--glass-lift);transition:transform .45s var(--spring),box-shadow .3s,color .2s}
+.legend-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.legend-toggle:hover{transform:scale(1.1);box-shadow:var(--glass-lift-hover);color:var(--brand)}
+.legend-toggle:active{transform:scale(.92);transition-duration:.12s}
+.legend-toggle:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.legend-toggle .icon-collapse,.legend-collapsed .legend-toggle .icon-expand{display:block}
+.legend-toggle .icon-expand,.legend-collapsed .legend-toggle .icon-collapse{display:none}
+.workspace:not(.legend-collapsed) .sidebar{animation:legend-open .4s var(--spring) both}
+@keyframes legend-open{from{opacity:.4;transform:translateX(-10px)}to{opacity:1;transform:none}}
+@keyframes legend-close{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+
+@media(min-width:601px){
+  .workspace.legend-collapsed,.graph-optional .workspace.legend-collapsed{grid-template-columns:minmax(0,1fr)}
+  .workspace.legend-collapsed .sidebar{position:absolute;z-index:4;top:91px;left:16px;width:232px;max-height:calc(100% - 108px);overflow:auto;padding:14px 16px 12px;border-radius:24px;
+    background:rgba(255,255,255,.74);border:1px solid var(--glass-rim);border-right:1px solid var(--glass-rim);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
+    box-shadow:inset 0 1px 0 #fff,0 0 0 1px rgba(36,55,70,.05),0 14px 36px rgba(20,32,44,.12);transform-origin:top left;animation:legend-close .4s var(--spring) both}
+  .workspace.legend-collapsed .legend-toggle{top:10px;right:10px;width:26px;height:26px}
+  .workspace.legend-collapsed .legend-toggle svg{width:12px;height:12px}
+  .workspace.legend-collapsed .sidebar-top{padding-right:30px}
+  .workspace.legend-collapsed .sidebar-top .eyebrow,.workspace.legend-collapsed .sidebar-top p,
+  .workspace.legend-collapsed .filter-block,.workspace.legend-collapsed .scope-note{display:none}
+  .workspace.legend-collapsed .sidebar-top h2{margin:2px 0 6px;font-size:13px;letter-spacing:.2px}
+  .workspace.legend-collapsed .cluster-item{padding:4px 0;font-size:12.5px;line-height:1.3}
+  .workspace.legend-collapsed .cluster-item .cluster-count{font-size:11px;padding:0 6px}
+  .workspace.legend-collapsed .map-key{margin-top:10px;padding-top:9px;border-top:1px solid rgba(36,55,70,.08);font-size:11px}
+  .workspace.legend-collapsed .map-key>div{margin:5px 0}
+  /* The capsule describes the network; hide it while the paper list is shown. */
+  .workspace.legend-collapsed:has(#network-view[hidden]) .sidebar{display:none}
+}
+@media(max-width:600px){
+  .workspace.legend-collapsed .sidebar{margin:12px 12px 0;padding:12px 44px 10px 14px;border:1px solid var(--glass-rim);border-radius:20px;background:rgba(255,255,255,.74);box-shadow:var(--glass-lift);animation:legend-close .4s var(--spring) both}
+  .workspace.legend-collapsed .filter-block,.workspace.legend-collapsed .map-key,.workspace.legend-collapsed .scope-note{display:none}
+  .workspace.legend-collapsed .legend-toggle{top:10px;right:10px;width:26px;height:26px}
+  .workspace.legend-collapsed:has(#network-view[hidden]) .sidebar{display:none}
+}
+@media(prefers-reduced-motion:reduce){.workspace .sidebar,.workspace.legend-collapsed .sidebar{animation:none}.legend-toggle{transition:none}.legend-toggle:hover{transform:none}}
