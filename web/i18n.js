@@ -2,7 +2,39 @@
 'use strict';
 (() => {
   const zh = {
+    'Audience':'身份',
+    // First-visit intro (intro.js).
+    "Who's exploring today?":'请选择你的身份', 'Patient & family':'患者与家属', 'I, or someone I love, lives with a rare disease.':'我或我爱的人正在面对罕见病。',
+    'Expert':'专家', 'I research, treat or develop therapies for rare diseases.':'我从事罕见病的研究、诊疗或疗法开发。', 'You can change this anytime in the top right.':'之后可随时在右上角更改。',
+    // Sources & coverage dialog (text comes from atlas/graph.py coverage()).
+    'Data sources':'数据来源', 'Baseline':'基线', 'Proposed':'设想目标', 'days':'天', 'Assumptions':'前提假设', 'How to validate':'验证方式',
+    'Live disease, gene and symptom search across MONDO, HPO, NCBI Gene, PubMed, Europe PMC and ClinicalTrials.gov, with on-demand graphs. Curated STXBP1/SLC6A1 is a starter slice; no claim of complete coverage or validated biology for every rare disease.':'跨 MONDO、HPO、NCBI Gene、PubMed、Europe PMC 和 ClinicalTrials.gov 实时检索疾病、基因和症状，并按需生成图谱。人工整理的 STXBP1/SLC6A1 只是入门示例；不声称覆盖全部罕见病，也不声称每种罕见病的生物学机制都已验证。',
+    'GeneReviews / verified community sites':'GeneReviews / 经核实的社区网站', 'OpenAlex / NIH RePORTER / model databases':'OpenAlex / NIH RePORTER / 模型数据库',
+    'snapshot + live lookup':'快照 + 实时查询', 'live adapters + paper snapshot':'实时接口 + 论文快照', 'live adapter + snapshot':'实时接口 + 快照',
+    'live entity annotation':'实时实体标注', 'curated cited links':'人工整理的引用链接', 'mapping unavailable in snapshot':'快照中暂无映射', 'next integration':'下一步接入',
+    'Stable terms and synonyms. Human-native terms only; no automatic equivalence mapping.':'稳定的术语与同义词。仅使用人类原生术语；不做自动等价映射。',
+    'Gene identity and indexed publications; abstracts are candidates, not confirmed graph claims.':'基因身份与已索引的文献；摘要只是候选信息，不是已确认的图谱结论。',
+    'Paper metadata, abstracts, preprint labels; PubMed records share a source lineage.':'论文元数据、摘要和预印本标记；与 PubMed 记录同源。',
+    'Paper-to-gene, disease and variant mentions with offsets. Automated mentions are candidates, not causal relations.':'论文中提及的基因、疾病和变异（含文本位置）。自动识别的提及只是候选，不代表因果关系。',
+    'Study scope, status, eligibility, collaborators. Registry listing is not evidence of efficacy.':'研究范围、状态、入组条件和合作方。登记在册不代表有疗效证据。',
+    'Mechanism summaries and existing registries. Full text is linked, not redistributed.':'机制综述与现有登记库。全文只提供链接，不做转载。',
+    'No pathway membership was invented when mapping requests failed.':'映射请求失败时，不会凭空生成通路归属。',
+    'No patient-specific variants or variant-effect claims imported in this demo.':'本演示未导入任何患者特定变异或变异效应结论。',
+    'No author disambiguation, grants, or model availability asserted.':'不对作者消歧、资助信息或模型可用性作任何断言。',
+    'Variant-specific effects and counterevidence require expert full-text review.':'变异的具体效应及反面证据需要专家审阅全文。',
+    'No validated cross-disease treatment recommendation.':'不提供经验证的跨疾病治疗建议。',
+    'Registry access and measure comparability have not been confirmed.':'登记库的访问权限和测量指标的可比性尚未确认。',
+    'No patient records are collected.':'不收集任何患者记录。',
+    'Reach a decision on reusing registry measures for a joint natural-history proposal.':'就是否在联合自然史研究提案中复用登记库测量指标作出决定。',
+    'Illustrative planning hypothesis; not measured impact.':'示意性的规划假设，并非实测效果。',
+    'Existing registry team responds within a week.':'现有登记库团队在一周内回复。',
+    'Consent and data access permit comparison.':'知情同意和数据访问权限允许进行比较。',
+    'A clinician and both patient groups review the proposal.':'一名临床医生和两个患者组织共同审阅提案。',
+    'No new registry or ethics approval is needed for the initial feasibility decision.':'初步可行性决策无需新建登记库，也无需新的伦理审批。',
+    'Measure actual time to a documented reuse decision against comparable prior efforts.':'对照以往可比的工作，测量实际作出有记录的复用决策所用的时间。',
     'RARE DISEASE ATLAS':'罕见病知识图谱', 'Sources & coverage ↗':'来源与覆盖范围 ↗',
+    'Rare, but never alone.':'罕见，但从不孤单。',
+    'Open the example map':'打开示例图谱', 'Scroll to zoom · Drag to pan · Select to inspect':'滚轮缩放 · 拖动平移 · 点击查看',
     'Patient organization leader':'患者组织负责人', 'Search the atlas':'搜索知识图谱',
     'FIND YOUR NEXT CONNECTION':'发现新的研究联系', 'Where could your research go next?':'下一步研究可以走向哪里？',
     'Search a disease, gene, or symptom':'搜索疾病、基因或症状', 'Search a disease, gene, or symptom…':'搜索疾病、基因或症状…',
@@ -82,6 +114,9 @@
         [/^\((.+) available\)$/, '（$1 已配置）'],
         [/^SELECTED (.+)$/, (_, kind) => '选中' + (zh[kind.toLowerCase()] || kind)],
         [/^Retrieved (\d{4}-\d{2}-\d{2})$/, '检索日期：$1'],
+        [/^Reviewed (\d{4}-\d{2}-\d{2})$/, '审核日期：$1'],
+        [/^(\d+) graph edges excluded by current filters\.$/, '当前筛选条件排除了 $1 条图谱联系。'],
+        [/^Live graph for "(.+)" across public disease, phenotype, gene, literature and study databases\. Results are bounded; completeness and rarity classification are not guaranteed\.$/, '“$1”的实时图谱，覆盖公共疾病、表型、基因、文献和研究数据库。结果数量有上限；不保证完整性，也不保证罕见病分类准确。'],
         [/^Building live evidence map for (.+)…$/, '正在为 $1 构建实时证据图谱…']
       ];
       for (const [pattern, replacement] of rules) if (pattern.test(trimmed)) { value = trimmed.replace(pattern, replacement); break; }
@@ -92,12 +127,12 @@
     observer.disconnect();
     document.documentElement.lang = language;
     select.value = language;
-    document.title = language === 'zh-CN' ? 'Raraction · 罕见病知识图谱' : 'Raraction · Rare Disease Atlas';
-    notice.textContent = language === 'zh-CN' ? 'AI 审阅按所选角色和语言生成；原始证据及规则检查保留来源语言。搜索建议使用英文名称或标准标识符。' : 'AI reviews use the selected audience and language. Source evidence and rule checks retain their original language. Search using English names or standard identifiers.';
+    document.title = language === 'zh-CN' ? 'Asterisk · 罕见病知识图谱' : 'Asterisk · Rare Disease Atlas';
+    notice.textContent = language === 'zh-CN' ? 'AI 审阅按所选身份和语言生成；原始证据及规则检查保留来源语言。搜索建议使用英文名称或标准标识符。' : 'AI reviews use the selected audience and language. Source evidence and rule checks retain their original language. Search using English names or standard identifiers.';
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) {
       const node = walker.currentNode;
-      if (node.parentElement.closest('script,style,#language,.locale-note')) continue;
+      if (node.parentElement.closest('script,style,#language,.locale-note,.glass-select')) continue;
       let record = records.get(node);
       if (!record || node.nodeValue !== record.rendered) record = {original: node.nodeValue};
       record.rendered = language === 'zh-CN' ? translate(record.original) : record.original;

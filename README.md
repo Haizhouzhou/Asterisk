@@ -1,4 +1,4 @@
-# Raraction — AI Atlas for Rare Diseases
+# Asterisk — AI Atlas for Rare Diseases
 
 The header includes an English / Simplified Chinese interface selector. The choice is saved locally and initially follows the browser language. Source evidence, publications and reports retain their original language; search using English names or standard identifiers. UI translations live in `web/i18n.js`. This first localization pass covers navigation, controls, common status labels and progress messages; detailed backend explanations remain in their source language.
 
@@ -133,7 +133,7 @@ Example analysis body:
 ```json
 {
   "focus": "MONDO:0012812",
-  "role": "maria",
+  "role": "patient",
   "min_confidence": "moderate",
   "include_inferred": true,
   "use_live": true,

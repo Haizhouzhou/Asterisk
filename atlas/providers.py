@@ -30,7 +30,7 @@ def clean(text):
 def request_json(url, body=None, headers=None, timeout=20):
     if urlparse(url).scheme != 'https' or urlparse(url).hostname not in ALLOWED_HOSTS:
         raise ValueError('Untrusted provider URL')
-    hdr = {'User-Agent': 'Raraction-demo/0.1', 'Accept': 'application/json', **(headers or {})}
+    hdr = {'User-Agent': 'Asterisk-demo/0.1', 'Accept': 'application/json', **(headers or {})}
     if body is not None:
         hdr['Content-Type'] = 'application/json'
     req = Request(url, data=json.dumps(body).encode() if body is not None else None, headers=hdr)
@@ -51,7 +51,7 @@ def ncbi_request(endpoint, params, xml=False):
         url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/' + endpoint + '?' + urlencode(params)
         if not xml:
             return request_json(url)
-        with urlopen(Request(url, headers={'User-Agent': 'Raraction-demo/0.1'}), timeout=20) as response:
+        with urlopen(Request(url, headers={'User-Agent': 'Asterisk-demo/0.1'}), timeout=20) as response:
             raw = response.read(3_000_001)
         if len(raw) > 3_000_000:
             raise ValueError('Provider response exceeds limit')

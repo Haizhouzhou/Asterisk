@@ -29,7 +29,7 @@ def main():
     manifest = {}
     for name, url in requests.items():
         try:
-            with urlopen(Request(url, headers={'User-Agent': 'Raraction-demo/0.1'}), timeout=30) as response:
+            with urlopen(Request(url, headers={'User-Agent': 'Asterisk-demo/0.1'}), timeout=30) as response:
                 raw = response.read(4_000_001)
                 if len(raw) > 4_000_000:
                     raise ValueError('record too large')

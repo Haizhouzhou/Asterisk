@@ -2,15 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Raraction · Rare Disease Atlas</title>
+  <title>Asterisk · Rare Disease Atlas</title>
   <meta name="description" content="An evidence-backed research map for rare disease patient organizations.">
-  <link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/styles.css">
+  <!-- Not deferred: flags the first-visit intro before anything paints (CSP forbids inline scripts). -->
+  <script src="/intro.js"></script>
+  <link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="stylesheet" href="/styles.css">
   <script src="/i18n.js" defer></script>
+  <script src="/glass-select.js" defer></script>
   <script src="/app.js" defer></script>
+  <script src="/world-map.js" defer></script>
+  <script src="/home-world.js" defer></script>
 </head>
-<body>
-  <header class="masthead"><a class="brand" href="/" aria-label="Raraction home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 12 27 8 30 29 10 12 9 30 30 29"/><circle cx="10" cy="12" r="4"/><circle cx="27" cy="8" r="3"/><circle cx="30" cy="29" r="5"/><circle cx="9" cy="30" r="3"/></svg><span>raraction<span class="brand-sub">RARE DISEASE ATLAS</span></span></a><div class="header-right"><button class="quiet light" id="coverage-open">Sources & coverage ↗</button><label class="role" for="audience-role"><span>Audience</span><select id="audience-role"><option value="maria">Maria / Patient organization leader</option><option value="researcher">Biomedical researcher</option><option value="clinician">Clinical professional</option><option value="industry">Research development professional</option></select></label></div></header>
+<body class="is-home">
+  <canvas id="home-world" class="home-world" aria-hidden="true"></canvas>
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <div class="intro-body">
+      <p class="intro-title" id="intro-title">Who's exploring today?</p>
+      <div class="intro-roles">
+        <button type="button" class="intro-role" data-audience="patient"><span class="glass-sheen" aria-hidden="true"></span><span class="intro-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.3A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 7.5 2.7C19.5 15.4 12 20 12 20z"/></svg></span><strong>Patient &amp; family</strong><span class="intro-sub">I, or someone I love, lives with a rare disease.</span></button>
+        <button type="button" class="intro-role" data-audience="expert"><span class="glass-sheen" aria-hidden="true"></span><span class="intro-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 3.5h5M10.5 3.5v5.8L5.3 18a2 2 0 0 0 1.7 3h10a2 2 0 0 0 1.7-3l-5.2-8.7V3.5M7.6 14.5h8.8"/></svg></span><strong>Expert</strong><span class="intro-sub">I research, treat or develop therapies for rare diseases.</span></button>
+      </div>
+      <p class="intro-note">You can change this anytime in the top right.</p>
+    </div>
+  </div>
+  <header class="masthead"><a class="brand" href="/" id="brand-home" aria-label="Asterisk home"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4.5V35.5M6.58 12.25 33.42 27.75M6.58 27.75 33.42 12.25"/><circle cx="20" cy="4.5" r="3.6"/><circle cx="33.42" cy="12.25" r="3.6"/><circle cx="33.42" cy="27.75" r="3.6"/><circle cx="20" cy="35.5" r="3.6"/><circle cx="6.58" cy="27.75" r="3.6"/><circle cx="6.58" cy="12.25" r="3.6"/><circle cx="20" cy="20" r="3"/></svg><span>Asterisk<span class="brand-sub">RARE DISEASE ATLAS</span></span></a><div class="header-right"><button type="button" class="glass-trigger coverage-trigger" id="coverage-open"><span class="glass-sheen" aria-hidden="true"></span><span class="glass-value">Sources & coverage ↗</span></button><label class="role" for="audience-role"><span class="sr-only">Audience</span><select id="audience-role"><option value="patient">Patient &amp; family</option><option value="expert">Expert</option></select></label></div></header>
   <main>
+    <section id="home" class="home" aria-label="Search the atlas">
+      <div class="home-mark"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4.5V35.5M6.58 12.25 33.42 27.75M6.58 27.75 33.42 12.25"/><circle cx="20" cy="4.5" r="3.6"/><circle cx="33.42" cy="12.25" r="3.6"/><circle cx="33.42" cy="27.75" r="3.6"/><circle cx="20" cy="35.5" r="3.6"/><circle cx="6.58" cy="27.75" r="3.6"/><circle cx="6.58" cy="12.25" r="3.6"/><circle cx="20" cy="20" r="3"/></svg><span>Asterisk</span></div>
+      <p class="home-tag">Rare, but never alone.</p>
+      <form id="home-form" class="home-form" role="search"><label class="sr-only" for="home-search">Search a disease, gene, or symptom</label>
+        <div class="home-box"><span aria-hidden="true">⌕</span><input id="home-search" autocomplete="off" maxlength="160" placeholder="Search a disease, gene, or symptom…"></div>
+        <div class="home-actions"><button type="submit" class="home-btn">Explore</button><button type="button" class="home-btn" id="home-example">Open the example map</button></div>
+      </form>
+      <p class="home-try"><span>Try</span> <button class="text-button home-q" data-query="STXBP1">STXBP1</button> · <button class="text-button home-q" data-query="SLC6A1">SLC6A1</button> · <button class="text-button home-q" data-query="seizures">seizures</button> · <button class="text-button home-q" data-query="low muscle tone">low muscle tone</button></p>
+      <p class="home-foot">Research navigation · expert review required for clinical decisions</p>
+    </section>
     <section class="search-section" aria-label="Search the atlas"><div><span class="eyebrow">FIND YOUR NEXT CONNECTION</span><h1>Where could your research go next?</h1></div>
       <form id="search-form"><label class="sr-only" for="search">Search a disease, gene, or symptom</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" autocomplete="off" maxlength="160" placeholder="Search a disease, gene, or symptom…" value="STXBP1"><button type="submit">Explore <span aria-hidden="true">→</span></button></div></form>
       <div class="search-meta"><span>Try <button class="text-button example" data-query="SLC6A1">SLC6A1</button>, <button class="text-button example" data-query="seizures">seizures</button>, or <button class="text-button example" data-query="low muscle tone">low muscle tone</button></span><span id="identity">Loading the evidence map…</span></div>
@@ -23,7 +49,7 @@
         <div class="scope-note"><span class="status-dot"></span><div>A focused first chapter<small>STXBP1 + SLC6A1<br>Reviewed 4 October 2026</small></div></div>
       </aside>
       <section class="map-panel" aria-label="Research network"><div class="map-toolbar"><div class="segmented" role="group" aria-label="Map view"><button id="network-tab" class="active">Network</button><button id="papers-tab">Related papers</button></div><div class="map-controls"><button class="quiet" id="fit" title="Reset graph view">Fit map ⊞</button></div></div>
-        <div id="network-view"><div class="map-caption"><span class="eyebrow">CONNECTED BY EVIDENCE</span><span id="graph-count"></span></div><svg id="graph" viewBox="0 0 800 680" role="group" aria-label="Interactive evidence graph"></svg><div class="map-footer"><span id="map-status">Loading…</span><span>Scroll to zoom ? Drag to pan ? Select to inspect</span></div></div>
+        <div id="network-view"><div class="map-caption"><span class="eyebrow">CONNECTED BY EVIDENCE</span><span id="graph-count"></span></div><svg id="graph" viewBox="0 0 800 680" role="group" aria-label="Interactive evidence graph"></svg><div class="map-footer"><span id="map-status">Loading…</span><span>Scroll to zoom · Drag to pan · Select to inspect</span></div></div>
         <div id="papers-view" hidden><div class="paper-header"><h2>Follow the published evidence</h2><p>Reading leads are separated from confirmed claims.</p><button id="live-papers" class="secondary">Search public sources ↗</button></div><div id="paper-list"></div><div id="live-results"></div></div>
         <div class="research-bar"><div><span class="agent-mark" aria-hidden="true">✧</span><span><strong>From connections to a next step</strong><small>Filter evidence → check sources → review a research proposal</small></span></div><button id="review" class="primary">Review evidence <span aria-hidden="true">→</span></button></div>
         <div class="review-options"><label class="check"><input id="use-live" type="checkbox"> Refresh papers & studies for the review</label><label class="check"><input id="use-openai" type="checkbox" disabled> Agent review <span id="agent-status">(checking configuration)</span></label></div>
@@ -33,6 +59,6 @@
     </div>
     <footer class="page-footer"><span>One disease is a starting point. Evidence shows the way forward.</span><span>Research navigation · expert review required for clinical decisions</span></footer>
   </main>
-  <dialog id="coverage-dialog"><div class="dialog-top"><span class="eyebrow">KNOW WHAT THIS MAP CAN TELL YOU</span><button id="coverage-close" class="quiet" aria-label="Close sources and coverage">✕</button></div><h2>Sources, scope & missing evidence</h2><div id="coverage-content"></div></dialog>
+  <dialog id="coverage-dialog" class="glass-dialog" aria-labelledby="coverage-title"><div class="dialog-top"><span class="eyebrow">KNOW WHAT THIS MAP CAN TELL YOU</span><button type="button" id="coverage-close" class="dialog-close" aria-label="Close sources and coverage"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 3l6 6M9 3 3 9"/></svg></button></div><h2 id="coverage-title">Sources, scope & missing evidence</h2><div id="coverage-content"></div></dialog>
 </body>
 </html>

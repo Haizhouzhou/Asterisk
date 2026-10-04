@@ -27,7 +27,7 @@ def main():
         if saved != packet:
             raise ValueError('Prepare current evidence before generating output')
         manifest = {'producer': 'OpenAI Codex CLI', 'method': 'User-run Codex CLI output; structural and citation checks, not scientific validation',
-                    'prompt': 'prompts/codex_review.md', 'audience': 'maria', 'language': 'en',
+                    'prompt': 'prompts/codex_review.md', 'audience': 'patient', 'language': 'en',
                     'evidence_sha256': packet_hash(packet), 'review_sha256': packet_hash(review)}
         (DIRECTORY / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
         print('Sealed output. Record actual CLI execution and human review in your submission evidence.')

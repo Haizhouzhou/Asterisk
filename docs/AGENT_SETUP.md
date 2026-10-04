@@ -33,7 +33,7 @@ Give Lovable this prompt (no keys included):
 
 Generate a strong random shared token locally using `python -c "import secrets; print(secrets.token_urlsafe(48))"`. Store it in the Lovable/Supabase backend's secret manager as `ATLAS_SHARED_TOKEN`, and in the local backend's `ATLAS_AGENT_TOKEN`. Do not paste a real token into a source file, Lovable chat, screenshots, or Git.
 
-Set these **server environment variables** before starting Raraction (replace the endpoint and host with your function's actual values):
+Set these **server environment variables** before starting Asterisk (replace the endpoint and host with your function's actual values):
 
 ```powershell
 $env:ATLAS_AGENT_PROVIDER = 'webhook'
@@ -90,7 +90,7 @@ To enrich a review, call `/api/analysis` with the current graph ID:
 ```json
 {
   "graph_id": "GRAPH-ID-RETURNED-BY-LIVE-GRAPH",
-  "role": "maria",
+  "role": "patient",
   "use_agent": true,
   "use_brightdata": true,
   "community_url": "https://rarediseases.org/"

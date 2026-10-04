@@ -112,7 +112,7 @@ def evidence_packet(graph, live=None):
     return packet
 
 
-def analyze(graph, live=None, use_openai=False, progress=lambda stage: None, role='maria', language='en'):
+def analyze(graph, live=None, use_openai=False, progress=lambda stage: None, role='patient', language='en'):
     reader = audience(role, language)
     progress('audit')
     sources = {s['id']: s for s in graph['sources']}
@@ -176,8 +176,8 @@ def analyze(graph, live=None, use_openai=False, progress=lambda stage: None, rol
             try:
                 if configuration()['provider'] == 'codex_snapshot':
                     from atlas.codex_snapshot import load_review
-                    if role != 'maria' or language != 'en':
-                        raise ValueError('Committed review is scoped to Maria in English')
+                    if role != 'patient' or language != 'en':
+                        raise ValueError('Committed review is scoped to the patient audience in English')
                     review = load_review(packet)
                     report['mode'] = 'codex_snapshot_review'
                     report['agent_review'] = review
@@ -209,7 +209,7 @@ def analyze(graph, live=None, use_openai=False, progress=lambda stage: None, rol
 def proposal_markdown(report, graph):
     edges = {e['id']: e for e in graph['edges']}
     sources = {s['id']: s for s in graph['sources']}
-    lines = ['# Research collaboration draft', '', 'Prepared for ' + report.get('audience', 'Maria') + ' · ' + report['label'], '', report['summary'], '',
+    lines = ['# Research collaboration draft', '', 'Prepared for ' + report.get('audience', 'Patient & family') + ' · ' + report['label'], '', report['summary'], '',
              'This is a research discussion draft. Biological compatibility, consent, access, and study eligibility remain to be checked.', '']
     review = report.get('agent_review')
     if review:

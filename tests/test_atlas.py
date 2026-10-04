@@ -124,7 +124,7 @@ class EvidenceTests(unittest.TestCase):
     def test_audience_and_language_reach_both_passes_and_export(self):
         review = {'summary': 'Adapted review', 'findings': [{'statement': 'Evidence lead', 'status': 'hypothesis', 'citation_ids': ['gr-stx'], 'limitations': 'Uncertain'}], 'actions': [], 'missing_evidence': ['Functional evidence']}
         graph = self.graph()
-        for role, phrase in (('maria', 'Explain every necessary technical term'), ('researcher', 'variant-specific mechanisms'), ('clinician', 'phenotype specificity'), ('industry', 'evidence maturity')):
+        for role, phrase in (('patient', 'Explain every necessary technical term'), ('expert', 'variant-specific mechanisms'), ('expert', 'phenotype specificity'), ('expert', 'evidence maturity')):
             with patch.dict(os.environ, {'ATLAS_AGENT_PROVIDER': 'openai', 'OPENAI_API_KEY': 'test'}), patch('atlas.agent.model_call', return_value=review) as call:
                 report = analyze(graph, use_openai=True, role=role, language='zh-CN')
             self.assertEqual(report['role'], role)
@@ -207,7 +207,7 @@ class StoreAndHTTPTests(unittest.TestCase):
         self.assertEqual(self.app.store.report(report['id'])['id'], report['id'])
 
     def test_analysis_job_round_trip_and_export(self):
-        request = Request(self.url + '/api/analysis', data=json.dumps({'focus': 'MONDO:0012812', 'role': 'maria'}).encode(), headers={'Content-Type': 'application/json'})
+        request = Request(self.url + '/api/analysis', data=json.dumps({'focus': 'MONDO:0012812', 'role': 'patient'}).encode(), headers={'Content-Type': 'application/json'})
         with urlopen(request) as response:
             self.assertEqual(response.status, 202)
             job = json.loads(response.read())

@@ -63,7 +63,7 @@ class Application:
         return self.graph({**data, 'graph_id': view['id']})
 
     def start_job(self, data):
-        role = data.get('role', 'maria')
+        role = data.get('role', 'patient')
         language = data.get('language', 'en')
         audience(role, language)
         for key in ('use_live', 'use_openai', 'use_agent', 'use_brightdata'):
@@ -131,7 +131,7 @@ def make_handler(app):
             try:
                 path = parsed.path
                 if path == '/api/health':
-                    return self.send(200, {'status': 'ok', 'role': 'maria', 'openai_configured': bool(os.environ.get('OPENAI_API_KEY')), 'agent': configuration(), 'database': 'SQLite'})
+                    return self.send(200, {'status': 'ok', 'role': 'patient', 'openai_configured': bool(os.environ.get('OPENAI_API_KEY')), 'agent': configuration(), 'database': 'SQLite'})
                 if path == '/api/coverage':
                     return self.send(200, coverage())
                 if path == '/api/graph':
@@ -160,10 +160,11 @@ def make_handler(app):
                     if len(parts) == 5 and parts[4] == 'proposal':
                         return self.send(200, report['export'], 'text/markdown; charset=utf-8', {'Content-Disposition': 'attachment; filename="research-proposal.md"'})
                     return self.send(200, report)
-                static = {'/': 'index.html', '/app.js': 'app.js', '/i18n.js': 'i18n.js', '/styles.css': 'styles.css', '/favicon.svg': 'favicon.svg'}
+                static = {'/': 'index.html', '/app.js': 'app.js', '/i18n.js': 'i18n.js', '/styles.css': 'styles.css', '/world-map.js': 'world-map.js', '/home-world.js': 'home-world.js', '/glass-select.js': 'glass-select.js', '/intro.js': 'intro.js', '/favicon.svg': 'favicon.svg', '/apple-touch-icon.png': 'apple-touch-icon.png'}
                 if path in static:
                     file = ROOT / 'web' / static[path]
-                    return self.send(200, file.read_bytes(), (mimetypes.guess_type(str(file))[0] or 'application/octet-stream') + '; charset=utf-8')
+                    mime = mimetypes.guess_type(str(file))[0] or 'application/octet-stream'
+                    return self.send(200, file.read_bytes(), mime + '; charset=utf-8' if mime.startswith(('text/', 'application/javascript', 'image/svg')) else mime)
                 return self.send(404, {'error': 'Not found'})
             except ValueError as exc:
                 return self.send(400, {'error': str(exc)})
@@ -216,7 +217,7 @@ def main():
     args = parser.parse_args()
     app = Application(args.db)
     server = ThreadingHTTPServer((args.host, args.port), make_handler(app))
-    print('Raraction is ready at http://' + args.host + ':' + str(args.port), flush=True)
+    print('Asterisk is ready at http://' + args.host + ':' + str(args.port), flush=True)
     print('Maria demo · SQLite · ' + ('OpenAI configured' if os.environ.get('OPENAI_API_KEY') else 'evidence checks; OpenAI not configured'), flush=True)
     try:
         server.serve_forever()

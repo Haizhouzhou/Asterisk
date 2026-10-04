@@ -355,7 +355,16 @@ async function runReview() {
 async function showCoverage() {
   try{
     const c=state.graph?.coverage||await api('/api/coverage');
-    $('#coverage-content').innerHTML=`<p>${esc(c.scope)}</p>`+c.sources.map(s=>`<article class="source-card"><h3>${esc(s.name)} ${badge(s.status)}</h3><p>${esc(s.use)}</p></article>`).join('')+`<h3>Known gaps</h3><ul>${c.gaps.map(g=>`<li>${esc(g)}</li>`).join('')}</ul><h3>The 10× planning hypothesis</h3><p>${esc(c.moonshot.milestone)}</p><p>${c.moonshot.baseline_days} days → ${c.moonshot.proposed_days} days. ${esc(c.moonshot.status)}</p><ul>${c.moonshot.assumptions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p>${esc(c.moonshot.validation)}</p><p>${state.graph?.excluded.length||0} graph edges excluded by current filters.</p>`;
+    // Every label, number and sentence sits in its own element so i18n.js can translate each text node whole.
+    const tone=status=>/unavailable/.test(status)?'warn':/next/.test(status)?'planned':/live/.test(status)?'live':'curated';
+    const m=c.moonshot, stat=(label,days,cls)=>`<div class="stat ${cls}"><span class="stat-label">${label}</span><span class="stat-value"><b>${days}</b><span>days</span></span></div>`;
+    $('#coverage-content').innerHTML=`<p class="coverage-scope">${esc(c.scope)}</p>`+
+      `<section class="coverage-section"><h3>Data sources</h3><div class="source-grid">`+c.sources.map(s=>`<article class="source-tile ${tone(s.status)}"><div class="source-head"><strong>${esc(s.name)}</strong><span class="source-status"><i aria-hidden="true"></i><span>${esc(pretty(s.status))}</span></span></div><p>${esc(s.use)}</p></article>`).join('')+`</div></section>`+
+      `<section class="coverage-section"><h3>Known gaps</h3><ul class="gap-list">${c.gaps.map(g=>`<li>${esc(g)}</li>`).join('')}</ul></section>`+
+      `<section class="coverage-section moonshot"><h3>The 10× planning hypothesis</h3><p class="moonshot-goal">${esc(m.milestone)}</p>`+
+      `<div class="moonshot-stats">${stat('Baseline',m.baseline_days,'')}<span class="stat-arrow" aria-hidden="true">→</span>${stat('Proposed',m.proposed_days,'target')}<span class="stat-factor">${m.factor}×</span></div>`+
+      `<p class="moonshot-status">${esc(m.status)}</p><h4>Assumptions</h4><ul class="check-list">${m.assumptions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h4>How to validate</h4><p>${esc(m.validation)}</p></section>`+
+      `<p class="coverage-foot"><span>${state.graph?.excluded.length||0} graph edges excluded by current filters.</span><span>Reviewed ${esc(c.reviewed_at)}</span></p>`;
     $('#coverage-dialog').showModal();
   }catch(error){showError(error);}
 }
@@ -371,9 +380,29 @@ $('#review').addEventListener('click',runReview);
 document.querySelectorAll('[data-detail]').forEach(b=>b.addEventListener('click',()=>{state.detail=b.dataset.detail;renderDetails();}));
 $('#coverage-open').addEventListener('click',showCoverage);
 $('#coverage-close').addEventListener('click',()=>$('#coverage-dialog').close());
+// Home: a single search box. A search (or the example map) opens the full workspace as the detail view.
+// The query lives in the address (#q=...), so Back returns home and a shared link opens the detail directly.
+function showHome(){document.body.classList.add('is-home');$('#home-search').value='';$('#home-search').focus();}
+function openDetail(query){
+  document.body.classList.remove('is-home');window.scrollTo(0,0);
+  if(query)search(query);
+}
+function goSearch(query){
+  query=(query||'').trim();if(!query)return $('#home-search').focus();
+  history.pushState({q:query},'','#q='+encodeURIComponent(query));openDetail(query);
+}
+const hashQuery=()=>{const m=/^#q=(.*)$/.exec(location.hash);return m?decodeURIComponent(m[1]):null;};
+$('#home-form').addEventListener('submit',e=>{e.preventDefault();goSearch($('#home-search').value);});
+document.querySelectorAll('.home-q').forEach(b=>b.addEventListener('click',()=>goSearch(b.dataset.query)));
+$('#home-example').addEventListener('click',()=>{history.pushState({example:true},'','#example');openDetail(null);});
+$('#brand-home').addEventListener('click',e=>{e.preventDefault();history.pushState({},'',location.pathname);showHome();});
+window.addEventListener('popstate',()=>{const q=hashQuery();if(q)openDetail(q);else if(location.hash==='#example')openDetail(null);else showHome();});
 async function init(){
   try{state.health=await api('/api/health');const configured=state.health.agent?.configured;$('#use-openai').disabled=!configured;$('#use-openai').checked=configured;$('#agent-status').textContent=configured?'('+state.health.agent.provider+' available)':'(not configured)';}catch(error){showError(error);}
-  await loadGraph('MONDO:0012812');
+  const q=hashQuery();
+  if(q)document.body.classList.remove('is-home');else if(location.hash==='#example')openDetail(null);else showHome();
+  await loadGraph('MONDO:0012812');   // the starter map loads first, so a live search always replaces it rather than racing it
+  if(q)openDetail(q);
 }
 init();
 
