@@ -1,0 +1,1412 @@
+{
+  "version": "6.9",
+  "hitCount": 2,
+  "request": {
+    "queryString": "EXT_ID:26865513 OR EXT_ID:38137001",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 10,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "38137001",
+        "source": "MED",
+        "pmid": "38137001",
+        "pmcid": "PMC10742812",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC10742812"
+          ]
+        },
+        "doi": "10.3390/genes14122179",
+        "title": "<i>STXBP1</i>-Related Disorders: Clinical Presentation, Molecular Function, Treatment, and Future Directions.",
+        "authorString": "Freibauer A, Wohlleben M, Boelman C.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Freibauer A",
+              "lastName": "Freibauer",
+              "firstName": "Alexander",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-4523-5351"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Division of Neurology, BC Children's Hospital, Vancouver, BC V6H 3N1, Canada."
+                  },
+                  {
+                    "affiliation": "Faculty of Medicine, University of British Columbia, Vancouver, BC V6T 1Z4, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wohlleben M",
+              "lastName": "Wohlleben",
+              "firstName": "Mikayla",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Faculty of Medicine, University of British Columbia, Vancouver, BC V6T 1Z4, Canada."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Boelman C",
+              "lastName": "Boelman",
+              "firstName": "Cyrus",
+              "initials": "C",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9943-1561"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Division of Neurology, BC Children's Hospital, Vancouver, BC V6H 3N1, Canada."
+                  },
+                  {
+                    "affiliation": "Faculty of Medicine, University of British Columbia, Vancouver, BC V6T 1Z4, Canada."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9943-1561"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-4523-5351"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "12",
+          "volume": "14",
+          "journalIssueId": 3685381,
+          "dateOfPublication": "2023 Dec",
+          "monthOfPublication": 12,
+          "yearOfPublication": 2023,
+          "journal": {
+            "medlineAbbreviation": "Genes (Basel)",
+            "title": "Genes",
+            "essn": "2073-4425",
+            "issn": "2073-4425",
+            "nlmid": "101551097",
+            "isoabbreviation": "Genes (Basel)"
+          },
+          "printPublicationDate": "2023-12-01"
+        },
+        "pubYear": "2023",
+        "pageInfo": "2179",
+        "abstractText": "In recent years, the affordability and availability of genetic testing have led to its increased use in clinical care. The increased frequency of testing has led to <i>STXBP1</i> variants being identified as one of the more common variants associated with neurological disorders. In this review, we aim to summarize the common clinical phenotypes associated with <i>STXBP1</i> pathogenic variants, provide an overview of their known natural history, and discuss current research into the genotype to phenotype correlation. We will also provide an overview of the suspected normal function of the <i>STXBP1</i>-encoded Munc18-1 protein, animal models, and experimental techniques that have been developed to study its function and use this information to try to explain the diverse phenotypes associated with <i>STXBP1</i>-related disorders. Finally, we will explore current therapies for <i>STXBP1</i> disorders, including an overview of treatment goals for <i>STXBP1</i>-related disorders, a discussion of the current evidence for therapies, and future directions of personalized medications for <i>STXBP1</i>-related disorders.",
+        "affiliation": "Division of Neurology, BC Children's Hospital, Vancouver, BC V6H 3N1, Canada.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "review-article",
+            "Review",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Epilepsy",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Mutation"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Munc18 Proteins",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Genetic Testing"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Intellectual Disability",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Genetics",
+            "Epilepsy",
+            "SNARE protein",
+            "Intellectual Disability",
+            "Munc18-1",
+            "Stxbp1",
+            "Developmental And Epileptic Encephalopathy"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Munc18 Proteins",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.3390/genes14122179"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC10742812"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC10742812?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 23,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "Y",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCompletion": "2024-01-09",
+        "dateOfCreation": "2023-12-23",
+        "dateOfRevision": "2024-06-18",
+        "electronicPublicationDate": "2023-12-05",
+        "firstPublicationDate": "2023-12-05",
+        "firstIndexDate": "2023-12-24",
+        "fullTextReceivedDate": "2024-01-03",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "26865513",
+        "source": "MED",
+        "pmid": "26865513",
+        "doi": "10.1212/wnl.0000000000002457",
+        "title": "STXBP1 encephalopathy: A neurodevelopmental disorder including epilepsy.",
+        "authorString": "Stamberger H, Nikanorova M, Willemsen MH, Accorsi P, Angriman M, Baier H, Benkel-Herrenbrueck I, Benoit V, Budetta M, Caliebe A, Cantalupo G, Capovilla G, Casara G, Courage C, Deprez M, Destrée A, Dilena R, Erasmus CE, Fannemel M, Fjær R, Giordano L, Helbig KL, Heyne HO, Klepper J, Kluger GJ, Lederer D, Lodi M, Maier O, Merkenschlager A, Michelberger N, Minetti C, Muhle H, Phalin J, Ramsey K, Romeo A, Schallner J, Schanze I, Shinawi M, Sleegers K, Sterbova K, Syrbe S, Traverso M, Tzschach A, Uldall P, Van Coster R, Verhelst H, Viri M, Winter S, Wolff M, Zenker M, Zoccante L, De Jonghe P, Helbig I, Striano P, Lemke JR, Møller RS, Weckhuysen S.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Stamberger H",
+              "lastName": "Stamberger",
+              "firstName": "Hannah",
+              "initials": "H",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-8308-9511"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Nikanorova M",
+              "lastName": "Nikanorova",
+              "firstName": "Marina",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Willemsen MH",
+              "lastName": "Willemsen",
+              "firstName": "Marjolein H",
+              "initials": "MH",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Accorsi P",
+              "lastName": "Accorsi",
+              "firstName": "Patrizia",
+              "initials": "P",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-8801-5498"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Angriman M",
+              "lastName": "Angriman",
+              "firstName": "Marco",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Baier H",
+              "lastName": "Baier",
+              "firstName": "Hartmut",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Benkel-Herrenbrueck I",
+              "lastName": "Benkel-Herrenbrueck",
+              "firstName": "Ira",
+              "initials": "I",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Benoit V",
+              "lastName": "Benoit",
+              "firstName": "Valérie",
+              "initials": "V",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1098-9452"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Budetta M",
+              "lastName": "Budetta",
+              "firstName": "Mauro",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Caliebe A",
+              "lastName": "Caliebe",
+              "firstName": "Almuth",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2157-425X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cantalupo G",
+              "lastName": "Cantalupo",
+              "firstName": "Gaetano",
+              "initials": "G",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1343-8434"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Capovilla G",
+              "lastName": "Capovilla",
+              "firstName": "Giuseppe",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Casara G",
+              "lastName": "Casara",
+              "firstName": "Gianluca",
+              "initials": "G",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Courage C",
+              "lastName": "Courage",
+              "firstName": "Carolina",
+              "initials": "C",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Deprez M",
+              "lastName": "Deprez",
+              "firstName": "Marie",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Destrée A",
+              "lastName": "Destrée",
+              "firstName": "Anne",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Dilena R",
+              "lastName": "Dilena",
+              "firstName": "Robertino",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1064-1840"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Erasmus CE",
+              "lastName": "Erasmus",
+              "firstName": "Corrie E",
+              "initials": "CE",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Fannemel M",
+              "lastName": "Fannemel",
+              "firstName": "Madeleine",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Fjær R",
+              "lastName": "Fjær",
+              "firstName": "Roar",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Giordano L",
+              "lastName": "Giordano",
+              "firstName": "Lucio",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Helbig KL",
+              "lastName": "Helbig",
+              "firstName": "Katherine L",
+              "initials": "KL",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Heyne HO",
+              "lastName": "Heyne",
+              "firstName": "Henrike O",
+              "initials": "HO",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9893-3850"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Klepper J",
+              "lastName": "Klepper",
+              "firstName": "Joerg",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kluger GJ",
+              "lastName": "Kluger",
+              "firstName": "Gerhard J",
+              "initials": "GJ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lederer D",
+              "lastName": "Lederer",
+              "firstName": "Damien",
+              "initials": "D",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lodi M",
+              "lastName": "Lodi",
+              "firstName": "Monica",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Maier O",
+              "lastName": "Maier",
+              "firstName": "Oliver",
+              "initials": "O",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Merkenschlager A",
+              "lastName": "Merkenschlager",
+              "firstName": "Andreas",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Michelberger N",
+              "lastName": "Michelberger",
+              "firstName": "Nina",
+              "initials": "N",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Minetti C",
+              "lastName": "Minetti",
+              "firstName": "Carlo",
+              "initials": "C",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-0640-1804"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Muhle H",
+              "lastName": "Muhle",
+              "firstName": "Hiltrud",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Phalin J",
+              "lastName": "Phalin",
+              "firstName": "Judith",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ramsey K",
+              "lastName": "Ramsey",
+              "firstName": "Keri",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Romeo A",
+              "lastName": "Romeo",
+              "firstName": "Antonino",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Schallner J",
+              "lastName": "Schallner",
+              "firstName": "Jens",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Schanze I",
+              "lastName": "Schanze",
+              "firstName": "Ina",
+              "initials": "I",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shinawi M",
+              "lastName": "Shinawi",
+              "firstName": "Marwan",
+              "initials": "M",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1329-4100"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sleegers K",
+              "lastName": "Sleegers",
+              "firstName": "Kristel",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sterbova K",
+              "lastName": "Sterbova",
+              "firstName": "Katalin",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Syrbe S",
+              "lastName": "Syrbe",
+              "firstName": "Steffen",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2543-4844"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Traverso M",
+              "lastName": "Traverso",
+              "firstName": "Monica",
+              "initials": "M",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-0606-8797"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tzschach A",
+              "lastName": "Tzschach",
+              "firstName": "Andreas",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-6840-965X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Uldall P",
+              "lastName": "Uldall",
+              "firstName": "Peter",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Van Coster R",
+              "lastName": "Van Coster",
+              "firstName": "Rudy",
+              "initials": "R",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Verhelst H",
+              "lastName": "Verhelst",
+              "firstName": "Helene",
+              "initials": "H",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Viri M",
+              "lastName": "Viri",
+              "firstName": "Maurizio",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Winter S",
+              "lastName": "Winter",
+              "firstName": "Susan",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wolff M",
+              "lastName": "Wolff",
+              "firstName": "Markus",
+              "initials": "M",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-5640-0888"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zenker M",
+              "lastName": "Zenker",
+              "firstName": "Martin",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zoccante L",
+              "lastName": "Zoccante",
+              "firstName": "Leonardo",
+              "initials": "L",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1170-9328"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "De Jonghe P",
+              "lastName": "De Jonghe",
+              "firstName": "Peter",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Helbig I",
+              "lastName": "Helbig",
+              "firstName": "Ingo",
+              "initials": "I",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Striano P",
+              "lastName": "Striano",
+              "firstName": "Pasquale",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lemke JR",
+              "lastName": "Lemke",
+              "firstName": "Johannes R",
+              "initials": "JR",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Møller RS",
+              "lastName": "Møller",
+              "firstName": "Rikke S",
+              "initials": "RS",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9664-1448"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article. sarah.weckhuysen@molgen.vib-ua.be rimo@filadelfia.dk."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Weckhuysen S",
+              "lastName": "Weckhuysen",
+              "firstName": "Sarah",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-2878-1147"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Authors' affiliations are listed at the end of the article. sarah.weckhuysen@molgen.vib-ua.be rimo@filadelfia.dk."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5640-0888"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-8249-0549"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-8308-9511"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9893-3850"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-0640-1804"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1098-9452"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1170-9328"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-6840-965X"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-8801-5498"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9664-1448"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-0606-8797"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1064-1840"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1329-4100"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1343-8434"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2157-425X"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2543-4844"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-2878-1147"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "related_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "10",
+          "volume": "86",
+          "journalIssueId": 2384005,
+          "dateOfPublication": "2016 Mar",
+          "monthOfPublication": 3,
+          "yearOfPublication": 2016,
+          "journal": {
+            "medlineAbbreviation": "Neurology",
+            "title": "Neurology",
+            "essn": "1526-632X",
+            "issn": "0028-3878",
+            "nlmid": "0401060",
+            "isoabbreviation": "Neurology"
+          },
+          "printPublicationDate": "2016-03-01"
+        },
+        "pubYear": "2016",
+        "pageInfo": "954-962",
+        "abstractText": "<h4>Objective</h4>To give a comprehensive overview of the phenotypic and genetic spectrum of STXBP1 encephalopathy (STXBP1-E) by systematically reviewing newly diagnosed and previously reported patients.<h4>Methods</h4>We recruited newly diagnosed patients with STXBP1 mutations through an international network of clinicians and geneticists. Furthermore, we performed a systematic literature search to review the phenotypes of all previously reported patients.<h4>Results</h4>We describe the phenotypic features of 147 patients with STXBP1-E including 45 previously unreported patients with 33 novel STXBP1 mutations. All patients have intellectual disability (ID), which is mostly severe to profound (88%). Ninety-five percent of patients have epilepsy. While one-third of patients presented with Ohtahara syndrome (21%) or West syndrome (9.5%), the majority has a nonsyndromic early-onset epilepsy and encephalopathy (53%) with epileptic spasms or tonic seizures as main seizure type. We found no correlation between severity of seizures and severity of ID or between mutation type and seizure characteristics or cognitive outcome. Neurologic comorbidities including autistic features and movement disorders are frequent. We also report 2 previously unreported adult patients with prominent extrapyramidal features.<h4>Conclusion</h4>De novo STXBP1 mutations are among the most frequent causes of epilepsy and encephalopathy. Most patients have severe to profound ID with little correlation among seizure onset, seizure severity, and the degree of ID. Accordingly, we hypothesize that seizure severity and ID present 2 independent dimensions of the STXBP1-E phenotype. STXBP1-E may be conceptualized as a complex neurodevelopmental disorder rather than a primary epileptic encephalopathy.",
+        "affiliation": "Authors' affiliations are listed at the end of the article.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Research Support, Non-U.S. Gov't",
+            "Review",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Brain Diseases",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DI",
+                    "qualifierName": "diagnosis"
+                  },
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "EP",
+                    "qualifierName": "epidemiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Epilepsy",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DI",
+                    "qualifierName": "diagnosis"
+                  },
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "EP",
+                    "qualifierName": "epidemiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Mutation",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Adolescent"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Adult"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Middle Aged"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Child"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Child, Preschool"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Infant"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Female"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Munc18 Proteins",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Young Adult"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Neurodevelopmental Disorders",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DI",
+                    "qualifierName": "diagnosis"
+                  },
+                  {
+                    "majorTopic_YN": "Y",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "EP",
+                    "qualifierName": "epidemiology"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "Munc18 Proteins",
+              "registryNumber": "0"
+            },
+            {
+              "name": "STXBP1 protein, human",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1212/WNL.0000000000002457"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "source": "MED",
+              "id": "31929717",
+              "reference": "Pediatr Neurol Briefs. 2019 Dec 31;33:6. doi: 10.15844/pedneurbriefs-33-6",
+              "type": "Comment in",
+              "orderIn": 1
+            }
+          ]
+        },
+        "isOpenAccess": "N",
+        "inEPMC": "N",
+        "inPMC": "N",
+        "citedByCount": 269,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "N",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "Y",
+        "hasData": "Y",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2016-07-28",
+        "dateOfCreation": "2016-02-12",
+        "dateOfRevision": "2022-04-19",
+        "electronicPublicationDate": "2016-02-10",
+        "firstPublicationDate": "2016-02-10",
+        "firstIndexDate": "2016-02-12",
+        "hasEvaluations": "N"
+      }
+    ]
+  }
+}

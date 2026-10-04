@@ -1,0 +1,6 @@
+name: raraction
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+# The application uses Python's standard library; no pip packages are required.

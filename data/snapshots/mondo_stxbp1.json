@@ -1,0 +1,194 @@
+{
+  "response": {
+    "docs": [
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0014916",
+        "ontology_name": "mondo",
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0014916",
+        "description": [
+          "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the SLC1A2 gene."
+        ],
+        "label": "developmental and epileptic encephalopathy, 41",
+        "obo_id": "MONDO:0014916",
+        "type": "class",
+        "exact_synonyms": [
+          "epileptic encephalopathy, early infantile, 41; EIEE41",
+          "epileptic encephalopathy, early infantile, type 41",
+          "DEE41",
+          "EIEE41",
+          "SLC1A2 early infantile epileptic encephalopathy",
+          "developmental and epileptic encephalopathy 41",
+          "developmental and epileptic encephalopathy, 41",
+          "early infantile epileptic encephalopathy caused by mutation in SLC1A2",
+          "epileptic encephalopathy, early infantile, 41"
+        ]
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0012812",
+        "ontology_name": "mondo",
+        "related_synonyms": [
+          "STXBP1-related early-onset encephalopathy"
+        ],
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0012812",
+        "description": [
+          "Early infantile epileptic encephalopathy 4 (EIEE4) is a form of early infantile epileptic encephalopathy, which refers to a group of neurological conditions characterized by severe seizures beginning in infancy. EIEE4, specifically, is often associated with partial complex or tonic-clonic seizures, although other seizure types have been reported. Other signs and symptoms mayinclude intellectual disability, reduced muscle tone (hypotonia), hypsarrhythmia (an irregular pattern seen on EEG), dyskinesia (involuntary movement of the body), and spastic di- or quadriplegia. EIEE4 is caused by changes (mutations) in the STXBP1 gene and is inherited in an autosomal dominant manner. Treatment is based on the signs and symptoms present in each person. For example, certain medications are often prescribed to help control seizures, although they are not always effective in all people with the condition."
+        ],
+        "label": "developmental and epileptic encephalopathy, 4",
+        "obo_id": "MONDO:0012812",
+        "type": "class",
+        "exact_synonyms": [
+          "epileptic encephalopathy, early infantile, type 4",
+          "DEE4",
+          "EIEE4",
+          "STXBP1 early infantile epileptic encephalopathy",
+          "STXBP1-related encephalopathy",
+          "developmental and epileptic encephalopathy 4",
+          "developmental and epileptic encephalopathy, 4",
+          "early infantile epileptic encephalopathy 4",
+          "early infantile epileptic encephalopathy caused by mutation in STXBP1",
+          "epileptic encephalopathy, early infantile, 4"
+        ]
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0014895",
+        "ontology_name": "mondo",
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0014895",
+        "description": [
+          "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GUF1 gene."
+        ],
+        "label": "developmental and epileptic encephalopathy, 40",
+        "obo_id": "MONDO:0014895",
+        "type": "class",
+        "exact_synonyms": [
+          "epileptic encephalopathy, early infantile, 40; EIEE40",
+          "epileptic encephalopathy, early infantile, type 40",
+          "DEE40",
+          "EIEE40",
+          "GUF1 early infantile epileptic encephalopathy",
+          "developmental and epileptic encephalopathy 40",
+          "early infantile epileptic encephalopathy caused by mutation in GUF1",
+          "epileptic encephalopathy, early infantile, 40"
+        ]
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0014917",
+        "ontology_name": "mondo",
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0014917",
+        "description": [
+          "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the CACNA1A gene."
+        ],
+        "label": "developmental and epileptic encephalopathy, 42",
+        "obo_id": "MONDO:0014917",
+        "type": "class",
+        "exact_synonyms": [
+          "epileptic encephalopathy, early infantile, 42; EIEE42",
+          "epileptic encephalopathy, early infantile, type 42",
+          "CACNA1A early infantile epileptic encephalopathy",
+          "DEE42",
+          "EIEE42",
+          "developmental and epileptic encephalopathy 42",
+          "early infantile epileptic encephalopathy caused by mutation in CACNA1A",
+          "epileptic encephalopathy, early infantile, 42"
+        ]
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0014921",
+        "ontology_name": "mondo",
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0014921",
+        "description": [
+          "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the GABRB3 gene."
+        ],
+        "label": "developmental and epileptic encephalopathy, 43",
+        "obo_id": "MONDO:0014921",
+        "type": "class",
+        "exact_synonyms": [
+          "epileptic encephalopathy, early infantile, 43; EIEE43",
+          "epileptic encephalopathy, early infantile, type 43",
+          "DEE43",
+          "EIEE43",
+          "GABRB3 early infantile epileptic encephalopathy",
+          "developmental and epileptic encephalopathy 43",
+          "early infantile epileptic encephalopathy caused by mutation in GABRB3",
+          "epileptic encephalopathy, early infantile, 43"
+        ]
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0014933",
+        "ontology_name": "mondo",
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0014933",
+        "description": [
+          "Any early infantile epileptic encephalopathy in which the cause of the disease is a mutation in the UBA5 gene."
+        ],
+        "label": "developmental and epileptic encephalopathy, 44",
+        "obo_id": "MONDO:0014933",
+        "type": "class",
+        "exact_synonyms": [
+          "epileptic encephalopathy, early infantile, 44; EIEE44",
+          "epileptic encephalopathy, early infantile, type 44",
+          "DEE44",
+          "EIEE44",
+          "UBA5 early infantile epileptic encephalopathy",
+          "developmental and epileptic encephalopathy 44",
+          "early infantile epileptic encephalopathy caused by mutation in UBA5",
+          "epileptic encephalopathy, early infantile, 44"
+        ]
+      }
+    ],
+    "numFound": 14,
+    "start": 0
+  },
+  "responseHeader": {
+    "QTime": 0,
+    "status": 0
+  },
+  "facet_counts": {
+    "facet_fields": {
+      "ontologyPreferredPrefix": [
+        "MONDO",
+        "14"
+      ],
+      "isDefiningOntology": [
+        "true",
+        "14"
+      ],
+      "ontologyId": [
+        "medgen",
+        "29",
+        "doid",
+        "19",
+        "ncit",
+        "16",
+        "mondo",
+        "14",
+        "efo",
+        "10",
+        "pride",
+        "9",
+        "ordo",
+        "4",
+        "cpont",
+        "3"
+      ],
+      "ontologyIri": [
+        "http://purl.obolibrary.org/obo/mondo/mondo-international.owl",
+        "14"
+      ],
+      "isObsolete": [
+        "false",
+        "14",
+        "true",
+        "1"
+      ],
+      "type": [
+        "class",
+        "14"
+      ]
+    }
+  }
+}

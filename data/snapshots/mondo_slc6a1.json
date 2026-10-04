@@ -1,0 +1,150 @@
+{
+  "response": {
+    "docs": [
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0014633",
+        "ontology_name": "mondo",
+        "related_synonyms": [
+          "epilepsy with myoclono-astatic crisis",
+          "myoclonic astatic epilepsy"
+        ],
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0014633",
+        "description": [
+          "An idiopathic generalized epilepsy characterized by onset of multiple seizure types in the first few years of life and associated with poor prognosis. Affected individuals have cognitive regression and intellectual disability and that has material basis in heterozygous mutation in the SLC6A1 gene on chromosome 3p25."
+        ],
+        "label": "epilepsy with myoclonic atonic seizures",
+        "obo_id": "MONDO:0014633",
+        "type": "class",
+        "exact_synonyms": [
+          "Doose syndrome",
+          "EMAS",
+          "EMAtS",
+          "MAE",
+          "Myoclonic Atonic Epilepsy",
+          "epilepsy with myoclonic atonic seizures",
+          "epilepsy with myoclonic-astatic seizures",
+          "epilepsy with myoclonic-atonic seizures",
+          "myoclonic atonic epilepsy",
+          "myoclonic-astatic epilepsy in early childhood",
+          "myoclonic-atonic epilepsy"
+        ]
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0010246",
+        "ontology_name": "mondo",
+        "related_synonyms": [
+          "PCDH19-related FLE",
+          "PCDH19-related female-limited epilepsy",
+          "PCDH19-related infantile epileptic encephalopathy",
+          "epilepsy and intellectual disability limited to females",
+          "epilepsy and mental retardation limited to females",
+          "epilepsy, female restricted, with intellectual disability",
+          "epilepsy, female restricted, with mental retardation",
+          "epilepsy, female-restricted, with mental retardation",
+          "female restricted epilepsy with intellectual deficit"
+        ],
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0010246",
+        "description": [
+          "Female restricted epilepsy with intellectual disability is a rare X-linked epilepsy syndrome characterized by febrile or afebrile seizures (mainly tonic-clonic, but also absence, myoclonic, and atonic) starting in the first years of life and, in most cases, developmental delay and intellectual disability of variable severity. Behavioral disturbances (e.g. autistic features, hyperactivity, and aggressiveness) are also frequently associated. This disease affects exclusively females, with male carriers being unaffected, despite an X-linked inheritance."
+        ],
+        "label": "developmental and epileptic encephalopathy, 9",
+        "obo_id": "MONDO:0010246",
+        "type": "class",
+        "exact_synonyms": [
+          "early infantile epileptic encephalopathy type 9",
+          "epileptic encephalopathy, early infantile, type 9",
+          "familial epilepsy and intellectual disability limited to females",
+          "DEE9",
+          "EFMR",
+          "EIEE9",
+          "Juberg-Hellman syndrome",
+          "PCDH19 early infantile epileptic encephalopathy",
+          "developmental and epileptic encephalopathy 9",
+          "developmental and epileptic encephalopathy, 9",
+          "early infantile epileptic encephalopathy caused by mutation in PCDH19",
+          "epileptic encephalopathy, early infantile, 9",
+          "familial epilepsy and mental retardation limited to females",
+          "female restricted epilepsy with intellectual disability"
+        ]
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/MONDO_0100020",
+        "ontology_name": "mondo",
+        "ontology_prefix": "MONDO",
+        "short_form": "MONDO_0100020",
+        "description": [
+          "Reason of obsoletion: out of scope - MONDO:excludeHistoricalDisease. Term to consider: -",
+          "A childhood-onset epilepsy that is characterized by frequent seizures of multiple types, including nocturnal focal motor and fronto-parietal opercular seizures, and daytime focal motor seizures with negative myoclonus and atypical absence seizures. Centrotemporal sharp waves are seen on EEG. During the phase of the epilepsy when seizures are frequent, neuropsychological deficits and motor impairment may be present. These deficits improve when seizures remit."
+        ],
+        "label": "atypical childhood epilepsy with centrotemporal spikes",
+        "obo_id": "MONDO:0100020",
+        "type": "class",
+        "exact_synonyms": [
+          "atonic-benign childhood epilepsy with centrotemporal spikes",
+          "atypical benign partial epilepsy of childhood",
+          "pseudo-Lennox syndrome"
+        ]
+      }
+    ],
+    "numFound": 3,
+    "start": 0
+  },
+  "responseHeader": {
+    "QTime": 0,
+    "status": 0
+  },
+  "facet_counts": {
+    "facet_fields": {
+      "ontologyPreferredPrefix": [
+        "MONDO",
+        "3"
+      ],
+      "isDefiningOntology": [
+        "true",
+        "3"
+      ],
+      "ontologyId": [
+        "ncit",
+        "5",
+        "medgen",
+        "4",
+        "epio",
+        "3",
+        "ordo",
+        "3",
+        "mondo",
+        "3",
+        "cpont",
+        "3",
+        "efo",
+        "2",
+        "upheno",
+        "1",
+        "doid",
+        "1",
+        "hp",
+        "1",
+        "mesh",
+        "1",
+        "pride",
+        "1",
+        "snomed",
+        "1"
+      ],
+      "ontologyIri": [
+        "http://purl.obolibrary.org/obo/mondo/mondo-international.owl",
+        "3"
+      ],
+      "isObsolete": [
+        "false",
+        "3"
+      ],
+      "type": [
+        "class",
+        "3"
+      ]
+    }
+  }
+}

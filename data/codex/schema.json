@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "statement": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "documented",
+              "hypothesis",
+              "conflicting",
+              "unknown"
+            ]
+          },
+          "citation_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limitations": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "statement",
+          "status",
+          "citation_ids",
+          "limitations"
+        ]
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "statement": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "documented",
+              "hypothesis",
+              "conflicting",
+              "unknown"
+            ]
+          },
+          "citation_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limitations": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "statement",
+          "status",
+          "citation_ids",
+          "limitations"
+        ]
+      }
+    },
+    "missing_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "summary",
+    "findings",
+    "actions",
+    "missing_evidence"
+  ]
+}

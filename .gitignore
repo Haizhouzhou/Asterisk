@@ -5,3 +5,10 @@ node_modules/
 *.pyc
 .DS_Store
 data/raw/
+.conda/
+data/atlas.sqlite*
+data/live/
+data/reports/
+data/test-tmp/
+data/browser-profile/
+data/qa/

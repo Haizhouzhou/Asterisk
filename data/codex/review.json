@@ -1,0 +1,13 @@
+{
+  "summary": "The starter evidence supports discussing shared registry infrastructure and comparing study measures. It does not establish a common molecular mechanism or a shared effective treatment for STXBP1 and SLC6A1 disorders.",
+  "findings": [
+    {"statement": "The curated sources link both disease communities to Simons Searchlight participation, providing a candidate infrastructure lead.", "status": "documented", "citation_ids": ["stx-registry", "slc-registry"], "limitations": "These are curated community links; their full text is absent from the packet. Current access, consent and data-sharing arrangements require confirmation."},
+    {"statement": "The cited mechanism summaries describe distinct functions: vesicle release for STXBP1 and GABA reuptake for SLC6A1. Shared symptoms do not establish mechanistic equivalence.", "status": "documented", "citation_ids": ["stx-mechanism", "slc-mechanism", "mechanism-counterexample"], "limitations": "Gene-level summaries do not determine variant-specific effects. Expert full-text review is required."},
+    {"statement": "The curated trial record includes both disorders and lists their organizations as collaborators.", "status": "documented", "citation_ids": ["ctg-trial", "stx-study", "slc-study", "stx-collaborator", "slc-collaborator"], "limitations": "Registration establishes scope and listed roles, not efficacy or personal eligibility. The snapshot is not a current recruitment assessment."}
+  ],
+  "actions": [
+    {"statement": "Prepare questions for the registry teams about comparable measures, consent and access before proposing any cross-disease data analysis.", "status": "hypothesis", "citation_ids": ["stx-registry", "slc-registry", "research-bridge"], "limitations": "Feasibility and permission have not been established. No outreach or data access is authorized by this brief."},
+    {"statement": "Ask a scientific adviser to compare the trial's endpoints and disease-specific arms, and refresh its status before discussing research participation.", "status": "hypothesis", "citation_ids": ["ctg-trial", "stx-study", "slc-study"], "limitations": "This is protocol review, not treatment advice or an eligibility decision."}
+  ],
+  "missing_evidence": ["Current registry access and consent conditions", "Variant-specific functional evidence", "Independent full-text assessment of proposed biological overlap", "Current trial recruitment status and applicable results"]
+}

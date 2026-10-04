@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Raraction · Rare Disease Atlas</title>
+  <meta name="description" content="An evidence-backed research map for rare disease patient organizations.">
+  <link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/styles.css">
+  <script src="/i18n.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><a class="brand" href="/" aria-label="Raraction home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 12 27 8 30 29 10 12 9 30 30 29"/><circle cx="10" cy="12" r="4"/><circle cx="27" cy="8" r="3"/><circle cx="30" cy="29" r="5"/><circle cx="9" cy="30" r="3"/></svg><span>raraction<span class="brand-sub">RARE DISEASE ATLAS</span></span></a><div class="header-right"><button class="quiet light" id="coverage-open">Sources & coverage ↗</button><label class="role" for="audience-role"><span>Audience</span><select id="audience-role"><option value="maria">Maria / Patient organization leader</option><option value="researcher">Biomedical researcher</option><option value="clinician">Clinical professional</option><option value="industry">Research development professional</option></select></label></div></header>
+  <main>
+    <section class="search-section" aria-label="Search the atlas"><div><span class="eyebrow">FIND YOUR NEXT CONNECTION</span><h1>Where could your research go next?</h1></div>
+      <form id="search-form"><label class="sr-only" for="search">Search a disease, gene, or symptom</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" autocomplete="off" maxlength="160" placeholder="Search a disease, gene, or symptom…" value="STXBP1"><button type="submit">Explore <span aria-hidden="true">→</span></button></div></form>
+      <div class="search-meta"><span>Try <button class="text-button example" data-query="SLC6A1">SLC6A1</button>, <button class="text-button example" data-query="seizures">seizures</button>, or <button class="text-button example" data-query="low muscle tone">low muscle tone</button></span><span id="identity">Loading the evidence map…</span></div>
+      <div id="search-results" hidden></div>
+    </section>
+    <div class="workspace">
+      <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">YOUR RESEARCH MAP</span><h2>Research connections</h2><p>Start with what is known. Explore what could be shared.</p></div><div id="cluster-list"></div>
+        <div class="filter-block"><label for="confidence">Evidence confidence</label><select id="confidence"><option value="moderate">Moderate & high</option><option value="high">High only</option><option value="low">All confidence levels</option></select><label class="check"><input type="checkbox" id="hypotheses" checked> Show research hypotheses</label><p class="small">Confidence is a curator assessment of the evidence, not a probability of benefit.</p></div>
+        <div class="map-key"><div><span class="key-line"></span>Documented relationship</div><div><span class="key-line dashed"></span>Proposed connection</div><div><span class="key-line disputed"></span>Limitation / counterexample</div><p>Node area is proportional to documented connections in this map. Select a line to see why it exists.</p></div>
+        <div class="scope-note"><span class="status-dot"></span><div>A focused first chapter<small>STXBP1 + SLC6A1<br>Reviewed 4 October 2026</small></div></div>
+      </aside>
+      <section class="map-panel" aria-label="Research network"><div class="map-toolbar"><div class="segmented" role="group" aria-label="Map view"><button id="network-tab" class="active">Network</button><button id="papers-tab">Related papers</button></div><div class="map-controls"><button class="quiet" id="fit" title="Reset graph view">Fit map ⊞</button></div></div>
+        <div id="network-view"><div class="map-caption"><span class="eyebrow">CONNECTED BY EVIDENCE</span><span id="graph-count"></span></div><svg id="graph" viewBox="0 0 800 680" role="group" aria-label="Interactive evidence graph"></svg><div class="map-footer"><span id="map-status">Loading…</span><span>Scroll to zoom ? Drag to pan ? Select to inspect</span></div></div>
+        <div id="papers-view" hidden><div class="paper-header"><h2>Follow the published evidence</h2><p>Reading leads are separated from confirmed claims.</p><button id="live-papers" class="secondary">Search public sources ↗</button></div><div id="paper-list"></div><div id="live-results"></div></div>
+        <div class="research-bar"><div><span class="agent-mark" aria-hidden="true">✧</span><span><strong>From connections to a next step</strong><small>Filter evidence → check sources → review a research proposal</small></span></div><button id="review" class="primary">Review evidence <span aria-hidden="true">→</span></button></div>
+        <div class="review-options"><label class="check"><input id="use-live" type="checkbox"> Refresh papers & studies for the review</label><label class="check"><input id="use-openai" type="checkbox" disabled> Agent review <span id="agent-status">(checking configuration)</span></label></div>
+        <p id="progress" class="progress" role="status" aria-live="polite"></p>
+      </section>
+      <aside class="detail-panel"><div class="detail-tabs" role="group" aria-label="Details"><button data-detail="connection" class="active">Connection</button><button data-detail="evidence">Evidence</button><button data-detail="actions">Next steps</button></div><div id="details" aria-live="polite"></div></aside>
+    </div>
+    <footer class="page-footer"><span>One disease is a starting point. Evidence shows the way forward.</span><span>Research navigation · expert review required for clinical decisions</span></footer>
+  </main>
+  <dialog id="coverage-dialog"><div class="dialog-top"><span class="eyebrow">KNOW WHAT THIS MAP CAN TELL YOU</span><button id="coverage-close" class="quiet" aria-label="Close sources and coverage">✕</button></div><h2>Sources, scope & missing evidence</h2><div id="coverage-content"></div></dialog>
+</body>
+</html>
