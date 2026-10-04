@@ -1,0 +1,1165 @@
+{
+  "version": "6.9",
+  "hitCount": 2,
+  "request": {
+    "queryString": "TITLE:\"Current knowledge of SLC6A1\" OR TITLE:\"Haploinsufficiency underlies the neurodevelopmental consequences of SLC6A1 variants\"",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 10,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "38781976",
+        "source": "MED",
+        "pmid": "38781976",
+        "pmcid": "PMC11179425",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC11179425"
+          ]
+        },
+        "doi": "10.1016/j.ajhg.2024.04.021",
+        "title": "Haploinsufficiency underlies the neurodevelopmental consequences of SLC6A1 variants.",
+        "authorString": "Silva DB, Trinidad M, Ljungdahl A, Revalde JL, Berguig GY, Wallace W, Patrick CS, Bomba L, Arkin M, Dong S, Estrada K, Hutchinson K, LeBowitz JH, Schlessinger A, Johannesen KM, Møller RS, Giacomini KM, Froelich S, Sanders SJ, Wuster A.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Silva DB",
+              "lastName": "Silva",
+              "firstName": "Dina Buitrago",
+              "initials": "DB",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Bioengineering and Therapeutic Sciences, University of California, San Francisco, San Francisco, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Trinidad M",
+              "lastName": "Trinidad",
+              "firstName": "Marena",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA; Department of Molecular and Cell Biology, University of California, Berkeley, Berkeley, CA, USA; Innovative Genomics Institute, University of California, Berkeley, Berkeley, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Ljungdahl A",
+              "lastName": "Ljungdahl",
+              "firstName": "Alicia",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-3742-7003"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychiatry, UCSF Weill Institute for Neurosciences, University of California, San Francisco, San Francisco, CA, USA; Institute of Developmental and Regenerative Medicine, Department of Paediatrics, University of Oxford, Oxford OX3 7TY, UK."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Revalde JL",
+              "lastName": "Revalde",
+              "firstName": "Jezrael L",
+              "initials": "JL",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-8794-6784"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pharmaceutical Chemistry, University of California, San Francisco, San Francisco, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Berguig GY",
+              "lastName": "Berguig",
+              "firstName": "Geoffrey Y",
+              "initials": "GY",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wallace W",
+              "lastName": "Wallace",
+              "firstName": "William",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Patrick CS",
+              "lastName": "Patrick",
+              "firstName": "Cory S",
+              "initials": "CS",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychiatry, UCSF Weill Institute for Neurosciences, University of California, San Francisco, San Francisco, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Bomba L",
+              "lastName": "Bomba",
+              "firstName": "Lorenzo",
+              "initials": "L",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Arkin M",
+              "lastName": "Arkin",
+              "firstName": "Michelle",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pharmaceutical Chemistry, University of California, San Francisco, San Francisco, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Dong S",
+              "lastName": "Dong",
+              "firstName": "Shan",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychiatry, UCSF Weill Institute for Neurosciences, University of California, San Francisco, San Francisco, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Estrada K",
+              "lastName": "Estrada",
+              "firstName": "Karol",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hutchinson K",
+              "lastName": "Hutchinson",
+              "firstName": "Keino",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pharmacological Sciences, Icahn School of Medicine at Mount Sinai, New York, NY 10029, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "LeBowitz JH",
+              "lastName": "LeBowitz",
+              "firstName": "Jonathan H",
+              "initials": "JH",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Schlessinger A",
+              "lastName": "Schlessinger",
+              "firstName": "Avner",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pharmacological Sciences, Icahn School of Medicine at Mount Sinai, New York, NY 10029, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Johannesen KM",
+              "lastName": "Johannesen",
+              "firstName": "Katrine M",
+              "initials": "KM",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7356-3109"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Regional Health Research, Faculty of Health Sciences, University of Southern Denmark, Odense, Denmark."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Møller RS",
+              "lastName": "Møller",
+              "firstName": "Rikke S",
+              "initials": "RS",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9664-1448"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Regional Health Research, Faculty of Health Sciences, University of Southern Denmark, Odense, Denmark; Department of Epilepsy Genetics and Personalized Medicine, Member of ERN Epicare, Danish Epilepsy Centre, Dianalund, Denmark."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Giacomini KM",
+              "lastName": "Giacomini",
+              "firstName": "Kathleen M",
+              "initials": "KM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Bioengineering and Therapeutic Sciences, University of California, San Francisco, San Francisco, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Froelich S",
+              "lastName": "Froelich",
+              "firstName": "Steven",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sanders SJ",
+              "lastName": "Sanders",
+              "firstName": "Stephan J",
+              "initials": "SJ",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9112-5148"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychiatry, UCSF Weill Institute for Neurosciences, University of California, San Francisco, San Francisco, CA, USA; Institute of Developmental and Regenerative Medicine, Department of Paediatrics, University of Oxford, Oxford OX3 7TY, UK. Electronic address: stephan.sanders@paediatrics.ox.ac.uk."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wuster A",
+              "lastName": "Wuster",
+              "firstName": "Arthur",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-4162-5931"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "BioMarin Pharmaceutical Inc., Novato, CA, USA. Electronic address: arthur.wuster@bmrn.com."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9112-5148"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-3742-7003"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7356-3109"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-8794-6784"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9664-1448"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1656-2406"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-4162-5931"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "6",
+          "volume": "111",
+          "journalIssueId": 3783267,
+          "dateOfPublication": "2024 Jun",
+          "monthOfPublication": 6,
+          "yearOfPublication": 2024,
+          "journal": {
+            "medlineAbbreviation": "Am J Hum Genet",
+            "title": "American journal of human genetics",
+            "essn": "1537-6605",
+            "issn": "0002-9297",
+            "isoabbreviation": "Am J Hum Genet",
+            "nlmid": "0370475"
+          },
+          "printPublicationDate": "2024-06-01"
+        },
+        "pubYear": "2024",
+        "pageInfo": "1222-1238",
+        "abstractText": "Heterozygous variants in SLC6A1, encoding the GAT-1 GABA transporter, are associated with seizures, developmental delay, and autism. The majority of affected individuals carry missense variants, many of which are recurrent germline de novo mutations, raising the possibility of gain-of-function or dominant-negative effects. To understand the functional consequences, we performed an in vitro GABA uptake assay for 213 unique variants, including 24 control variants. De novo variants consistently resulted in a decrease in GABA uptake, in keeping with haploinsufficiency underlying all neurodevelopmental phenotypes. Where present, ClinVar pathogenicity reports correlated well with GABA uptake data; the functional data can inform future reports for the remaining 72% of unscored variants. Surface localization was assessed for 86 variants; two-thirds of loss-of-function missense variants prevented GAT-1 from being present on the membrane while GAT-1 was on the surface but with reduced activity for the remaining third. Surprisingly, recurrent de novo missense variants showed moderate loss-of-function effects that reduced GABA uptake with no evidence for dominant-negative or gain-of-function effects. Using linear regression across multiple missense severity scores to extrapolate the functional data to all potential SLC6A1 missense variants, we observe an abundance of GAT-1 residues that are sensitive to substitution. The extent of this missense vulnerability accounts for the clinically observed missense enrichment; overlap with hypermutable CpG sites accounts for the recurrent missense variants. Strategies to increase the expression of the wild-type SLC6A1 allele are likely to be beneficial across neurodevelopmental disorders, though the developmental stage and extent of required rescue remain unknown.",
+        "affiliation": "Department of Bioengineering and Therapeutic Sciences, University of California, San Francisco, San Francisco, CA, USA.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "Research Support, Non-U.S. Gov't",
+            "research-article",
+            "Journal Article",
+            "Research Support, N.I.H., Extramural"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "NCI NIH HHS",
+              "acronym": "CA",
+              "grantId": "R01 CA277794",
+              "orderIn": 0
+            },
+            {
+              "agency": "NIMH NIH HHS",
+              "acronym": "MH",
+              "grantId": "R01 MH122681",
+              "orderIn": 0
+            },
+            {
+              "agency": "American Epilepsy Society",
+              "orderIn": 0
+            },
+            {
+              "agency": "Wellcome Trust",
+              "acronym": "WT",
+              "orderIn": 0
+            },
+            {
+              "agency": "NIMH",
+              "grantId": "R01MH129751",
+              "orderIn": 0
+            },
+            {
+              "agency": "NIMH",
+              "grantId": "R01MH116999",
+              "orderIn": 0
+            },
+            {
+              "agency": "NIMH NIH HHS",
+              "acronym": "MH",
+              "grantId": "U01 MH122681",
+              "orderIn": 0
+            },
+            {
+              "agency": "BioMarin Pharmaceutical",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "gamma-Aminobutyric Acid",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "ME",
+                    "qualifierName": "metabolism"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Autistic Disorder",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Developmental Disabilities",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Mutation, Missense"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "GABA Plasma Membrane Transport Proteins",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "HEK293 Cells"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Haploinsufficiency",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Neurodevelopmental Disorders",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "GE",
+                    "qualifierName": "genetics"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Gat1",
+            "Autism Spectrum Disorders",
+            "Gat-1",
+            "Gaba Uptake",
+            "Neurodevelopmental Delay",
+            "Slc6a1",
+            "Epilepsy With Myoclonic-atonic Seizures",
+            "Missense Vulnerability"
+          ]
+        },
+        "chemicalList": {
+          "chemical": [
+            {
+              "name": "gamma-Aminobutyric Acid",
+              "registryNumber": "56-12-2"
+            },
+            {
+              "name": "GABA Plasma Membrane Transport Proteins",
+              "registryNumber": "0"
+            },
+            {
+              "name": "SLC6A1 protein, human",
+              "registryNumber": "0"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Unpaywall",
+              "url": "http://www.cell.com/article/S0002929724001629/pdf"
+            },
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1016/j.ajhg.2024.04.021"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11179425"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC11179425?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 18,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "Y",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "gen",
+            "ensembl",
+            "refseq",
+            "uniprot",
+            "pdb"
+          ]
+        },
+        "dateOfCompletion": "2024-06-07",
+        "dateOfCreation": "2024-05-23",
+        "dateOfRevision": "2025-07-22",
+        "electronicPublicationDate": "2024-05-22",
+        "firstPublicationDate": "2024-05-22",
+        "firstIndexDate": "2024-05-24",
+        "fullTextReceivedDate": "2024-06-18",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "33241211",
+        "source": "MED",
+        "pmid": "33241211",
+        "pmcid": "PMC7677605",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC7677605"
+          ]
+        },
+        "doi": "10.1093/braincomms/fcaa170",
+        "title": "Current knowledge of SLC6A1-related neurodevelopmental disorders.",
+        "authorString": "Goodspeed K, Pérez-Palma E, Iqbal S, Cooper D, Scimemi A, Johannesen KM, Stefanski A, Demarest S, Helbig KL, Kang J, Shaffo FC, Prentice B, Brownstein CA, Lim B, Helbig I, De Los Reyes E, McKnight D, Crunelli V, Campbell AJ, Møller RS, Freed A, Lal D.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Goodspeed K",
+              "lastName": "Goodspeed",
+              "firstName": "Kimberly",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Children's Health, Medical Center, UT Southwestern, Dallas, TX 75235, USA."
+                  },
+                  {
+                    "affiliation": "Department of Pediatrics, Medical Center, UT Southwestern, Dallas, TX 75235, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Pérez-Palma E",
+              "lastName": "Pérez-Palma",
+              "firstName": "Eduardo",
+              "initials": "E",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-0546-5141"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Genomic Medicine Institute, Lerner Research Institute Cleveland Clinic, Cleveland, OH 44195, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Iqbal S",
+              "lastName": "Iqbal",
+              "firstName": "Sumaiya",
+              "initials": "S",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-7700-4374"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Broad Institute of MIT and Harvard, Stanley Center for Psychiatric Research, Cambridge, MA 02142, USA."
+                  },
+                  {
+                    "affiliation": "Broad Institute of MIT and Harvard, Center for Development of Therapeutics, Cambridge, MA 02142, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Cooper D",
+              "lastName": "Cooper",
+              "firstName": "Dominique",
+              "initials": "D",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-4279-4219"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Children's Health, Medical Center, UT Southwestern, Dallas, TX 75235, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Scimemi A",
+              "lastName": "Scimemi",
+              "firstName": "Annalisa",
+              "initials": "A",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-4975-093X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Biological Sciences, University at Albany, Albany, NY 12222, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Johannesen KM",
+              "lastName": "Johannesen",
+              "firstName": "Katrine M",
+              "initials": "KM",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7356-3109"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Epilepsy Genetics and Personalized Treatment, Danish Epilepsy Center Filadelfia, Dianalund 4293, Denmark."
+                  },
+                  {
+                    "affiliation": "Department of Regional Health Research, Institute for Regional Health Services, University of Southern Denmark, Odense, Denmark."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Stefanski A",
+              "lastName": "Stefanski",
+              "firstName": "Arthur",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Genomic Medicine Institute, Lerner Research Institute Cleveland Clinic, Cleveland, OH 44195, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Demarest S",
+              "lastName": "Demarest",
+              "firstName": "Scott",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Departments of Pediatrics and Neurology, University of Colorado School of Medicine, Aurora, CO, USA."
+                  },
+                  {
+                    "affiliation": "Department of Pediatric Neurology and Neuroscience Institute, Children's Hospital Colorado, Aurora, CO, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Helbig KL",
+              "lastName": "Helbig",
+              "firstName": "Katherine L",
+              "initials": "KL",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-8249-0549"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Division of Neurology, Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA."
+                  },
+                  {
+                    "affiliation": "The Epilepsy NeuroGenetics Initiative (ENGIN), Children's Hospital of Philadelphia, Philadelphia, PA, USA."
+                  },
+                  {
+                    "affiliation": "Department of Biomedical and Health Informatics (DBHi), Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kang J",
+              "lastName": "Kang",
+              "firstName": "Jingqiong",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-1079-5436"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Neurology, Vanderbilt University Medical Center, TN 37232, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shaffo FC",
+              "lastName": "Shaffo",
+              "firstName": "Frances C",
+              "initials": "FC",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pediatrics, Medical Center, UT Southwestern, Dallas, TX 75235, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Prentice B",
+              "lastName": "Prentice",
+              "firstName": "Brandon",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "SLC6A1 Connect Foundation, Denver, CO 80210, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Brownstein CA",
+              "lastName": "Brownstein",
+              "firstName": "Catherine A",
+              "initials": "CA",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Division of Genetics and Genomics, Department of Pediatrics, Boston Children's Hospital and Harvard Medical School, Boston, MA, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lim B",
+              "lastName": "Lim",
+              "firstName": "Byungchan",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pediatrics, Seoul National University College of Medicine, Seoul National University Hospital, Seoul 03080, Republic of Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Helbig I",
+              "lastName": "Helbig",
+              "firstName": "Ingo",
+              "initials": "I",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Division of Neurology, Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA."
+                  },
+                  {
+                    "affiliation": "The Epilepsy NeuroGenetics Initiative (ENGIN), Children's Hospital of Philadelphia, Philadelphia, PA, USA."
+                  },
+                  {
+                    "affiliation": "Department of Biomedical and Health Informatics (DBHi), Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA."
+                  },
+                  {
+                    "affiliation": "Department of Neurology, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, 19104, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "De Los Reyes E",
+              "lastName": "De Los Reyes",
+              "firstName": "Emily",
+              "initials": "E",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Pediatric Neurology, Nationwide Children's Hospital, Columbus, OH, USA."
+                  },
+                  {
+                    "affiliation": "The Ohio State University College of Medicine, Columbus, OH, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "McKnight D",
+              "lastName": "McKnight",
+              "firstName": "Dianalee",
+              "initials": "D",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-7462-6300"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "GeneDx, Gaithersburg, MD 20877, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Crunelli V",
+              "lastName": "Crunelli",
+              "firstName": "Vincenzo",
+              "initials": "V",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Neuroscience Division, School of Bioscience, Cardiff University, Cardiff, UK."
+                  },
+                  {
+                    "affiliation": "Faculty of Medicine and Surgery, Malta University, Msida, Malta."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Campbell AJ",
+              "lastName": "Campbell",
+              "firstName": "Arthur J",
+              "initials": "AJ",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Broad Institute of MIT and Harvard, Stanley Center for Psychiatric Research, Cambridge, MA 02142, USA."
+                  },
+                  {
+                    "affiliation": "Broad Institute of MIT and Harvard, Center for Development of Therapeutics, Cambridge, MA 02142, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Møller RS",
+              "lastName": "Møller",
+              "firstName": "Rikke S",
+              "initials": "RS",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9664-1448"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Epilepsy Genetics and Personalized Treatment, Danish Epilepsy Center Filadelfia, Dianalund 4293, Denmark."
+                  },
+                  {
+                    "affiliation": "Department of Regional Health Research, Institute for Regional Health Services, University of Southern Denmark, Odense, Denmark."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Freed A",
+              "lastName": "Freed",
+              "firstName": "Amber",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Division of Neurology, Children's Hospital of Philadelphia, Philadelphia, PA 19104, USA."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lal D",
+              "lastName": "Lal",
+              "firstName": "Dennis",
+              "initials": "D",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Genomic Medicine Institute, Lerner Research Institute Cleveland Clinic, Cleveland, OH 44195, USA."
+                  },
+                  {
+                    "affiliation": "Broad Institute of MIT and Harvard, Stanley Center for Psychiatric Research, Cambridge, MA 02142, USA."
+                  },
+                  {
+                    "affiliation": "Neurological Institute, Epilepsy Center, Cleveland Clinic, Cleveland, OH 44195, USA."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-7700-4374"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0001-8249-0549"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7356-3109"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-7462-6300"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9664-1448"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-0546-5141"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-1079-5436"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-4279-4219"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-4975-093X"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "altmetrics",
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "2",
+          "volume": "2",
+          "journalIssueId": 2992860,
+          "dateOfPublication": "2020 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2020,
+          "journal": {
+            "medlineAbbreviation": "Brain Commun",
+            "title": "Brain communications",
+            "essn": "2632-1297",
+            "issn": "2632-1297",
+            "isoabbreviation": "Brain Commun",
+            "nlmid": "101755125"
+          },
+          "printPublicationDate": "2020-01-01"
+        },
+        "pubYear": "2020",
+        "pageInfo": "fcaa170",
+        "abstractText": "Advances in gene discovery have identified genetic variants in the solute carrier family 6 member 1 gene as a monogenic cause of neurodevelopmental disorders, including epilepsy with myoclonic atonic seizures, autism spectrum disorder and intellectual disability. The solute carrier family 6 member 1 gene encodes for the GABA transporter protein type 1, which is responsible for the reuptake of the neurotransmitter GABA, the primary inhibitory neurotransmitter in the central nervous system, from the extracellular space. GABAergic inhibition is essential to counterbalance neuronal excitation, and when significantly disrupted, it negatively impacts brain development leading to developmental differences and seizures. Aggregation of patient variants and observed clinical manifestations expand understanding of the genotypic and phenotypic spectrum of this disorder. Here, we assess genetic and phenotypic features in 116 individuals with solute carrier family 6 member 1 variants, the vast majority of which are likely to lead to GABA transporter protein type 1 loss-of-function. The knowledge acquired will guide therapeutic decisions and the development of targeted therapies that selectively enhance transporter function and may improve symptoms. We analysed the longitudinal and cell type-specific expression of solute carrier family 6 member 1 in humans and localization of patient and control missense variants in a novel GABA transporter protein type 1 protein structure model. In this update, we discuss the progress made in understanding and treating solute carrier family 6 member 1-related disorders thus far, through the concerted efforts of clinicians, scientists and family support groups.",
+        "affiliation": "Children's Health, Medical Center, UT Southwestern, Dallas, TX 75235, USA.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "review-article",
+            "Review",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "NICHD NIH HHS",
+              "acronym": "HD",
+              "grantId": "U54 HD090255",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Seizures",
+            "Neurodevelopmental Disorders",
+            "Gaba Transporter 1",
+            "Slc6a1 Haploinsufficiency",
+            "Slc6a1-related Disorders"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1093/braincomms/fcaa170"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC7677605"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC7677605?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 87,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "Y",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "ensembl",
+            "pdb"
+          ]
+        },
+        "dateOfCreation": "2020-11-26",
+        "dateOfRevision": "2023-11-12",
+        "electronicPublicationDate": "2020-10-13",
+        "firstPublicationDate": "2020-10-13",
+        "firstIndexDate": "2020-11-27",
+        "fullTextReceivedDate": "2025-02-03",
+        "hasEvaluations": "N"
+      }
+    ]
+  }
+}

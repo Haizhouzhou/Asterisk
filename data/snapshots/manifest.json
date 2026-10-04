@@ -1,0 +1,54 @@
+{
+  "mondo_stxbp1": {
+    "url": "https://www.ebi.ac.uk/ols4/api/search?q=developmental+and+epileptic+encephalopathy+4&ontology=mondo&rows=6",
+    "retrieved_at": "2026-10-04T04:01:38.175652+00:00",
+    "sha256": "418f06aa7307945238f264d85f49ffc6bc33c20252af59e1836c7a46533ab3f9",
+    "status": "downloaded",
+    "upstream_sha256": "9e31849fa1f24d1d6a1a42141f454f9d099a3b033b85cfaf37c9b1e272557e9e"
+  },
+  "mondo_slc6a1": {
+    "url": "https://www.ebi.ac.uk/ols4/api/search?q=myoclonic-atonic+epilepsy&ontology=mondo&rows=6",
+    "retrieved_at": "2026-10-04T04:01:38.787976+00:00",
+    "sha256": "bf640e261111b5fce7b4aacc33faa7925e31dbd82d055de259475a250a0c4dd5",
+    "status": "downloaded",
+    "upstream_sha256": "44530529040065a54fe2a6bcd4fa13450f673508091bbd1467e130b2b0488262"
+  },
+  "hpo_seizure": {
+    "url": "https://www.ebi.ac.uk/ols4/api/search?q=Seizure&ontology=hp&exact=true&rows=3",
+    "retrieved_at": "2026-10-04T04:01:39.403010+00:00",
+    "sha256": "4695c87029344cafeab7bd562ccf6245c6903e6259044b1ed118f4f16a839f23",
+    "status": "downloaded",
+    "upstream_sha256": "0e5de6011b30dba1f8bf80981b0d68ff35e4f2c465d4d6de2b0aaae248a5fe4e"
+  },
+  "trial": {
+    "url": "https://clinicaltrials.gov/api/v2/studies/NCT04937062",
+    "retrieved_at": "2026-10-04T04:01:40.038302+00:00",
+    "sha256": "9c13409160213e02b86817f1bc744bc793bfc12bb462ebf9d7fc3e0c857d77a0",
+    "status": "downloaded",
+    "upstream_sha256": "6c651549b0748450407a2b74e699cfdd1066cb5137dfe9ec6f44c3c2c77e1b17"
+  },
+  "papers_stxbp1": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A26865513+OR+EXT_ID%3A38137001&format=json&resultType=core&pageSize=10",
+    "retrieved_at": "2026-10-04T04:01:40.674835+00:00",
+    "sha256": "2762204fdedfcd7c81b02bf88215e643918ece3c710930b4f88a42d9ba71fd52",
+    "status": "downloaded",
+    "upstream_sha256": "11c1ef0ac72f6df13842010f2cdb0e4c9c45d91187f2bd70a50775b04d7ac024"
+  },
+  "papers_slc6a1": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE%3A%22Current+knowledge+of+SLC6A1%22+OR+TITLE%3A%22Haploinsufficiency+underlies+the+neurodevelopmental+consequences+of+SLC6A1+variants%22&format=json&resultType=core&pageSize=10",
+    "retrieved_at": "2026-10-04T04:01:41.271624+00:00",
+    "sha256": "e193014b14b408c47a1ab471241815ec8a19a3ac00fc189f3df6769fb545d09f",
+    "status": "downloaded",
+    "upstream_sha256": "7b3d490ffd0797357c2e996f135bbf6915598b4a3083f80737bc9a71408ec66f"
+  },
+  "reactome_stxbp1": {
+    "url": "https://reactome.org/ContentService/data/mapping/NCBI/6812/pathways?species=9606",
+    "status": "unavailable",
+    "error_type": "HTTPError"
+  },
+  "reactome_slc6a1": {
+    "url": "https://reactome.org/ContentService/data/mapping/NCBI/6529/pathways?species=9606",
+    "status": "unavailable",
+    "error_type": "HTTPError"
+  }
+}

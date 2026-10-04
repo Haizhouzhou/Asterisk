@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.conda/
+data/atlas.sqlite*
+data/live/
+data/reports/
+data/test-tmp/
+data/browser-profile/
+data/qa/
