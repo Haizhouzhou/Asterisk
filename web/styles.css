@@ -16,9 +16,14 @@
 .edge-line{stroke:#94aca7;stroke-width:1;opacity:.35}
 .edge-line.inferred{stroke:var(--gold);stroke-width:1.2;stroke-dasharray:4 5;opacity:.55}
 .edge-line.disputed{stroke:var(--rust);stroke-width:1;stroke-dasharray:2 5;opacity:.5}
+.edge-line.collapsed{stroke:var(--teal);stroke-width:.9;stroke-dasharray:5 5;opacity:.3}
+.key-line.collapsed{border-top:2px dashed var(--teal)}
+.edge-line.candidate{stroke:var(--gold);stroke-width:1;stroke-dasharray:2 4;opacity:.5}
+.key-line.candidate{border-top:2px dotted var(--gold)}
 .edge-group:hover .edge-line,.edge-group.selected .edge-line,.edge-group.highlighted .edge-line{stroke-width:1.8;opacity:1}
 .node,.edge-group{transition:opacity .15s}
-#graph.has-highlight .node:not(.highlighted),#graph.has-highlight .edge-group:not(.highlighted){opacity:.12}
+#graph.has-highlight .edge-group:not(.highlighted){opacity:.12}
+#graph.has-highlight .node:not(.highlighted) text{opacity:.55}
 @media(prefers-reduced-motion:reduce){.node,.edge-group{transition:none}}
 
 .node circle{transform-box:fill-box;transform-origin:center;transition:transform .18s ease,filter .18s ease,stroke-width .18s ease}

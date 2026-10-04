@@ -55,6 +55,27 @@ class LiveGraphTests(unittest.TestCase):
         self.assertGreater(len(view['dataset']['edges']),0)
         self.assertEqual(view['live']['providers'][-1]['status'],'unavailable')
 
+    def test_hypothesis_toggle_preserves_metadata_candidates(self):
+        live = fixture()
+        live['identities'].append({'id': 'MONDO:999', 'label': 'Candidate disease',
+                                   'synonyms': [], 'url': 'https://www.ebi.ac.uk/ols4/'})
+        mention = {'pmid': '123', 'kind': 'disease', 'identifier': 'D123',
+                   'text': 'Mentioned disease', 'locations': [{'offset': 10, 'length': 17}], 'passage': 'abstract'}
+        with patch('atlas.live_graph.pubtator_annotations', return_value=[mention]):
+            view = build_live_view(live)
+        # Add a genuine hypothesis using the same traceable source as a candidate.
+        hypothesis = copy.deepcopy(next(e for e in view['dataset']['edges'] if e['relation'] == 'identity_search_candidate'))
+        hypothesis.update(id='hypothesis', relation='proposed_shared_mechanism', metadata_only=False)
+        view['dataset']['edges'].append(hypothesis)
+        graph = view_graph(view, include_inferred=False)
+        self.assertIn('MONDO:999', [n['id'] for n in graph['nodes']])
+        self.assertIn('PubTator:disease:D123', [n['id'] for n in graph['nodes']])
+        self.assertNotIn('hypothesis', [e['id'] for e in graph['edges']])
+        candidates = [e for e in graph['edges'] if e['status'] == 'inferred']
+        self.assertEqual(len(candidates), 2)
+        self.assertTrue(all('not' in e['explanation'].lower() or 'annotated' in e['explanation'] for e in candidates))
+        self.assertTrue(all(any('candidate' in flag for flag in e['assessment']['flags']) for e in candidates))
+
     def test_dynamic_reports_do_not_claim_validated_biology(self):
         graph=view_graph(build_live_view(fixture(), annotate=False))
         report=analyze(graph,graph['live'])

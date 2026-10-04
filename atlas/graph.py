@@ -5,6 +5,11 @@ from datetime import date
 CONFIDENCE = {'low': 1, 'moderate': 2, 'high': 3}
 
 
+def is_metadata_candidate(edge):
+    return bool(edge.get('metadata_only')) and edge.get('relation') in {
+        'identity_search_candidate', 'automatically_annotated_mention'}
+
+
 def assess(edge, source_map):
     support, contradictions, missing = [], [], []
     for ev in edge.get('evidence', []):
@@ -22,7 +27,8 @@ def assess(edge, source_map):
     if missing:
         flags.append('Missing or incomplete provenance')
     if edge['status'] == 'inferred':
-        flags.append('Research hypothesis; requires expert validation')
+        flags.append('Search or annotation candidate; requires source and identity review' if is_metadata_candidate(edge)
+                     else 'Research hypothesis; requires expert validation')
     if edge['status'] == 'disputed' or contradictions:
         flags.append('Counterevidence or limitation must be reviewed')
     if len(families) < 2:
@@ -45,7 +51,7 @@ def filtered_graph(dataset, focus, min_confidence='moderate', include_inferred=T
             reason = 'incomplete_provenance'
         elif CONFIDENCE[e['confidence']] < CONFIDENCE[min_confidence]:
             reason = 'below_confidence_filter'
-        elif e['status'] == 'inferred' and not include_inferred:
+        elif e['status'] == 'inferred' and not include_inferred and not is_metadata_candidate(e):
             reason = 'hypotheses_hidden'
         # Counterevidence is never silently discarded by the hypothesis filter.
         if reason:

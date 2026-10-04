@@ -3,10 +3,11 @@
 const $ = (selector) => document.querySelector(selector);
 const state = { graph: null, selected: null, selectionType: 'node', detail: 'connection', report: null, live: null, view: 'network', positions: {}, health: null, request: 0, query: 'STXBP1' };
 const colors = {'Vesicle release':'#3f7e87','GABA reuptake':'#83a68c','Shared observations':'#a691b1','Shared infrastructure':'#d9b362','Published evidence':'#8c9caf','Diseases':'#3f7e87','Genes':'#83a68c','Phenotypes':'#a691b1','Studies':'#d9b362','Publications':'#8c9caf','Investigators':'#c07966','Variants':'#ad83a6','Search context':'#243746'};
-const categoryNames = {'Shared observations':'Symptoms in common','Vesicle release':'How nerve cells send signals','GABA reuptake':'How nerve cells clear signals','Shared infrastructure':'Patient registries & research resources','Published evidence':'Published research','Phenotypes':'Symptoms & traits','Investigators':'Researchers','Variants':'Genetic changes','Search context':'Your search'};
+const categoryNames = {'Shared observations':'Shared phenotypes','Vesicle release':'Synaptic vesicle release','GABA reuptake':'GABA reuptake','Shared infrastructure':'Research infrastructure','Published evidence':'Scientific literature','Phenotypes':'Phenotypes','Investigators':'Researchers','Variants':'Genetic variants','Search context':'Search context'};
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const shorten = (value, n=30) => value.length > n ? value.slice(0,n-1) + '…' : value;
 const pretty = value => String(value || '').replaceAll('_',' ');
+const metadataCandidate = e => e.metadata_only && ['identity_search_candidate','automatically_annotated_mention'].includes(e.relation);
 function link(url, text) {
   try { if (new URL(url).protocol !== 'https:') return esc(text); } catch { return esc(text); }
   return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(text)} ↗</a>`;
@@ -32,12 +33,13 @@ async function loadGraph(focus) {
 }
 function displayGraph(graph) {
     const focus=graph.focus;
+    const hiddenClusters=new Set(state.graph?.focus===focus?[...$('#cluster-list').querySelectorAll('[data-cluster]:not(:checked)')].map(input=>input.dataset.cluster):[]);
     state.graph = graph; state.selected = focus; state.selectionType = 'node'; state.report = null; state.live = graph.live||null; state.positions = {};
     const node = graph.nodes.find(n => n.id === focus);
     $('#identity').textContent = node.label + ' · ' + node.id;
     $('#graph-count').textContent = `${graph.nodes.length} nodes · ${graph.edges.length} connections`;
-    $('#map-status').textContent = `${graph.edges.filter(e=>e.status==='observed').length} documented · ${graph.edges.filter(e=>e.status==='inferred').length} proposed`;
-    $('#cluster-list').innerHTML = graph.clusters.map(c=>`<label class="cluster-item"><input type="checkbox" data-cluster="${esc(c.name)}" checked><svg class="dot" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="${colors[c.name]||'#98a8a4'}"/></svg><span>${esc(categoryNames[c.name]||c.name)}</span><span class="cluster-count">${c.count}</span></label>`).join('');
+    $('#map-status').textContent = `${graph.edges.filter(e=>e.status==='observed').length} documented · ${graph.edges.filter(e=>e.status==='inferred'&&!metadataCandidate(e)).length} proposed`;
+    $('#cluster-list').innerHTML = graph.clusters.map(c=>`<label class="cluster-item"><input type="checkbox" data-cluster="${esc(c.name)}" ${hiddenClusters.has(c.name)?'':'checked'}><svg class="dot" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="${colors[c.name]||'#98a8a4'}"/></svg><span>${esc(categoryNames[c.name]||c.name)}</span><span class="cluster-count">${c.count}</span></label>`).join('');
     $('#progress').textContent = ''; $('#progress').classList.remove('error');
     graphViewport={x:0,y:0,w:800,h:680};applyViewport();
     $('#cluster-list').querySelectorAll('[data-cluster]').forEach(input=>input.addEventListener('change',()=>{state.positions={};drawGraph();}));
@@ -46,16 +48,53 @@ function displayGraph(graph) {
     if(graph.graph_id)note.innerHTML='<span class="status-dot"></span><div>Live research graph<small>'+esc(graph.live.query)+'<br>Retrieved '+esc(graph.live.retrieved_at.slice(0,10))+'</small></div>';
 }
 
-function layout() {
+function visibleGraph() {
   const full=state.graph;
   const visibleKinds=new Set(['disease','symptom','search','organization','asset','institution','researcher']);
   const graph=$('#graph-science').checked?{...full}:{...full,nodes:full.nodes.filter(n=>visibleKinds.has(n.kind))};
   const ids=new Set(graph.nodes.map(n=>n.id));
   graph.edges=full.edges.filter(e=>ids.has(e.subject)&&ids.has(e.object));
   const hiddenClusters=new Set([...$('#cluster-list').querySelectorAll('[data-cluster]:not(:checked)')].map(input=>input.dataset.cluster));
-  graph.nodes=graph.nodes.filter(n=>!hiddenClusters.has(n.cluster));
+  graph.nodes=graph.nodes.filter(n=>!hiddenClusters.has(n.cluster||'Other'));
   const shownIds=new Set(graph.nodes.map(n=>n.id));
   graph.edges=graph.edges.filter(e=>shownIds.has(e.subject)&&shownIds.has(e.object));
+  // Collapse paths through hidden nodes, preserving the original evidence edges.
+  const neighbors=new Map(full.nodes.map(n=>[n.id,[]]));
+  for(const e of full.edges){
+    neighbors.get(e.subject)?.push({id:e.object,edge:e});
+    neighbors.get(e.object)?.push({id:e.subject,edge:e});
+  }
+  const pairs=new Set(graph.edges.map(e=>JSON.stringify([e.subject,e.object].sort())));
+  for(const start of graph.nodes){
+    const seen=new Set([start.id]),queue=[{id:start.id,path:[],via:[]}];
+    for(let i=0;i<queue.length;i++)for(const next of neighbors.get(queue[i].id)||[]){
+      if(seen.has(next.id))continue;
+      seen.add(next.id);
+      const path=[...queue[i].path,next.edge.id],via=queue[i].via;
+      if(shownIds.has(next.id)){
+        const pair=JSON.stringify([start.id,next.id].sort());
+        if(via.length&&!pairs.has(pair)){
+          pairs.add(pair);
+          graph.edges.push({id:'hidden-path:'+pair,subject:start.id,object:next.id,status:'collapsed',relation:'path_through_hidden_nodes',path,via,
+            explanation:'Connected through hidden nodes: '+via.map(id=>full.nodes.find(n=>n.id===id).label).join(' → ')});
+        }
+      }else queue.push({id:next.id,path,via:[...via,next.id]});
+    }
+  }
+  // Add only enough collapsed paths to join disconnected visible components.
+  // Prefer paths from the search focus, avoiding a clique around shared papers.
+  const parent=new Map(graph.nodes.map(n=>[n.id,n.id]));
+  const root=id=>{while(parent.get(id)!==id)id=parent.get(id);return id;};
+  const join=(a,b)=>{a=root(a);b=root(b);if(a===b)return false;parent.set(b,a);return true;};
+  const direct=graph.edges.filter(e=>!e.path);
+  direct.forEach(e=>join(e.subject,e.object));
+  const routes=graph.edges.filter(e=>e.path).sort((a,b)=>
+    Number(b.subject===full.focus||b.object===full.focus)-Number(a.subject===full.focus||a.object===full.focus)||a.path.length-b.path.length||a.id.localeCompare(b.id));
+  graph.edges=[...direct,...routes.filter(e=>join(e.subject,e.object))];
+  return graph;
+}
+function layout() {
+  const graph=visibleGraph();
   const count=graph.nodes.length;
   const maxDegree=Math.max(1,...graph.nodes.map(n=>n.degree||0));
   const sizeScale=14/Math.sqrt(maxDegree);
@@ -63,8 +102,8 @@ function layout() {
     const angle=i*2.399963, distance=50+210*Math.sqrt((i+1)/Math.max(1,count));
     const saved=state.positions[n.id];
     return {...n,x:saved?.x ?? 400+Math.cos(angle)*distance,y:saved?.y ?? 340+Math.sin(angle)*distance,
-      // Circle area is proportional to observed connection count.
-      radius:(n.degree||0)>0?sizeScale*Math.sqrt(n.degree):2.5};
+      // Connection counts scale size, with a readable minimum for category colors.
+      radius:Math.max(6,sizeScale*Math.sqrt(n.degree||0))};
   });
   const byId=Object.fromEntries(nodes.map(n=>[n.id,n]));
   if(!Object.keys(state.positions).length){
@@ -89,7 +128,7 @@ function layout() {
     }
   }
   state.positions=Object.fromEntries(nodes.map(n=>[n.id,{x:n.x,y:n.y}]));
-  return {nodes,byId};
+  return {nodes,byId,edges:graph.edges};
 }
 function graphLabel(n) {
   if(state.graph?.graph_id){
@@ -108,11 +147,14 @@ function graphLabel(n) {
 function drawGraph() {
   if (!state.graph) return;
   stopGraphMotion();
-  const {nodes,byId} = layout();
+  const {nodes,byId,edges} = layout();
+  state.visibleEdges=edges;
+  $('#graph-count').textContent=`${nodes.length} nodes · ${edges.length} connections`;
   const svg=$('#graph');
-  svg.innerHTML = state.graph.edges.filter(e=>byId[e.subject]&&byId[e.object]).map(e=>{
+  svg.classList.remove('has-highlight');
+  svg.innerHTML = edges.map(e=>{
     const a=byId[e.subject],b=byId[e.object];
-    return `<g class="edge-group ${state.selectionType==='edge'&&state.selected===e.id?'selected':''}" data-edge="${esc(e.id)}" role="button" tabindex="0" aria-label="${esc(a.label+' to '+b.label+': '+pretty(e.relation))}"><title>${esc(e.explanation)}</title><line class="edge-line ${e.status}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/><line class="edge-hit" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/></g>`;
+    return `<g class="edge-group ${state.selectionType==='edge'&&state.selected===e.id?'selected':''}" data-edge="${esc(e.id)}" role="button" tabindex="0" aria-label="${esc(a.label+' to '+b.label+': '+pretty(e.relation))}"><title>${esc(e.explanation)}</title><line class="edge-line ${metadataCandidate(e)?'candidate':e.status}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/><line class="edge-hit" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/></g>`;
   }).join('') + nodes.map(n=>`<g class="node ${state.selectionType==='node'&&state.selected===n.id?'selected':''}" data-node="${esc(n.id)}" transform="translate(${n.x},${n.y})" tabindex="0" role="button" aria-label="${esc(n.label+' · '+n.kind)}"><title>${esc(n.label+' · '+n.kind)}</title><circle r="${n.radius}" fill="${colors[n.cluster]||'#98a8a4'}"/><text y="${n.radius+17}">${esc(graphLabel(n))}</text></g>`).join('');
   svg.querySelectorAll('[data-edge]').forEach(el=>bindActivate(el,()=>select('edge',el.dataset.edge)));
   svg.querySelectorAll('[data-node]').forEach(el=> {
@@ -159,7 +201,7 @@ function paintGraphPositions(){
   const svg=$('#graph');
   svg.querySelectorAll('[data-node]').forEach(el=>{const p=state.positions[el.dataset.node];if(p)el.setAttribute('transform',`translate(${p.x},${p.y})`);});
   const groups=new Map([...svg.querySelectorAll('[data-edge]')].map(el=>[el.dataset.edge,el]));
-  for(const e of state.graph.edges){
+  for(const e of state.visibleEdges||state.graph.edges){
     const a=state.positions[e.subject],b=state.positions[e.object];if(!a||!b)continue;
     groups.get(e.id)?.querySelectorAll('line').forEach(line=>{
       line.setAttribute('x1',a.x);line.setAttribute('y1',a.y);line.setAttribute('x2',b.x);line.setAttribute('y2',b.y);
@@ -169,7 +211,7 @@ function paintGraphPositions(){
 function beginGraphMotion(id){
   stopGraphMotion();
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  graphMotion={pinned:id,anchors:structuredClone(state.positions),velocities:{},edges:state.graph.edges.filter(e=>state.positions[e.subject]&&state.positions[e.object]).map(e=>{
+  graphMotion={pinned:id,anchors:structuredClone(state.positions),velocities:{},edges:(state.visibleEdges||state.graph.edges).filter(e=>state.positions[e.subject]&&state.positions[e.object]).map(e=>{
     const a=state.positions[e.subject],b=state.positions[e.object];
     return {...e,length:Math.hypot(a.x-b.x,a.y-b.y)};
   }),last:0,frames:0};
@@ -211,12 +253,12 @@ function stepGraphMotion(time){
 function highlightNeighborhood(id){
   const svg=$('#graph');svg.classList.toggle('has-highlight',Boolean(id));
   const neighbors=new Set([id]);
-  for(const e of state.graph.edges){
+  for(const e of state.visibleEdges||state.graph.edges){
     if(e.subject===id)neighbors.add(e.object);if(e.object===id)neighbors.add(e.subject);
   }
   svg.querySelectorAll('[data-node]').forEach(el=>el.classList.toggle('highlighted',neighbors.has(el.dataset.node)));
   svg.querySelectorAll('[data-edge]').forEach(el=>{
-    const e=state.graph.edges.find(e=>e.id===el.dataset.edge);
+    const e=(state.visibleEdges||state.graph.edges).find(e=>e.id===el.dataset.edge);
     el.classList.toggle('highlighted',e.subject===id||e.object===id);
   });
 }
@@ -241,8 +283,17 @@ graphCanvas.addEventListener('pointermove',e=>{
 });
 for(const event of ['pointerup','pointercancel'])graphCanvas.addEventListener(event,()=>{canvasPan=null;graphCanvas.classList.remove('panning');});
 function bindActivate(el,fn) { el.addEventListener('click',fn); el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}}); }
-function select(type,id) { $('#technical-details').open=true;state.selectionType=type;state.selected=id;state.detail='connection';renderDetails();drawGraph(); }
-function selectedEdges() { return state.graph.edges.filter(e=>state.selectionType==='edge'?e.id===state.selected:e.subject===state.selected||e.object===state.selected); }
+function select(type,id) {
+  $('#technical-details').open=true;state.selectionType=type;state.selected=id;state.detail='connection';renderDetails();
+  // Selection preserves the SVG elements, pointer hover and keyboard focus.
+  $('#graph').querySelectorAll('[data-node],[data-edge]').forEach(el=>{
+    el.classList.toggle('selected',type==='node'?el.dataset.node===id:el.dataset.edge===id);
+  });
+}
+function selectedEdges() {
+  const route=state.visibleEdges?.find(e=>e.id===state.selected&&e.path);
+  return state.graph.edges.filter(e=>state.selectionType==='edge'?(route?route.path.includes(e.id):e.id===state.selected):e.subject===state.selected||e.object===state.selected);
+}
 function citation(id) {
   const source = state.graph.sources.find(s=>s.id===id);
   if(source)return link(source.url,source.name);
@@ -258,6 +309,14 @@ function renderDetails() {
   const container=$('#details');
   if(state.detail==='actions') { renderActions();return; }
   const edges=selectedEdges();
+  const route=state.selectionType==='edge'&&state.visibleEdges?.find(e=>e.id===state.selected&&e.path);
+  if(route&&state.detail==='connection'){
+    container.innerHTML=`<div class="detail-header"><h2>Path through hidden nodes</h2><p>${esc(route.explanation)}</p><p>This line summarizes an existing path, not a direct relationship.</p></div>`+route.path.map(id=>{
+      const e=state.graph.edges.find(e=>e.id===id),node=id=>state.graph.nodes.find(n=>n.id===id);
+      return `<div class="detail-block"><strong>${esc(node(e.subject).label)} → ${esc(node(e.object).label)}</strong><p>${esc(e.explanation)}</p>${(e.evidence||[]).map(ev=>citation(ev.source_id)).join(' · ')}</div>`;
+    }).join('');
+    return;
+  }
   if(state.detail==='evidence') {
     const sources = new Map();
     edges.forEach(e=>e.evidence.forEach(ev=>{if(!sources.has(ev.source_id))sources.set(ev.source_id,{source:state.graph.sources.find(s=>s.id===ev.source_id),locators:new Set()});sources.get(ev.source_id).locators.add(ev.locator);}));
@@ -472,7 +531,7 @@ function researchTile(n,i,key){
   return `<article class="research-tile ${i===0?'featured':''}"><div class="research-art"><span class="research-monogram" aria-hidden="true">${esc(initials)}</span><span class="image-unavailable">${n.kind==='researcher'?'Photo unavailable':'Logo unavailable'}</span>${n.image?`<img src="${esc(n.image)}" alt="${esc(n.label)}" loading="lazy">`:''}</div><button class="research-tile-toggle" type="button" aria-expanded="false" aria-controls="${key}-info-${i}"><strong>${esc(n.label)}</strong></button><div class="research-hover" id="${key}-info-${i}"><div class="research-hover-content">${n.affiliation?`<p>${esc(n.affiliation)}</p>`:''}${leadCriteria(n)}<div class="lead-links">${n.website?link(n.website,'Website / source record'):''}${n.contact_url?link(n.contact_url,'Contact page / study contact'):''}${email}${n.phone?`<span>Phone: ${esc(n.phone)}</span>`:''}</div><details><summary>Sources & connection</summary>${n.citations.map(c=>`<p>${link(c.url,c.name)}</p>`).join('')}<button class="text-button" data-inspect-lead="${esc(n.id)}">View in graph</button></details></div></div></article>`;
 }
 function bindLeadInspection(container){
-  container.querySelectorAll('[data-inspect-lead]').forEach(button=>button.addEventListener('click',()=>{if($('#research-dialog').open)$('#research-dialog').close();$('#graph-optional').open=true;$('#graph-science').checked=true;select('node',button.dataset.inspectLead);$('#graph-optional').scrollIntoView({behavior:'smooth'});}));
+  container.querySelectorAll('[data-inspect-lead]').forEach(button=>button.addEventListener('click',()=>{if($('#research-dialog').open)$('#research-dialog').close();$('#graph-optional').open=true;$('#graph-science').checked=true;drawGraph();select('node',button.dataset.inspectLead);$('#graph-optional').scrollIntoView({behavior:'smooth'});}));
   container.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;}));
 }
 $('#research-close').addEventListener('click',()=>$('#research-dialog').close());
