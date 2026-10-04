@@ -120,6 +120,7 @@
   });
   Object.assign(zh, {
     'START WITH PEOPLE':'先找到同行的人',
+    'Jump to the AI guide':'跳转到 AI 解读',
     'Find a community. Start a conversation.':'找到相关社群，开始交流。',
     'Existing support networks and research contacts connected to your search.':'与你的搜索相关的已有支持社群和研究联系人。',
     'Communities':'患者社群', 'Researchers & institutions':'研究人员与机构',

@@ -1,32 +1,61 @@
 [
   {
+    "id": "atlas:org:stx",
+    "page": "https://www.stxbp1disorders.org/",
+    "image_source": "https://images.squarespace-cdn.com/content/v1/5dfbd743194e190a44c01ec8/2b7d770c-e994-4030-ba91-0abf009ffe6c/Disorders_No+Tag.png",
+    "file": "atlas-org-stx.png",
+    "kind": "official logo",
+    "retrieved": "2026-10-04"
+  },
+  {
     "id": "atlas:org:slc",
     "page": "https://slc6a1connect.org/",
-    "image_source": "https://slc6a1connect.org/wp-content/uploads/2026/05/supporting-research-to-unlock-a-cure.jpg",
-    "file": "atlas-org-slc.png"
+    "image_source": "https://slc6a1connect.org/wp-content/uploads/2020/03/cropped-C_Vert_Purple-2.png",
+    "file": "atlas-org-slc.png",
+    "kind": "official logo",
+    "retrieved": "2026-10-04"
   },
   {
     "id": "atlas:asset:simons",
     "page": "https://www.simonssearchlight.org/",
-    "image_source": "https://cdn.simonssearchlight.org/wp-content/uploads/2022/03/31115841/900x504-general-16.png",
-    "file": "atlas-asset-simons.png"
+    "image_source": "https://www.simonssearchlight.org/wp-content/themes/SimonsSearchlight/library/images/main-logo.png",
+    "file": "atlas-asset-simons.png",
+    "kind": "official logo",
+    "retrieved": "2026-10-04"
   },
   {
     "id": "community:gaucher:ngf",
     "page": "https://www.gaucherdisease.org/",
-    "image_source": "https://www.gaucherdisease.org/wp-content/uploads/2022/07/NGF-OG-Share.jpg",
-    "file": "community-gaucher-ngf.png"
+    "image_source": "https://www.gaucherdisease.org/wp-content/uploads/2021/03/NGF-logo.svg",
+    "file": "community-gaucher-ngf.png",
+    "kind": "official logo",
+    "retrieved": "2026-10-04",
+    "note": "The published SVG is white-only; rendered in the foundation's own dark blue (#244e9c, as in its share image) for light tiles."
+  },
+  {
+    "id": "community:fabry:nfdf",
+    "page": "https://www.fabrydisease.org/",
+    "image_source": "https://www.fabrydisease.org/templates/rt_callisto/custom/images/logo/NFDF_Logo-Text.png",
+    "file": "community-fabry-nfdf.png",
+    "kind": "official logo",
+    "retrieved": "2026-10-04",
+    "note": "Retrieved from the Internet Archive copy of this file (2025-03-29). White wordmark recoloured to the badge navy (#0e305a) for light tiles; badge unchanged."
   },
   {
     "id": "community:fabry:fin",
     "page": "https://www.fabrynetwork.org/",
-    "image_source": "https://www.fabrynetwork.org/new/wp-content/uploads/2022/09/fin-1x.png",
-    "file": "community-fabry-fin.png"
+    "image_source": "https://www.fabrynetwork.org/new/wp-content/uploads/2022/09/fin-2x.png",
+    "file": "community-fabry-fin.png",
+    "kind": "official logo",
+    "retrieved": "2026-10-04"
   },
   {
     "id": "community:fabry:fsig",
     "page": "https://www.fabry.org/",
     "image_source": "https://irp.cdn-website.com/337ca4fe/dms3rep/multi/opt/Logo-FSIG-Full_A-1920w.jpg",
-    "file": "community-fabry-fsig.png"
+    "file": "community-fabry-fsig.png",
+    "kind": "official logo",
+    "retrieved": "2026-10-04",
+    "note": "White background made transparent."
   }
 ]

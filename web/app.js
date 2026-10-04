@@ -476,6 +476,8 @@ function bindLeadInspection(container){
   container.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;}));
 }
 $('#research-close').addEventListener('click',()=>$('#research-dialog').close());
+// Scroll to the AI guide without touching the URL hash (the hash carries the search query; popstate would go home).
+$('#ai-jump-icon').addEventListener('click',()=>{const guide=$('#ai-guide');guide.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});guide.focus({preventScroll:true});});
 for(const id of ['communities','research','indirect','no-contact','criteria'])$('#show-'+id).addEventListener('change',renderLeads);
 $('#expand-graph').addEventListener('click',()=>{const panel=$('#graph-optional'),expanded=panel.classList.toggle('expanded');$('#expand-graph').setAttribute('aria-pressed',String(expanded));$('#expand-graph').textContent=expanded?'Restore workspace size':'Enlarge graph workspace';});
 $('#graph-science').addEventListener('change',()=>{state.positions={};drawGraph();});
