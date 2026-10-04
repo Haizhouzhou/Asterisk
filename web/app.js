@@ -38,56 +38,46 @@ function displayGraph(graph) {
     $('#map-status').textContent = `${graph.edges.filter(e=>e.status==='observed').length} documented · ${graph.edges.filter(e=>e.status==='inferred').length} proposed`;
     $('#cluster-list').innerHTML = graph.clusters.map(c=>`<div class="cluster-item"><svg class="dot" viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="5" fill="${colors[c.name]||'#98a8a4'}"/></svg><span>${esc(c.name)}</span><span class="cluster-count">${c.count}</span></div>`).join('');
     $('#progress').textContent = ''; $('#progress').classList.remove('error');
+    graphViewport={x:0,y:0,w:800,h:680};applyViewport();
     drawGraph(); renderDetails(); renderPapers();
     const note=$('.scope-note');
     if(graph.graph_id)note.innerHTML='<span class="status-dot"></span><div>Live research graph<small>'+esc(graph.live.query)+'<br>Retrieved '+esc(graph.live.retrieved_at.slice(0,10))+'</small></div>';
 }
 
 function layout() {
-  const graph = state.graph;
-  const preferred = {
-    'MONDO:0012812':[250,285], 'atlas:disease:slc6a1-ndd':[550,285],
-    'NCBIGene:6812':[110,135], 'NCBIGene:6529':[690,135],
-    'atlas:mechanism:vesicle':[135,225], 'atlas:mechanism:gaba':[665,225],
-    'HP:0001250':[400,465], 'HP:0001263':[520,425], 'HP:0001252':[280,425],
-    'atlas:org:stx':[90,345], 'atlas:org:slc':[710,345],
-    'atlas:asset:simons':[400,340], 'NCT:04937062':[400,185],
-    'atlas:institution:cornell':[400,75],
-    'PMID:26865513':[90,490], 'atlas:author:26865513:0':[75,585],
-    'PMID:38137001':[255,540], 'atlas:author:38137001:0':[255,620],
-    'PMID:33241211':[710,490], 'atlas:author:33241211:0':[725,585],
-    'PMID:38781976':[545,540], 'atlas:author:38781976:0':[545,620]
-  };
-  const anchors = {'Vesicle release':[210,210], 'GABA reuptake':[600,220], 'Shared observations':[405,440], 'Shared infrastructure':[425,295], 'Published evidence':[365,580], 'Diseases':[150,230], 'Genes':[660,250], 'Phenotypes':[170,400], 'Studies':[570,515], 'Publications':[400,140], 'Investigators':[180,550], 'Variants':[660,400], 'Search context':[400,340]};
-  const ids = graph.nodes.map(n=>n.id);
-  const nodes = graph.nodes.map((node,i)=> {
-    const a = node.id===graph.focus&&graph.graph_id?[400,340]:anchors[node.cluster] || [400,340];
-    const p = state.positions[node.id] || (!graph.graph_id&&preferred[node.id] ? {x:preferred[node.id][0],y:preferred[node.id][1]} : null);
-    return {...node, x:p?.x ?? a[0] + Math.cos(i*2.4)*75, y:p?.y ?? a[1]+Math.sin(i*2.4)*65, radius: node.id===graph.focus ? 34 : Math.min(22,10+node.degree*1.4), ax:a[0], ay:a[1]};
+  const graph=state.graph, count=graph.nodes.length;
+  const maxDegree=Math.max(1,...graph.nodes.map(n=>n.degree||0));
+  const sizeScale=14/Math.sqrt(maxDegree);
+  const nodes=graph.nodes.map((n,i)=>{
+    const angle=i*2.399963, distance=50+210*Math.sqrt((i+1)/Math.max(1,count));
+    const saved=state.positions[n.id];
+    return {...n,x:saved?.x ?? 400+Math.cos(angle)*distance,y:saved?.y ?? 340+Math.sin(angle)*distance,
+      // Circle area is proportional to observed connection count.
+      radius:(n.degree||0)>0?sizeScale*Math.sqrt(n.degree):2.5};
   });
-  const byId = Object.fromEntries(nodes.map(n=>[n.id,n]));
-  if (!Object.keys(state.positions).length && (graph.graph_id || nodes.some(n=>!preferred[n.id]))) {
-    for (let tick=0; tick<220; tick++) {
-      const force = Object.fromEntries(ids.map(id=>[id,{x:0,y:0}]));
-      for (let i=0;i<nodes.length;i++) for (let j=i+1;j<nodes.length;j++) {
-        const a=nodes[i], b=nodes[j]; let dx=a.x-b.x,dy=a.y-b.y, dist=Math.max(1,Math.hypot(dx,dy));
-        const magnitude = 1100/(dist*dist) + Math.max(0,(a.radius+b.radius+47)-dist)*.12;
-        force[a.id].x+=dx/dist*magnitude;force[a.id].y+=dy/dist*magnitude;
-        force[b.id].x-=dx/dist*magnitude;force[b.id].y-=dy/dist*magnitude;
+  const byId=Object.fromEntries(nodes.map(n=>[n.id,n]));
+  if(!Object.keys(state.positions).length){
+    for(let tick=0;tick<280;tick++){
+      const forces=nodes.map(()=>({x:0,y:0}));
+      for(let i=0;i<count;i++)for(let j=i+1;j<count;j++){
+        const a=nodes[i],b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.max(1,Math.hypot(dx,dy));
+        const f=Math.min(8,1800/(d*d)+Math.max(0,65-d)*.08);
+        forces[i].x+=dx/d*f;forces[i].y+=dy/d*f;forces[j].x-=dx/d*f;forces[j].y-=dy/d*f;
       }
-      for (const edge of graph.edges) {
-        const a=byId[edge.subject], b=byId[edge.object]; const dx=b.x-a.x,dy=b.y-a.y,dist=Math.max(1,Math.hypot(dx,dy));
-        const mag=(dist-140)*.003;
-        force[a.id].x+=dx/dist*mag;force[a.id].y+=dy/dist*mag;
-        force[b.id].x-=dx/dist*mag;force[b.id].y-=dy/dist*mag;
+      for(const e of graph.edges){
+        const a=byId[e.subject],b=byId[e.object];if(!a||!b)continue;
+        const dx=b.x-a.x,dy=b.y-a.y,d=Math.max(1,Math.hypot(dx,dy)),f=(d-100)*.015;
+        a.fx=(a.fx||0)+dx/d*f;a.fy=(a.fy||0)+dy/d*f;
+        b.fx=(b.fx||0)-dx/d*f;b.fy=(b.fy||0)-dy/d*f;
       }
-      for (const n of nodes) {
-        n.x = Math.max(65,Math.min(735,n.x+force[n.id].x+(n.ax-n.x)*.015));
-        n.y = Math.max(60,Math.min(610,n.y+force[n.id].y+(n.ay-n.y)*.015));
-      }
+      nodes.forEach((n,i)=>{
+        n.x=Math.max(55,Math.min(745,n.x+forces[i].x+(n.fx||0)+(400-n.x)*.008));
+        n.y=Math.max(50,Math.min(615,n.y+forces[i].y+(n.fy||0)+(340-n.y)*.008));
+        n.fx=0;n.fy=0;
+      });
     }
   }
-  state.positions = Object.fromEntries(nodes.map(n=>[n.id,{x:n.x,y:n.y}]));
+  state.positions=Object.fromEntries(nodes.map(n=>[n.id,{x:n.x,y:n.y}]));
   return {nodes,byId};
 }
 function graphLabel(n) {
@@ -106,35 +96,139 @@ function graphLabel(n) {
 }
 function drawGraph() {
   if (!state.graph) return;
+  stopGraphMotion();
   const {nodes,byId} = layout();
   const svg=$('#graph');
   svg.innerHTML = state.graph.edges.map(e=>{
     const a=byId[e.subject],b=byId[e.object];
     return `<g class="edge-group ${state.selectionType==='edge'&&state.selected===e.id?'selected':''}" data-edge="${esc(e.id)}" role="button" tabindex="0" aria-label="${esc(a.label+' to '+b.label+': '+pretty(e.relation))}"><title>${esc(e.explanation)}</title><line class="edge-line ${e.status}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/><line class="edge-hit" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/></g>`;
-  }).join('') + nodes.map(n=>`<g class="node ${state.selectionType==='node'&&state.selected===n.id?'selected':''}" data-node="${esc(n.id)}" transform="translate(${n.x},${n.y})" tabindex="0" role="button" aria-label="${esc(n.label+' · '+n.kind)}"><title>${esc(n.label+' · '+n.kind)}</title><circle r="${n.radius}" fill="${colors[n.cluster]||'#98a8a4'}"/>${n.kind==='disease'?`<text class="node-initial" y="5">${esc(n.gene||'D')}</text>`:''}<text class="${n.kind==='disease'?'disease-name':''}" y="${n.radius+18}">${esc(graphLabel(n))}</text><text class="kind-label" y="${n.radius+32}">${esc(n.kind.toUpperCase())}</text></g>`).join('');
+  }).join('') + nodes.map(n=>`<g class="node ${state.selectionType==='node'&&state.selected===n.id?'selected':''}" data-node="${esc(n.id)}" transform="translate(${n.x},${n.y})" tabindex="0" role="button" aria-label="${esc(n.label+' · '+n.kind)}"><title>${esc(n.label+' · '+n.kind)}</title><circle r="${n.radius}" fill="${colors[n.cluster]||'#98a8a4'}"/><text y="${n.radius+17}">${esc(graphLabel(n))}</text></g>`).join('');
   svg.querySelectorAll('[data-edge]').forEach(el=>bindActivate(el,()=>select('edge',el.dataset.edge)));
   svg.querySelectorAll('[data-node]').forEach(el=> {
-    bindActivate(el,()=>select('node',el.dataset.node));
+    el.addEventListener('click',()=>{if(!moved)select('node',el.dataset.node);});
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select('node',el.dataset.node);}});
+    el.addEventListener('pointerenter',()=>highlightNeighborhood(el.dataset.node));
+    el.addEventListener('pointerleave',()=>highlightNeighborhood(null));
     let drag=null,moved=false;
-    el.addEventListener('pointerdown',event=>{ if(event.button!==0)return;drag={x:event.clientX,y:event.clientY};moved=false;el.setPointerCapture(event.pointerId); });
+    el.addEventListener('pointerdown',event=>{ if(event.button!==0)return;drag={x:event.clientX,y:event.clientY};moved=false;beginGraphMotion(el.dataset.node);el.classList.add('dragging');el.setPointerCapture(event.pointerId); });
     el.addEventListener('pointermove',event=>{
       if(!drag)return;
       if(Math.hypot(event.clientX-drag.x,event.clientY-drag.y)<5&&!moved)return;
       moved=true; const pt=svg.createSVGPoint();pt.x=event.clientX;pt.y=event.clientY;
       const position=pt.matrixTransform(svg.getScreenCTM().inverse());
-      state.positions[el.dataset.node]={x:Math.max(30,Math.min(770,position.x)),y:Math.max(35,Math.min(620,position.y))};
+      state.positions[el.dataset.node]={x:position.x,y:position.y};
       el.setAttribute('transform',`translate(${position.x},${position.y})`);
-      // Update lines without replacing the captured pointer element.
-      for(const e of state.graph.edges.filter(e=>e.subject===el.dataset.node||e.object===el.dataset.node)) {
-        const a=state.positions[e.subject],b=state.positions[e.object];
-        const group=Array.from(svg.querySelectorAll('[data-edge]')).find(g=>g.dataset.edge===e.id);
-        group.querySelectorAll('line').forEach(line=>{line.setAttribute('x1',a.x);line.setAttribute('y1',a.y);line.setAttribute('x2',b.x);line.setAttribute('y2',b.y);});
-      }
+      paintGraphPositions();
+      wakeGraphMotion();
     });
-    el.addEventListener('pointerup',()=>{drag=null; if(moved) {drawGraph();} });
-    el.addEventListener('pointercancel',()=>{drag=null;drawGraph();});
+    const release=()=>{
+      drag=null;el.classList.remove('dragging');
+      if(graphMotion){
+        if(moved){
+          // Keep the dropped node in place and settle around the new arrangement.
+          graphMotion.anchors=structuredClone(state.positions);
+          graphMotion.velocities={};
+          for(const e of graphMotion.edges){
+            const a=state.positions[e.subject],b=state.positions[e.object];
+            e.length=Math.hypot(a.x-b.x,a.y-b.y);
+          }
+          wakeGraphMotion();
+        }else{stopGraphMotion();}
+      }
+    };
+    el.addEventListener('pointerup',release);
+    el.addEventListener('pointercancel',release);
+    el.addEventListener('lostpointercapture',release);
+
   });
 }
+let graphMotion=null, motionFrame=0;
+function stopGraphMotion(){cancelAnimationFrame(motionFrame);motionFrame=0;graphMotion=null;}
+function paintGraphPositions(){
+  const svg=$('#graph');
+  svg.querySelectorAll('[data-node]').forEach(el=>{const p=state.positions[el.dataset.node];if(p)el.setAttribute('transform',`translate(${p.x},${p.y})`);});
+  const groups=new Map([...svg.querySelectorAll('[data-edge]')].map(el=>[el.dataset.edge,el]));
+  for(const e of state.graph.edges){
+    const a=state.positions[e.subject],b=state.positions[e.object];if(!a||!b)continue;
+    groups.get(e.id)?.querySelectorAll('line').forEach(line=>{
+      line.setAttribute('x1',a.x);line.setAttribute('y1',a.y);line.setAttribute('x2',b.x);line.setAttribute('y2',b.y);
+    });
+  }
+}
+function beginGraphMotion(id){
+  stopGraphMotion();
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  graphMotion={pinned:id,anchors:structuredClone(state.positions),velocities:{},edges:state.graph.edges.map(e=>{
+    const a=state.positions[e.subject],b=state.positions[e.object];
+    return {...e,length:Math.hypot(a.x-b.x,a.y-b.y)};
+  }),last:0,frames:0};
+}
+function wakeGraphMotion(){if(graphMotion&&!motionFrame){graphMotion.frames=0;graphMotion.last=0;motionFrame=requestAnimationFrame(stepGraphMotion);}}
+function stepGraphMotion(time){
+  motionFrame=0;const motion=graphMotion;if(!motion)return;
+  const dt=motion.last?Math.min(2,(time-motion.last)/16.67):1;motion.last=time;
+  const forces={};for(const [id,p] of Object.entries(state.positions)){
+    const a=motion.anchors[id];forces[id]={x:(a.x-p.x)*.008,y:(a.y-p.y)*.008};
+  }
+  for(const e of motion.edges){
+    const a=state.positions[e.subject],b=state.positions[e.object],dx=b.x-a.x,dy=b.y-a.y,d=Math.max(1,Math.hypot(dx,dy));
+    const f=(d-e.length)*.025;
+    forces[e.subject].x+=dx/d*f;forces[e.subject].y+=dy/d*f;
+    forces[e.object].x-=dx/d*f;forces[e.object].y-=dy/d*f;
+  }
+  // Separate nearby nodes without pulling the layout back to its original shape.
+  const ids=Object.keys(state.positions);
+  for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++){
+    const a=state.positions[ids[i]],b=state.positions[ids[j]];
+    let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
+    if(d>=58)continue;
+    if(d<.01){dx=Math.cos((i+j)*2.4);dy=Math.sin((i+j)*2.4);d=1;}
+    const push=(58-d)*.065;
+    forces[ids[i]].x-=dx/d*push;forces[ids[i]].y-=dy/d*push;
+    forces[ids[j]].x+=dx/d*push;forces[ids[j]].y+=dy/d*push;
+  }
+  let energy=0;
+  for(const [id,p] of Object.entries(state.positions)){
+    const v=motion.velocities[id]||(motion.velocities[id]={x:0,y:0});
+    if(id===motion.pinned){v.x=0;v.y=0;continue;}
+    v.x=(v.x+forces[id].x*dt)*Math.pow(.8,dt);v.y=(v.y+forces[id].y*dt)*Math.pow(.8,dt);
+    p.x+=v.x*dt;p.y+=v.y*dt;energy+=v.x*v.x+v.y*v.y;
+  }
+  paintGraphPositions();motion.frames++;
+  if((energy>.002||motion.pinned)&&motion.frames<600)motionFrame=requestAnimationFrame(stepGraphMotion);
+}
+function highlightNeighborhood(id){
+  const svg=$('#graph');svg.classList.toggle('has-highlight',Boolean(id));
+  const neighbors=new Set([id]);
+  for(const e of state.graph.edges){
+    if(e.subject===id)neighbors.add(e.object);if(e.object===id)neighbors.add(e.subject);
+  }
+  svg.querySelectorAll('[data-node]').forEach(el=>el.classList.toggle('highlighted',neighbors.has(el.dataset.node)));
+  svg.querySelectorAll('[data-edge]').forEach(el=>{
+    const e=state.graph.edges.find(e=>e.id===el.dataset.edge);
+    el.classList.toggle('highlighted',e.subject===id||e.object===id);
+  });
+}
+let graphViewport={x:0,y:0,w:800,h:680};
+function applyViewport(){const v=graphViewport;$('#graph').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`);}
+const graphCanvas=$('#graph');
+graphCanvas.addEventListener('wheel',e=>{
+  e.preventDefault();const point=graphCanvas.createSVGPoint();point.x=e.clientX;point.y=e.clientY;
+  const p=point.matrixTransform(graphCanvas.getScreenCTM().inverse()),v=graphViewport;
+  const w=Math.max(200,Math.min(2000,v.w*Math.exp(e.deltaY*.001))),scale=w/v.w;
+  graphViewport={x:p.x-(p.x-v.x)*scale,y:p.y-(p.y-v.y)*scale,w,h:v.h*scale};applyViewport();
+},{passive:false});
+let canvasPan=null;
+graphCanvas.addEventListener('pointerdown',e=>{
+  if(e.button!==0||e.target.closest('[data-node],[data-edge]'))return;
+  canvasPan={x:e.clientX,y:e.clientY,matrix:graphCanvas.getScreenCTM().inverse(),view:{...graphViewport}};
+  graphCanvas.setPointerCapture(e.pointerId);graphCanvas.classList.add('panning');
+});
+graphCanvas.addEventListener('pointermove',e=>{
+  if(!canvasPan)return;const m=canvasPan.matrix,dx=e.clientX-canvasPan.x,dy=e.clientY-canvasPan.y;
+  graphViewport={...canvasPan.view,x:canvasPan.view.x-dx*m.a-dy*m.c,y:canvasPan.view.y-dx*m.b-dy*m.d};applyViewport();
+});
+for(const event of ['pointerup','pointercancel'])graphCanvas.addEventListener(event,()=>{canvasPan=null;graphCanvas.classList.remove('panning');});
 function bindActivate(el,fn) { el.addEventListener('click',fn); el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}}); }
 function select(type,id) { state.selectionType=type;state.selected=id;state.detail='connection';renderDetails();drawGraph(); }
 function selectedEdges() { return state.graph.edges.filter(e=>state.selectionType==='edge'?e.id===state.selected:e.subject===state.selected||e.object===state.selected); }
@@ -180,10 +274,10 @@ function bindDetails() {
 }
 function renderActions() {
   const r=state.report;
-  if(!r) { $('#details').innerHTML=`<div class="detail-header"><span class="eyebrow">A PLAN FOR MARIA</span><h2>What can we do this week?</h2><p>Review the filtered evidence to find reusable assets, partners, and questions that still need expert review.</p></div><button class="primary wide" id="detail-review">Review evidence →</button><p class="small">${state.health?.openai_configured?'OpenAI review is available when selected.':'Evidence checks are available. OpenAI review is not configured.'}</p>`;$('#detail-review').addEventListener('click',runReview);return; }
-  $('#details').innerHTML=`<div class="detail-header"><span class="eyebrow">A PLAN FOR MARIA</span><h2>A connection worth discussing</h2>${badge(r.mode)}<p>${esc(r.summary)}</p></div>${r.agent_error?`<p class="caveat">${esc(r.agent_error)}</p>`:''}`+
+  if(!r) { $('#details').innerHTML=`<div class="detail-header"><span class="eyebrow">RESEARCH REVIEW</span><h2>What can we do this week?</h2><p>Review the filtered evidence to find reusable assets, partners, and questions that still need expert review.</p></div><button class="primary wide" id="detail-review">Review evidence →</button><p class="small">${state.health?.agent?.configured?'Agent review is available when selected.':'Evidence checks are available. Agent review is not configured.'}</p>`;$('#detail-review').addEventListener('click',runReview);return; }
+  $('#details').innerHTML=`<div class="detail-header"><span class="eyebrow">RESEARCH REVIEW</span><h2>A connection worth discussing</h2>${badge(r.mode)}<p>${esc(r.agent_review?.summary || r.summary)}</p><p class="small">${esc(r.audience || r.role)}</p></div>${r.agent_error?`<p class="caveat">${esc(r.agent_error)}</p>`:''}`+
     r.actions.map((a,i)=>`<article class="action-card"><div class="when">${i+1}. ${esc(a.when.toUpperCase())}</div><h3>${esc(a.title)}</h3><p>${esc(a.step)}</p><p class="caveat">${esc(a.check)}</p><p>${a.path.map(id=>citation(id)).join('<br>')}</p></article>`).join('')+
-    (r.agent_review?`<div class="detail-block"><span class="label">OpenAI critical review</span><p>${esc(r.agent_review.summary)}</p>${[...r.agent_review.findings,...r.agent_review.actions].map(f=>`<article class="source-card">${badge(f.status)}<p>${esc(f.statement)}</p><p>${esc(f.limitations)}</p><p>${f.citation_ids.map(citation).join('<br>')}</p></article>`).join('')}<p class="small">${esc(r.agent_review.missing_evidence.join(' · '))}</p></div>`:'')+
+    (r.agent_review?`<div class="detail-block"><span class="label">Agent critical review</span><p>${esc(r.agent_review.summary)}</p>${[...r.agent_review.findings,...r.agent_review.actions].map(f=>`<article class="source-card">${badge(f.status)}<p>${esc(f.statement)}</p><p>${esc(f.limitations)}</p><p>${f.citation_ids.map(citation).join('<br>')}</p></article>`).join('')}<p class="small">${esc(r.agent_review.missing_evidence.join(' · '))}</p></div>`:'')+
     `<a class="secondary wide export" href="/api/reports/${esc(r.id)}/proposal" download="research-proposal.md">Download sourced proposal ↓</a><div class="detail-block"><span class="label">What still needs validation</span>${r.coverage.gaps.map(g=>`<p class="small">• ${esc(g)}</p>`).join('')}<p class="small">No outreach has been sent. ${esc(r.limitations[0])}</p></div>`;
   bindDetails();
 }
@@ -238,10 +332,11 @@ async function runReview() {
   if(reviewing)return;
   reviewing=true;const button=$('#review');button.disabled=true;button.textContent='Reviewing…';
   const snapshot=state.graph;
+  const audienceRole=$('#audience-role').value, reportLanguage=$('#language').value;
   const progress=$('#progress');progress.classList.remove('error');
-  const names={filter:'Filtering evidence…',retrieve:'Retrieving bounded paper and study candidates…',audit:'Checking provenance and visible limitations…',extract:'OpenAI is reviewing the filtered evidence…',critic:'OpenAI is challenging the draft and checking citations…',complete:'Review complete.'};
+  const names={filter:'Filtering evidence…',retrieve:'Retrieving bounded paper and study candidates…',audit:'Checking provenance and visible limitations…',extract:'Agent is reviewing the filtered evidence…',critic:'Agent is challenging the draft and checking citations…',complete:'Review complete.'};
   try {
-    let job=await api('/api/analysis',{...options(),role:'maria',use_live:$('#use-live').checked,use_agent:$('#use-openai').checked});
+    let job=await api('/api/analysis',{...options(),role:audienceRole,language:reportLanguage,use_live:$('#use-live').checked,use_agent:$('#use-openai').checked});
     while(!['complete','failed'].includes(job.status)) {
       progress.textContent=names[job.stage]||'Review queued…';
       await new Promise(resolve=>setTimeout(resolve,900));
@@ -249,6 +344,7 @@ async function runReview() {
     }
     if(job.status==='failed')throw new Error(job.error);
     const report=await api('/api/reports/'+job.report_id);
+    if(audienceRole!==$('#audience-role').value || reportLanguage!==$('#language').value){progress.textContent='Review saved for the previous audience. Review again for the current selection.';return;}
     if(snapshot!==state.graph){progress.textContent='Review saved for the previous map. Run a review for the current search.';return;}
     state.report=report;if(report.live){state.live=report.live;renderLive();}
     state.detail='actions';renderDetails();
@@ -269,7 +365,7 @@ $('#confidence').addEventListener('change',()=>loadGraph(state.graph.focus));
 $('#hypotheses').addEventListener('change',()=>loadGraph(state.graph.focus));
 $('#network-tab').addEventListener('click',()=>setView('network'));
 $('#papers-tab').addEventListener('click',()=>setView('papers'));
-$('#fit').addEventListener('click',()=>{state.positions={};drawGraph();});
+$('#fit').addEventListener('click',()=>{graphViewport={x:0,y:0,w:800,h:680};applyViewport();});
 $('#live-papers').addEventListener('click',()=>retrieveLive());
 $('#review').addEventListener('click',runReview);
 document.querySelectorAll('[data-detail]').forEach(b=>b.addEventListener('click',()=>{state.detail=b.dataset.detail;renderDetails();}));
@@ -280,3 +376,5 @@ async function init(){
   await loadGraph('MONDO:0012812');
 }
 init();
+
+for (const selector of ['#audience-role', '#language']) $(selector).addEventListener('change', () => { state.report = null; if(state.graph) renderDetails(); $('#progress').textContent = 'Review again to generate a report for the selected audience and language.'; });

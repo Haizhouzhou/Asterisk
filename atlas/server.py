@@ -17,6 +17,7 @@ from atlas.seed import build_dataset
 from atlas.store import Store
 from atlas.live_graph import build_live_view, view_graph
 from atlas.integrations import configuration, brightdata_page
+from atlas.audiences import audience
 
 ROOT = Path(__file__).resolve().parents[1]
 FOCUS = 'MONDO:0012812'
@@ -63,8 +64,8 @@ class Application:
 
     def start_job(self, data):
         role = data.get('role', 'maria')
-        if role != 'maria':
-            raise ValueError('Only Maria is supported in this demo')
+        language = data.get('language', 'en')
+        audience(role, language)
         for key in ('use_live', 'use_openai', 'use_agent', 'use_brightdata'):
             if key in data and not isinstance(data[key], bool):
                 raise ValueError(key + ' must be boolean')
@@ -94,7 +95,7 @@ class Application:
                     if not live:
                         live = {'papers': [], 'studies': [], 'providers': []}
                     live['community_candidates'] = [brightdata_page(data.get('community_url', ''))]
-                report = analyze(graph, live, data.get('use_agent', data.get('use_openai', False)), update)
+                report = analyze(graph, live, data.get('use_agent', data.get('use_openai', False)), update, role, language)
                 report['export'] = proposal_markdown(report, graph)
                 self.store.save_report(report)
                 with self.lock:
@@ -159,7 +160,7 @@ def make_handler(app):
                     if len(parts) == 5 and parts[4] == 'proposal':
                         return self.send(200, report['export'], 'text/markdown; charset=utf-8', {'Content-Disposition': 'attachment; filename="research-proposal.md"'})
                     return self.send(200, report)
-                static = {'/': 'index.html', '/app.js': 'app.js', '/styles.css': 'styles.css', '/favicon.svg': 'favicon.svg'}
+                static = {'/': 'index.html', '/app.js': 'app.js', '/i18n.js': 'i18n.js', '/styles.css': 'styles.css', '/favicon.svg': 'favicon.svg'}
                 if path in static:
                     file = ROOT / 'web' / static[path]
                     return self.send(200, file.read_bytes(), (mimetypes.guess_type(str(file))[0] or 'application/octet-stream') + '; charset=utf-8')

@@ -1,5 +1,7 @@
 # Raraction — AI Atlas for Rare Diseases
 
+The header includes an English / Simplified Chinese interface selector. The choice is saved locally and initially follows the browser language. Source evidence, publications and reports retain their original language; search using English names or standard identifiers. UI translations live in `web/i18n.js`. This first localization pass covers navigation, controls, common status labels and progress messages; detailed backend explanations remain in their source language.
+
 A backend-first demo for **Maria, a patient organization leader**, implementing challenge [05.pdf](05.pdf). Search a disease, gene, or symptom; inspect a sourced network; find existing infrastructure; download a research collaboration proposal with explicit validation questions.
 
 **Every new search builds a live graph**, without a hardcoded disease list. Disease, gene, and symptom queries retrieve public ontology identities, publications, studies, authors, and PubTator gene/disease/variant mentions, then assemble a scoped, evidence-backed graph. Results and source outages are visible. Exact identity/synonym matches resolve automatically; ambiguous identities remain search context until selected. This provides broad on-demand coverage, not a verified census of all rare diseases or validated biology for every disease.
@@ -9,6 +11,32 @@ The **STXBP1/SLC6A1 starter** remains available on initial load: 22 nodes and 29
 Agent provider setup, including **Bright Data** and a **Lovable backend agent**, is documented in [docs/AGENT_SETUP.md](docs/AGENT_SETUP.md). The integrations keep keys server-side.
 
 ## Run locally with Conda
+
+### OpenAI contribution without a paid API key
+
+The challenge announcement permits OpenAI tools such as Codex. Our pipeline is public biomedical snapshots → deterministic filtering/provenance checks → OpenAI Codex evidence review → schema/citation/checksum verification → a precomputed review in the working demo. `prompts/codex_review.md`, `data/codex/evidence.json`, `schema.json`, `review.json` and `manifest.json` provide reviewable inputs, output and provenance. The included review was authored in the OpenAI Codex coding session, **not a separately executed CLI run**. Verification checks structure, citation membership and evidence binding; it does not prove scientific entailment. Human scientific review remains necessary.
+
+To regenerate using your authenticated Codex CLI (subject to your Codex account's access and usage limits):
+
+```powershell
+python scripts/codex_review.py prepare
+Get-Content -Raw prompts/codex_review.md | codex exec --sandbox read-only --output-schema data/codex/schema.json --output-last-message data/codex/review.json -
+python scripts/codex_review.py seal
+python scripts/codex_review.py verify
+```
+
+Review the output and diff before committing the prompt, evidence, schema, review and manifest. No API key or Codex credentials belong in Git. `seal` records a user-run CLI origin, so use it only after actually running the command above; retain the truthful original manifest otherwise.
+
+For the key-free reproducible demo:
+
+```powershell
+$env:ATLAS_AGENT_PROVIDER = 'codex_snapshot'
+python -m atlas.server
+```
+
+Keep the starter graph's default filters, select Maria and English, then click **Review evidence** with **Agent review** enabled. The model contribution is clearly recorded as `codex_snapshot_review`: no live inference occurs. Its exact packet binding prevents replay on another disease, changed filters or refreshed records. Other live searches continue to work through public APIs and deterministic evidence checks; disable Agent review for those searches unless a live provider is configured. Initial starter data and its review work without network or paid providers.
+
+In the tech video, show the source snapshots, committed prompt and evidence, verification command, starter graph and reviewed proposal. Explain that Codex produced the precomputed brief and the deployed demo replays that exact artifact; distinguish this from live API retrieval and optional live model calls. State that citation verification is not independent biological validation.
 
 ```powershell
 cd D:\D\Hackerthon\Raraction
@@ -113,7 +141,7 @@ Example analysis body:
 }
 ```
 
-Live-search body: `{"query":"STXBP1","kind":"auto","include_preprints":false}`. Supported primary search kinds are disease, gene and symptom, with auto resolution. Additional curated nodes can be searched by organization, mechanism, asset, paper, study, researcher, or institution. Only Maria's action workflow is currently implemented; other roles are rejected explicitly. Reports persist across server restarts; job IDs do not.
+Live-search body: `{"query":"STXBP1","kind":"auto","include_preprints":false}`. Supported primary search kinds are disease, gene and symptom, with auto resolution. Additional curated nodes can be searched by organization, mechanism, asset, paper, study, researcher, or institution. AI reviews support `maria`, `researcher`, `clinician`, and `industry` audiences, with `language` set to `en` or `zh-CN`. Both model passes adapt terminology and detail while preserving citations and uncertainty. Choose the audience in the page header; changing audience or language requires a new review. Rule-based checks and graph evidence retain their original wording; separate role-specific research workflows are not implemented. Exports include the audience-adapted AI review alongside the baseline sourced proposal. Reports persist across server restarts; job IDs do not.
 
 Live-graph body: `{"query":"Gaucher disease","kind":"auto","refresh":false}`. Set `refresh:true` for fresh public-source retrieval. To refine an ambiguous identity, pass `identity_id` from the returned identity candidates. For later filtering and review, pass the returned `graph_id` to `/api/graph` or `/api/analysis`; this preserves exactly the selected query's evidence and prevents unrelated searches from contaminating its neighborhood. Use `use_agent:true` for the selected configured agent provider. No agent key is included in requests from the browser.
 

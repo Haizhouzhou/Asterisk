@@ -1,0 +1,1583 @@
+{
+  "focus": "MONDO:0012812",
+  "nodes": [
+    {
+      "id": "HP:0001250",
+      "kind": "symptom",
+      "label": "Seizure",
+      "aliases": [
+        "seizures",
+        "epilepsy"
+      ],
+      "cluster": "Shared observations",
+      "url": "https://hpo.jax.org/browse/term/HP:0001250",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "HP:0001252",
+      "kind": "symptom",
+      "label": "Hypotonia",
+      "aliases": [
+        "low muscle tone"
+      ],
+      "cluster": "Shared observations",
+      "url": "https://hpo.jax.org/browse/term/HP:0001252",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "HP:0001263",
+      "kind": "symptom",
+      "label": "Global developmental delay",
+      "aliases": [
+        "developmental delay",
+        "delayed development"
+      ],
+      "cluster": "Shared observations",
+      "url": "https://hpo.jax.org/browse/term/HP:0001263",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "MONDO:0012812",
+      "kind": "disease",
+      "label": "STXBP1-related disorder",
+      "aliases": [
+        "STXBP1 encephalopathy",
+        "DEE4",
+        "EIEE4",
+        "developmental and epileptic encephalopathy 4"
+      ],
+      "cluster": "Vesicle release",
+      "description": "A developmental disorder affecting communication between brain cells.",
+      "gene": "STXBP1",
+      "identity_source": "mondo",
+      "distance": 0,
+      "degree": 9,
+      "centrality": 0.429
+    },
+    {
+      "id": "NCBIGene:6529",
+      "kind": "gene",
+      "label": "SLC6A1",
+      "aliases": [
+        "GAT-1",
+        "GABA transporter 1"
+      ],
+      "cluster": "GABA reuptake",
+      "url": "https://www.ncbi.nlm.nih.gov/gene/6529",
+      "distance": 2,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "NCBIGene:6812",
+      "kind": "gene",
+      "label": "STXBP1",
+      "aliases": [
+        "MUNC18-1",
+        "syntaxin binding protein 1"
+      ],
+      "cluster": "Vesicle release",
+      "url": "https://www.ncbi.nlm.nih.gov/gene/6812",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "NCT:04937062",
+      "kind": "study",
+      "label": "Phenylbutyrate for Monogenetic Developmental and Epileptic Encephalopathy",
+      "aliases": [
+        "NCT04937062",
+        "phenylbutyrate"
+      ],
+      "cluster": "Shared infrastructure",
+      "url": "https://clinicaltrials.gov/study/NCT04937062",
+      "study_status": "ACTIVE_NOT_RECRUITING",
+      "last_updated": "2026-01-22",
+      "phases": [
+        "EARLY_PHASE1"
+      ],
+      "eligibility": "\\###### STXBP1 / SLC6A1 ARM\n\nInclusion Criteria:\n\n* Diagnosed with STXBP1-E or SLC6A1-NDD; confirmed by laboratory report (i.e., a genetic test with a pathogenic or likely pathogenic mutation of STXBP1 or SLC6A1-NDD and a clinical picture consistent with the disorder, as determined by the Investigator). Patients with the appropriate clinical picture, a de novo variant of uncertain significance in STXBP1 or SLC6A1-NDD will also be eligible for enrollment, at the discretion of the Investigator.\n* Is between 2 months and 17 years of age, inclusive.\n* For children with STXBP1-E, the child must have had at least one seizure in the past 30 days prior to enrollment. If there is high demand for the study and we have several subjects to choose, we will prefer to enroll children with a high number of seizures in the past month.\n* For SLC6A1-NDD, seizures occur later in the course (typically middle of 1st decade) and so seizures will not be an entry criteria.\n* Is in general good health, aside from neurological consequences of STXBP1-E or SLC6A1-NDD, as determined by having no concurrent medical illness, in the opinion of the site investigator, that places the subject at increased risk of adverse drug reactions or that will interfere with study follow-up.\n* Has normal laboratory test results (≤ 1.5 × upper limit of normal \\[ULN\\]) for serum aminotransferase (aspartate aminotransferas \\[AST\\] and alanine aminotransferase \\[ALT\\]) concentrations and ammonia at Screening.\n* Has normal renal function, with estimated glomerular filtration rate \\> 90 mL/minute/1.73 m2 at Screening (using the Chronic Kidney Disease Epidemiology Collaboration equation).\n* Has a platelet count \\> 150 × 103/μL at Screening.\n* Has a QT interval corrected with Fridericia's formula (QTcF) \\< 450 msec on the Screening EKG.\n* Parent or guardian is able to comprehend and willing to sign an informed consent form (ICF).\n\nExclusion Criteria:\n\n* Has participated in another investigational study within 30 days or 5 half-lives of the test drug's biologic activity (whichever is longer) before the first study drug dose.\n* Has a QT interval corrected with Fridericia's formula (QTcF) ≥ 450 msec on the Screening EKG.\n* Has an active medical illness that would preclude participation in the study (as determined by the Investigator).\n* Has a clinical laboratory evaluation outside of the test laboratory reference range, unless deemed not clinically significant by the Investigator and the Sponsor.\n* Is unable to comply with the study protocol.\n* Has poor venous access and/or cannot tolerate venipuncture.\n* Is pregnant\n* Is a female of child-bearing age (12 years old or older) and known to be sexually active (for example, as determined through a confidential HEADDSSS history), and not taking medication for contraception. This will be assessed confidentially as per good general pediatrics practice\n* Known hypersensitivity to phenylbutyrate. Signs of hypersensitivity include wheezing, dyspnea, coughing, hypotension, flushing, nausea, and rash.\n* Taking alfentanil, quinidine, cyclosporine, or probenecid (known interactions with phenylbutyrate). For subjects who had taken any of these medications in the past, the last dose must have been taken at least 1 week prior to enrollment into the study.\n* Inborn errors of beta oxidation.\n* Pancreatic insufficiency or intestinal malabsorption\n\n  \\###### MONOGENETIC DEE ARM Inclusion Criteria\n* Diagnosed with a monogenic developmental and epileptic encephalopathy; confirmed by laboratory report (i.e., a genetic test with a pathogenic or likely pathogenic mutation of a monogenic developmental and epileptic encephalopathy and a clinical picture consistent with the disorder, as determined by the Investigator). Children with the appropriate clinical picture, a de novo variant of uncertain significance in a monogenic developmental and epileptic encephalopathy will also be eligible for enrollment, at the discretion of the Investigator. If the mutant is classified as definitively non-pathogenic, we would not enroll the child. \"Appropriate clinical picture\" is at the discretion of the Investigator.\n* Is between 0 months and 15 years of age, inclusive.\n* The child must have had at least one seizure in the past 30 days prior to enrollment. (If there is high demand for the study and we have several subjects to choose, we will prefer to enroll children with a high number of seizures in the past month.)\n* Is in general good health, aside from neurological consequences of their monogenic developmental and epileptic encephalopathy, as determined by having no concurrent medical illness, in the opinion of the site investigator, that places the subject at increased risk of adverse drug reactions or that will interfere with study follow-up.\n* Has normal laboratory test results (≤ 1.5 × upper limit of normal \\[ULN\\]) for serum aminotransferase (aspartate aminotransferas \\[AST\\] and alanine aminotransferase \\[ALT\\]) concentrations and ammonia.\n* Has normal renal function, with estimated glomerular filtration rate \\> 90 mL/minute/1.73 m2 at Screening (using the Chronic Kidney Disease Epidemiology Collaboration equation).\n* Has a platelet count \\> 150 × 103/μL at Screening.\n* Has a QT interval corrected with Fridericia's formula (QTcF) \\< 450 msec on the Screening EKG.\n* Parent or guardian is able to comprehend and willing to sign an informed consent form (ICF).\n\nExclusion Criteria:\n\n* Has participated in another investigational study within 30 days or 5 half-lives of the test drug's biologic activity (whichever is longer) before the first study drug dose.\n* Has a QT interval corrected with Fridericia's formula (QTcF) ≥ 450 msec on the Screening EKG.\n* Has an active medical illness that would preclude participation in the study (as determined by the Investigator).\n* Has a clinical laboratory evaluation outside of the test laboratory reference range, unless deemed not clinically significant by the Investigator and the Sponsor.\n* Is unable to comply with the study protocol.\n* Has poor venous access and/or cannot tolerate venipuncture.\n* Is pregnant\n* Is a female of child-bearing age (12 years old or older) and known to be sexually active (for example, as determined through a confidential HEADDSSS history), and not taking medication for contraception. This will be assessed confidentially as per good general pediatrics practice\n* Known hypersensitivity to phenylbutyrate. Signs of hypersensitivity include wheezing, dyspnea, coughing, hypotension, flushing, nausea, and rash.\n* Taking alfentanil, quinidine, cyclosporine, or probenecid (known interactions with phenylbutyrate). For subjects who had taken any of these medications in the past, the last dose must have been taken at least 1 week prior to enrollment into the study.\n* Inborn errors of beta oxidation.\n* Pancreatic insufficiency or intestinal malabsorption",
+      "results_posted": false,
+      "sponsor": "Weill Medical College of Cornell University",
+      "distance": 1,
+      "degree": 5,
+      "centrality": 0.238
+    },
+    {
+      "id": "PMID:26865513",
+      "kind": "paper",
+      "label": "STXBP1 encephalopathy: A neurodevelopmental disorder including epilepsy.",
+      "aliases": [
+        "26865513"
+      ],
+      "cluster": "Published evidence",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26865513/",
+      "year": "2016",
+      "authors": "Stamberger H, Nikanorova M, Willemsen MH, Accorsi P, Angriman M, Baier H, Benkel-Herrenbrueck I, Benoit V, Budetta M, Caliebe A, Cantalupo G, Capovilla G, Casara G, Courage C, Deprez M, Destrée A, Dilena R, Erasmus CE, Fannemel M, Fjær R, Giordano L, Helbig KL, Heyne HO, Klepper J, Kluger GJ, Lederer D, Lodi M, Maier O, Merkenschlager A, Michelberger N, Minetti C, Muhle H, Phalin J, Ramsey K, Romeo A, Schallner J, Schanze I, Shinawi M, Sleegers K, Sterbova K, Syrbe S, Traverso M, Tzschach A, Uldall P, Van Coster R, Verhelst H, Viri M, Winter S, Wolff M, Zenker M, Zoccante L, De Jonghe P, Helbig I, Striano P, Lemke JR, Møller RS, Weckhuysen S.",
+      "doi": "10.1212/wnl.0000000000002457",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "PMID:33241211",
+      "kind": "paper",
+      "label": "Current knowledge of SLC6A1-related neurodevelopmental disorders.",
+      "aliases": [
+        "33241211"
+      ],
+      "cluster": "Published evidence",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33241211/",
+      "year": "2020",
+      "authors": "Goodspeed K, Pérez-Palma E, Iqbal S, Cooper D, Scimemi A, Johannesen KM, Stefanski A, Demarest S, Helbig KL, Kang J, Shaffo FC, Prentice B, Brownstein CA, Lim B, Helbig I, De Los Reyes E, McKnight D, Crunelli V, Campbell AJ, Møller RS, Freed A, Lal D.",
+      "doi": "10.1093/braincomms/fcaa170",
+      "distance": 2,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "PMID:38137001",
+      "kind": "paper",
+      "label": "STXBP1-Related Disorders: Clinical Presentation, Molecular Function, Treatment, and Future Directions.",
+      "aliases": [
+        "38137001"
+      ],
+      "cluster": "Published evidence",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38137001/",
+      "year": "2023",
+      "authors": "Freibauer A, Wohlleben M, Boelman C.",
+      "doi": "10.3390/genes14122179",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "PMID:38781976",
+      "kind": "paper",
+      "label": "Haploinsufficiency underlies the neurodevelopmental consequences of SLC6A1 variants.",
+      "aliases": [
+        "38781976"
+      ],
+      "cluster": "Published evidence",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38781976/",
+      "year": "2024",
+      "authors": "Silva DB, Trinidad M, Ljungdahl A, Revalde JL, Berguig GY, Wallace W, Patrick CS, Bomba L, Arkin M, Dong S, Estrada K, Hutchinson K, LeBowitz JH, Schlessinger A, Johannesen KM, Møller RS, Giacomini KM, Froelich S, Sanders SJ, Wuster A.",
+      "doi": "10.1016/j.ajhg.2024.04.021",
+      "distance": 2,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "atlas:asset:simons",
+      "kind": "asset",
+      "label": "Simons Searchlight registry",
+      "aliases": [
+        "registry",
+        "natural history",
+        "biorepository"
+      ],
+      "cluster": "Shared infrastructure",
+      "url": "https://www.simonssearchlight.org/",
+      "description": "Existing cross-gene research infrastructure. Access, consent, data fields, and suitability must be checked with the registry team.",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "atlas:author:26865513:0",
+      "kind": "researcher",
+      "label": "Stamberger H",
+      "aliases": [],
+      "cluster": "Published evidence",
+      "affiliation": "Authors' affiliations are listed at the end of the article.",
+      "identity_note": "Publication-scoped author, not OpenAlex-disambiguated. Contact through the publication; current affiliation is unverified.",
+      "distance": 2,
+      "degree": 1,
+      "centrality": 0.048
+    },
+    {
+      "id": "atlas:author:33241211:0",
+      "kind": "researcher",
+      "label": "Goodspeed K",
+      "aliases": [],
+      "cluster": "Published evidence",
+      "affiliation": "Children's Health, Medical Center, UT Southwestern, Dallas, TX 75235, USA.; Department of Pediatrics, Medical Center, UT Southwestern, Dallas, TX 75235, USA.",
+      "identity_note": "Publication-scoped author, not OpenAlex-disambiguated. Contact through the publication; current affiliation is unverified.",
+      "distance": 3,
+      "degree": 1,
+      "centrality": 0.048
+    },
+    {
+      "id": "atlas:author:38137001:0",
+      "kind": "researcher",
+      "label": "Freibauer A",
+      "aliases": [],
+      "cluster": "Published evidence",
+      "affiliation": "Division of Neurology, BC Children's Hospital, Vancouver, BC V6H 3N1, Canada.; Faculty of Medicine, University of British Columbia, Vancouver, BC V6T 1Z4, Canada.",
+      "identity_note": "Publication-scoped author, not OpenAlex-disambiguated. Contact through the publication; current affiliation is unverified.",
+      "distance": 2,
+      "degree": 1,
+      "centrality": 0.048
+    },
+    {
+      "id": "atlas:author:38781976:0",
+      "kind": "researcher",
+      "label": "Silva DB",
+      "aliases": [],
+      "cluster": "Published evidence",
+      "affiliation": "Department of Bioengineering and Therapeutic Sciences, University of California, San Francisco, San Francisco, CA, USA.",
+      "identity_note": "Publication-scoped author, not OpenAlex-disambiguated. Contact through the publication; current affiliation is unverified.",
+      "distance": 3,
+      "degree": 1,
+      "centrality": 0.048
+    },
+    {
+      "id": "atlas:disease:slc6a1-ndd",
+      "kind": "disease",
+      "label": "SLC6A1-related disorder",
+      "aliases": [
+        "SLC6A1-NDD",
+        "SLC6A1 deficiency disorder"
+      ],
+      "cluster": "GABA reuptake",
+      "description": "A neurodevelopmental disorder affecting GABA transport.",
+      "gene": "SLC6A1",
+      "identity_note": "Local stable disease identifier. Myoclonic-atonic epilepsy is broader than SLC6A1-NDD and is deliberately not used as an equivalent MONDO identity.",
+      "distance": 1,
+      "degree": 9,
+      "centrality": 0.429
+    },
+    {
+      "id": "atlas:institution:cornell",
+      "kind": "institution",
+      "label": "Weill Medical College of Cornell University",
+      "aliases": [],
+      "cluster": "Shared infrastructure",
+      "distance": 2,
+      "degree": 1,
+      "centrality": 0.048
+    },
+    {
+      "id": "atlas:mechanism:gaba",
+      "kind": "mechanism",
+      "label": "Reduced GABA reuptake",
+      "aliases": [
+        "GABA transport",
+        "GABA reuptake"
+      ],
+      "cluster": "GABA reuptake",
+      "distance": 3,
+      "degree": 1,
+      "centrality": 0.048
+    },
+    {
+      "id": "atlas:mechanism:vesicle",
+      "kind": "mechanism",
+      "label": "Reduced synaptic vesicle release",
+      "aliases": [
+        "vesicle fusion",
+        "neurotransmitter release"
+      ],
+      "cluster": "Vesicle release",
+      "distance": 2,
+      "degree": 1,
+      "centrality": 0.048
+    },
+    {
+      "id": "atlas:org:slc",
+      "kind": "organization",
+      "label": "SLC6A1 Connect",
+      "aliases": [
+        "SLC6A1 patient group"
+      ],
+      "cluster": "Shared infrastructure",
+      "url": "https://slc6a1connect.org/",
+      "distance": 2,
+      "degree": 2,
+      "centrality": 0.095
+    },
+    {
+      "id": "atlas:org:stx",
+      "kind": "organization",
+      "label": "STXBP1 Foundation",
+      "aliases": [
+        "STXBP1 patient group"
+      ],
+      "cluster": "Shared infrastructure",
+      "url": "https://www.stxbp1disorders.org/",
+      "distance": 1,
+      "degree": 2,
+      "centrality": 0.095
+    }
+  ],
+  "edges": [
+    {
+      "id": "stx-gene",
+      "subject": "MONDO:0012812",
+      "object": "NCBIGene:6812",
+      "relation": "associated_with_gene",
+      "explanation": "Pathogenic STXBP1 variants are associated with this disorder.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-stx"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-gene",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "NCBIGene:6529",
+      "relation": "associated_with_gene",
+      "explanation": "Pathogenic SLC6A1 variants are associated with this disorder.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-mechanism",
+      "subject": "NCBIGene:6812",
+      "object": "atlas:mechanism:vesicle",
+      "relation": "loss_of_function_affects",
+      "explanation": "STXBP1 supports vesicle docking and fusion; loss of function impairs neurotransmitter release.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Gene-level summary. Do not assume every variant has the same effect.",
+      "evidence": [
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-stx"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-mechanism",
+      "subject": "NCBIGene:6529",
+      "object": "atlas:mechanism:gaba",
+      "relation": "loss_of_function_affects",
+      "explanation": "SLC6A1 encodes GAT-1, which transports GABA into neurons and glia.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "The full molecular pathology remains incompletely understood; variant-specific interpretation is needed.",
+      "evidence": [
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-HP:0001250",
+      "subject": "MONDO:0012812",
+      "object": "HP:0001250",
+      "relation": "has_reported_phenotype",
+      "explanation": "Seizures have been reported in affected individuals.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "A reported feature is not universal or diagnostic. Broad symptoms alone do not establish a shared mechanism.",
+      "evidence": [
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-stx"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-HP:0001263",
+      "subject": "MONDO:0012812",
+      "object": "HP:0001263",
+      "relation": "has_reported_phenotype",
+      "explanation": "Developmental delay have been reported in affected individuals.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "A reported feature is not universal or diagnostic. Broad symptoms alone do not establish a shared mechanism.",
+      "evidence": [
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-stx"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-HP:0001252",
+      "subject": "MONDO:0012812",
+      "object": "HP:0001252",
+      "relation": "has_reported_phenotype",
+      "explanation": "Low muscle tone have been reported in affected individuals.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "A reported feature is not universal or diagnostic. Broad symptoms alone do not establish a shared mechanism.",
+      "evidence": [
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-stx"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-HP:0001250",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "HP:0001250",
+      "relation": "has_reported_phenotype",
+      "explanation": "Seizures have been reported in affected individuals.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "A reported feature is not universal or diagnostic. Broad symptoms alone do not establish a shared mechanism.",
+      "evidence": [
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-HP:0001263",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "HP:0001263",
+      "relation": "has_reported_phenotype",
+      "explanation": "Developmental delay have been reported in affected individuals.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "A reported feature is not universal or diagnostic. Broad symptoms alone do not establish a shared mechanism.",
+      "evidence": [
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-HP:0001252",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "HP:0001252",
+      "relation": "has_reported_phenotype",
+      "explanation": "Low muscle tone have been reported in affected individuals.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "A reported feature is not universal or diagnostic. Broad symptoms alone do not establish a shared mechanism.",
+      "evidence": [
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-community",
+      "subject": "MONDO:0012812",
+      "object": "atlas:org:stx",
+      "relation": "has_patient_community",
+      "explanation": "Simons Searchlight links the STXBP1 community to this foundation.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "ss-stx",
+          "stance": "supports",
+          "locator": "Research Opportunities and Support Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "simons"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-community",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "atlas:org:slc",
+      "relation": "has_patient_community",
+      "explanation": "GeneReviews lists SLC6A1 Connect as a disease-specific organization.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-registry",
+      "subject": "MONDO:0012812",
+      "object": "atlas:asset:simons",
+      "relation": "represented_in_registry",
+      "explanation": "Simons Searchlight includes STXBP1 research participation.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "ss-stx",
+          "stance": "supports",
+          "locator": "Research Opportunities and Support Resources"
+        },
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-stx",
+          "simons"
+        ],
+        "source_count": 2,
+        "contradictory_sources": [],
+        "flags": [],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-registry",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "atlas:asset:simons",
+      "relation": "represented_in_registry",
+      "explanation": "SLC6A1 Connect describes participation in Simons Searchlight.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "slc-reg",
+          "stance": "supports",
+          "locator": "Simons Searchlight registry description"
+        },
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc",
+          "slc6a1-connect"
+        ],
+        "source_count": 2,
+        "contradictory_sources": [],
+        "flags": [],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "research-bridge",
+      "subject": "MONDO:0012812",
+      "object": "atlas:disease:slc6a1-ndd",
+      "relation": "candidate_shared_research",
+      "explanation": "Different synaptic processes and overlapping observations suggest comparing registry measures, without assuming a common treatment.",
+      "status": "inferred",
+      "confidence": "moderate",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Vesicle release and GABA reuptake are different molecular mechanisms. Reuse is a proposal, not a validated cross-disease intervention.",
+      "evidence": [
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        },
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        },
+        {
+          "source_id": "ss-stx",
+          "stance": "supports",
+          "locator": "Research Opportunities and Support Resources"
+        },
+        {
+          "source_id": "slc-reg",
+          "stance": "supports",
+          "locator": "Simons Searchlight registry description"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc",
+          "gr-stx",
+          "simons",
+          "slc6a1-connect"
+        ],
+        "source_count": 4,
+        "contradictory_sources": [],
+        "flags": [
+          "Research hypothesis; requires expert validation"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "mechanism-counterexample",
+      "subject": "atlas:mechanism:vesicle",
+      "object": "atlas:mechanism:gaba",
+      "relation": "same_mechanism_not_established",
+      "explanation": "Both affect neural communication, but the cited sources describe different molecular functions.",
+      "status": "disputed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Shared seizures and broad pathway language cannot justify treating these as the same mechanism.",
+      "evidence": [
+        {
+          "source_id": "gr-stx",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        },
+        {
+          "source_id": "gr-slc",
+          "stance": "supports",
+          "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "gr-slc",
+          "gr-stx"
+        ],
+        "source_count": 2,
+        "contradictory_sources": [],
+        "flags": [
+          "Counterevidence or limitation must be reviewed"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "paper-38137001",
+      "subject": "MONDO:0012812",
+      "object": "PMID:38137001",
+      "relation": "discussed_in_publication",
+      "explanation": "This indexed publication discusses STXBP1. It is a reading lead; claims require full-text assessment.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Publication relevance is not confirmation of a specific mechanism or therapy.",
+      "evidence": [
+        {
+          "source_id": "pmid-38137001",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:38137001"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "author-38137001",
+      "subject": "PMID:38137001",
+      "object": "atlas:author:38137001:0",
+      "relation": "authored_by",
+      "explanation": "Named author on this publication; potential research contact subject to expertise and identity checks.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "pmid-38137001",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:38137001"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "paper-26865513",
+      "subject": "MONDO:0012812",
+      "object": "PMID:26865513",
+      "relation": "discussed_in_publication",
+      "explanation": "This indexed publication discusses STXBP1. It is a reading lead; claims require full-text assessment.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Publication relevance is not confirmation of a specific mechanism or therapy.",
+      "evidence": [
+        {
+          "source_id": "pmid-26865513",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:26865513"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "author-26865513",
+      "subject": "PMID:26865513",
+      "object": "atlas:author:26865513:0",
+      "relation": "authored_by",
+      "explanation": "Named author on this publication; potential research contact subject to expertise and identity checks.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "pmid-26865513",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:26865513"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "paper-38781976",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "PMID:38781976",
+      "relation": "discussed_in_publication",
+      "explanation": "This indexed publication discusses SLC6A1. It is a reading lead; claims require full-text assessment.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Publication relevance is not confirmation of a specific mechanism or therapy.",
+      "evidence": [
+        {
+          "source_id": "pmid-38781976",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:38781976"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "author-38781976",
+      "subject": "PMID:38781976",
+      "object": "atlas:author:38781976:0",
+      "relation": "authored_by",
+      "explanation": "Named author on this publication; potential research contact subject to expertise and identity checks.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "pmid-38781976",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:38781976"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "paper-33241211",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "PMID:33241211",
+      "relation": "discussed_in_publication",
+      "explanation": "This indexed publication discusses SLC6A1. It is a reading lead; claims require full-text assessment.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Publication relevance is not confirmation of a specific mechanism or therapy.",
+      "evidence": [
+        {
+          "source_id": "pmid-33241211",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:33241211"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "author-33241211",
+      "subject": "PMID:33241211",
+      "object": "atlas:author:33241211:0",
+      "relation": "authored_by",
+      "explanation": "Named author on this publication; potential research contact subject to expertise and identity checks.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "pmid-33241211",
+          "stance": "supports",
+          "locator": "Title and abstract, indexed through Europe PMC"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "publication:33241211"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-study",
+      "subject": "MONDO:0012812",
+      "object": "NCT:04937062",
+      "relation": "named_in_study",
+      "explanation": "The registered study includes STXBP1 in its condition and arm descriptions.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Registry listing establishes study scope, not efficacy or personal eligibility. Snapshot status: active not recruiting.",
+      "evidence": [
+        {
+          "source_id": "ctg-trial",
+          "stance": "supports",
+          "locator": "Conditions; Collaborators; Study Design; Eligibility; Status"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "study:NCT04937062"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "stx-collaborator",
+      "subject": "atlas:org:stx",
+      "object": "NCT:04937062",
+      "relation": "listed_study_collaborator",
+      "explanation": "The study registry names this patient organization as a collaborator.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "ctg-trial",
+          "stance": "supports",
+          "locator": "Conditions; Collaborators; Study Design; Eligibility; Status"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "study:NCT04937062"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-study",
+      "subject": "atlas:disease:slc6a1-ndd",
+      "object": "NCT:04937062",
+      "relation": "named_in_study",
+      "explanation": "The registered study includes SLC6A1 in its condition and arm descriptions.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "Registry listing establishes study scope, not efficacy or personal eligibility. Snapshot status: active not recruiting.",
+      "evidence": [
+        {
+          "source_id": "ctg-trial",
+          "stance": "supports",
+          "locator": "Conditions; Collaborators; Study Design; Eligibility; Status"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "study:NCT04937062"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "slc-collaborator",
+      "subject": "atlas:org:slc",
+      "object": "NCT:04937062",
+      "relation": "listed_study_collaborator",
+      "explanation": "The study registry names this patient organization as a collaborator.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "ctg-trial",
+          "stance": "supports",
+          "locator": "Conditions; Collaborators; Study Design; Eligibility; Status"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "study:NCT04937062"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    },
+    {
+      "id": "study-sponsor",
+      "subject": "NCT:04937062",
+      "object": "atlas:institution:cornell",
+      "relation": "sponsored_by",
+      "explanation": "Listed lead sponsor in the study registry.",
+      "status": "observed",
+      "confidence": "high",
+      "confidence_basis": "Curator assessment of directness and source coverage; not a clinical probability.",
+      "reviewed_at": "2026-10-04",
+      "caveat": "",
+      "evidence": [
+        {
+          "source_id": "ctg-trial",
+          "stance": "supports",
+          "locator": "Conditions; Collaborators; Study Design; Eligibility; Status"
+        }
+      ],
+      "assessment": {
+        "traceable": true,
+        "source_families": [
+          "study:NCT04937062"
+        ],
+        "source_count": 1,
+        "contradictory_sources": [],
+        "flags": [
+          "Single source lineage; no independent corroboration established"
+        ],
+        "verification_scope": "Provenance and consistency checks, not validation of scientific truth."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "gr-stx",
+      "name": "GeneReviews · STXBP1",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK396561/",
+      "family": "gr-stx",
+      "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources",
+      "reviewed_at": "2026-10-04",
+      "published_at": "2023-09-28",
+      "tier": "expert_review"
+    },
+    {
+      "id": "gr-slc",
+      "name": "GeneReviews · SLC6A1",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK589173/",
+      "family": "gr-slc",
+      "locator": "Molecular Pathogenesis; Clinical Characteristics; Resources",
+      "reviewed_at": "2026-10-04",
+      "published_at": "2023-02-09",
+      "tier": "expert_review"
+    },
+    {
+      "id": "ss-stx",
+      "name": "Simons Searchlight · STXBP1",
+      "url": "https://www.simonssearchlight.org/research/what-we-study/stxbp1/",
+      "family": "simons",
+      "locator": "Research Opportunities and Support Resources",
+      "reviewed_at": "2026-10-04",
+      "tier": "primary_organization"
+    },
+    {
+      "id": "slc-reg",
+      "name": "SLC6A1 Connect · registries",
+      "url": "https://slc6a1connect.org/registry/",
+      "family": "slc6a1-connect",
+      "locator": "Simons Searchlight registry description",
+      "reviewed_at": "2026-10-04",
+      "tier": "primary_organization"
+    },
+    {
+      "id": "pmid-38137001",
+      "name": "PubMed · PMID 38137001",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38137001/",
+      "family": "publication:38137001",
+      "locator": "Title and abstract, indexed through Europe PMC",
+      "reviewed_at": "2026-10-04",
+      "tier": "publication",
+      "published_at": "2023-12-05",
+      "retrieved_at": "2026-10-04T04:01:40.674835+00:00",
+      "doi": "10.3390/genes14122179",
+      "abstract_available": true
+    },
+    {
+      "id": "pmid-26865513",
+      "name": "PubMed · PMID 26865513",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26865513/",
+      "family": "publication:26865513",
+      "locator": "Title and abstract, indexed through Europe PMC",
+      "reviewed_at": "2026-10-04",
+      "tier": "publication",
+      "published_at": "2016-02-10",
+      "retrieved_at": "2026-10-04T04:01:40.674835+00:00",
+      "doi": "10.1212/wnl.0000000000002457",
+      "abstract_available": true
+    },
+    {
+      "id": "pmid-38781976",
+      "name": "PubMed · PMID 38781976",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38781976/",
+      "family": "publication:38781976",
+      "locator": "Title and abstract, indexed through Europe PMC",
+      "reviewed_at": "2026-10-04",
+      "tier": "publication",
+      "published_at": "2024-05-22",
+      "retrieved_at": "2026-10-04T04:01:41.271624+00:00",
+      "doi": "10.1016/j.ajhg.2024.04.021",
+      "abstract_available": true
+    },
+    {
+      "id": "pmid-33241211",
+      "name": "PubMed · PMID 33241211",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33241211/",
+      "family": "publication:33241211",
+      "locator": "Title and abstract, indexed through Europe PMC",
+      "reviewed_at": "2026-10-04",
+      "tier": "publication",
+      "published_at": "2020-10-13",
+      "retrieved_at": "2026-10-04T04:01:41.271624+00:00",
+      "doi": "10.1093/braincomms/fcaa170",
+      "abstract_available": true
+    },
+    {
+      "id": "ctg-trial",
+      "name": "ClinicalTrials.gov · NCT04937062",
+      "url": "https://clinicaltrials.gov/study/NCT04937062",
+      "family": "study:NCT04937062",
+      "locator": "Conditions; Collaborators; Study Design; Eligibility; Status",
+      "reviewed_at": "2026-10-04",
+      "tier": "study_registry",
+      "published_at": "2026-01-22",
+      "retrieved_at": "2026-10-04T04:01:40.038302+00:00"
+    }
+  ],
+  "coverage": {
+    "scope": "Live disease, gene and symptom search across MONDO, HPO, NCBI Gene, PubMed, Europe PMC and ClinicalTrials.gov, with on-demand graphs. Curated STXBP1/SLC6A1 is a starter slice; no claim of complete coverage or validated biology for every rare disease.",
+    "sources": [
+      {
+        "name": "MONDO / HPO",
+        "status": "snapshot + live lookup",
+        "use": "Stable terms and synonyms. Human-native terms only; no automatic equivalence mapping."
+      },
+      {
+        "name": "NCBI Gene / PubMed",
+        "status": "live adapters + paper snapshot",
+        "use": "Gene identity and indexed publications; abstracts are candidates, not confirmed graph claims."
+      },
+      {
+        "name": "Europe PMC",
+        "status": "live adapter + snapshot",
+        "use": "Paper metadata, abstracts, preprint labels; PubMed records share a source lineage."
+      },
+      {
+        "name": "PubTator3",
+        "status": "live entity annotation",
+        "use": "Paper-to-gene, disease and variant mentions with offsets. Automated mentions are candidates, not causal relations."
+      },
+      {
+        "name": "ClinicalTrials.gov",
+        "status": "live adapter + snapshot",
+        "use": "Study scope, status, eligibility, collaborators. Registry listing is not evidence of efficacy."
+      },
+      {
+        "name": "GeneReviews / verified community sites",
+        "status": "curated cited links",
+        "use": "Mechanism summaries and existing registries. Full text is linked, not redistributed."
+      },
+      {
+        "name": "Reactome",
+        "status": "mapping unavailable in snapshot",
+        "use": "No pathway membership was invented when mapping requests failed."
+      },
+      {
+        "name": "ClinVar / ClinGen / Gene2Phenotype",
+        "status": "next integration",
+        "use": "No patient-specific variants or variant-effect claims imported in this demo."
+      },
+      {
+        "name": "OpenAlex / NIH RePORTER / model databases",
+        "status": "next integration",
+        "use": "No author disambiguation, grants, or model availability asserted."
+      }
+    ],
+    "gaps": [
+      "Variant-specific effects and counterevidence require expert full-text review.",
+      "No validated cross-disease treatment recommendation.",
+      "Registry access and measure comparability have not been confirmed.",
+      "No patient records are collected."
+    ],
+    "reviewed_at": "2026-10-04",
+    "moonshot": {
+      "milestone": "Reach a decision on reusing registry measures for a joint natural-history proposal.",
+      "baseline_days": 70,
+      "proposed_days": 7,
+      "factor": 10,
+      "status": "Illustrative planning hypothesis; not measured impact.",
+      "assumptions": [
+        "Existing registry team responds within a week.",
+        "Consent and data access permit comparison.",
+        "A clinician and both patient groups review the proposal.",
+        "No new registry or ethics approval is needed for the initial feasibility decision."
+      ],
+      "validation": "Measure actual time to a documented reuse decision against comparable prior efforts."
+    }
+  },
+  "live_candidates": [],
+  "live_studies": [],
+  "live_provider_status": [],
+  "source_extracts": [
+    {
+      "source_id": "pmid-38137001",
+      "title": "<i>STXBP1</i>-Related Disorders: Clinical Presentation, Molecular Function, Treatment, and Future Directions.",
+      "abstract": "In recent years, the affordability and availability of genetic testing have led to its increased use in clinical care. The increased frequency of testing has led to <i>STXBP1</i> variants being identified as one of the more common variants associated with neurological disorders. In this review, we aim to summarize the common clinical phenotypes associated with <i>STXBP1</i> pathogenic variants, provide an overview of their known natural history, and discuss current research into the genotype to phenotype correlation. We will also provide an overview of the suspected normal function of the <i>STXBP1</i>-encoded Munc18-1 protein, animal models, and experimental techniques that have been developed to study its function and use this information to try to explain the diverse phenotypes associated with <i>STXBP1</i>-related disorders. Finally, we will explore current therapies for <i>STXBP1</i> disorders, including an overview of treatment goals for <i>STXBP1</i>-related disorders, a discussion of the current evidence for therapies, and future directions of personalized medications for <i>STXBP1</i>-related disorders.",
+      "status": "indexed_publication_not_independent_validation"
+    },
+    {
+      "source_id": "pmid-26865513",
+      "title": "STXBP1 encephalopathy: A neurodevelopmental disorder including epilepsy.",
+      "abstract": "<h4>Objective</h4>To give a comprehensive overview of the phenotypic and genetic spectrum of STXBP1 encephalopathy (STXBP1-E) by systematically reviewing newly diagnosed and previously reported patients.<h4>Methods</h4>We recruited newly diagnosed patients with STXBP1 mutations through an international network of clinicians and geneticists. Furthermore, we performed a systematic literature search to review the phenotypes of all previously reported patients.<h4>Results</h4>We describe the phenotypic features of 147 patients with STXBP1-E including 45 previously unreported patients with 33 novel STXBP1 mutations. All patients have intellectual disability (ID), which is mostly severe to profound (88%). Ninety-five percent of patients have epilepsy. While one-third of patients presented with Ohtahara syndrome (21%) or West syndrome (9.5%), the majority has a nonsyndromic early-onset epilepsy and encephalopathy (53%) with epileptic spasms or tonic seizures as main seizure type. We found no correlation between severity of seizures and severity of ID or between mutation type and seizure characteristics or cognitive outcome. Neurologic comorbidities including autistic features and movement disorders are frequent. We also report 2 previously unreported adult patients with prominent extrapyramidal features.<h4>Conclusion</h4>De novo STXBP1 mutations are among the most frequent causes of epilepsy and encephalopathy. Most patients have severe to profound ID with little correlation among seizure onset, seizure severity, and the degree of ID. Accordingly, we hypothesize that seizure severity and ID present 2 independent dimensions of the STXBP1-E phenotype. STXBP1-E may be conceptualized as a complex neurodevelopmental disorder rather than a primary epileptic encephalopathy.",
+      "status": "indexed_publication_not_independent_validation"
+    },
+    {
+      "source_id": "pmid-38781976",
+      "title": "Haploinsufficiency underlies the neurodevelopmental consequences of SLC6A1 variants.",
+      "abstract": "Heterozygous variants in SLC6A1, encoding the GAT-1 GABA transporter, are associated with seizures, developmental delay, and autism. The majority of affected individuals carry missense variants, many of which are recurrent germline de novo mutations, raising the possibility of gain-of-function or dominant-negative effects. To understand the functional consequences, we performed an in vitro GABA uptake assay for 213 unique variants, including 24 control variants. De novo variants consistently resulted in a decrease in GABA uptake, in keeping with haploinsufficiency underlying all neurodevelopmental phenotypes. Where present, ClinVar pathogenicity reports correlated well with GABA uptake data; the functional data can inform future reports for the remaining 72% of unscored variants. Surface localization was assessed for 86 variants; two-thirds of loss-of-function missense variants prevented GAT-1 from being present on the membrane while GAT-1 was on the surface but with reduced activity for the remaining third. Surprisingly, recurrent de novo missense variants showed moderate loss-of-function effects that reduced GABA uptake with no evidence for dominant-negative or gain-of-function effects. Using linear regression across multiple missense severity scores to extrapolate the functional data to all potential SLC6A1 missense variants, we observe an abundance of GAT-1 residues that are sensitive to substitution. The extent of this missense vulnerability accounts for the clinically observed missense enrichment; overlap with hypermutable CpG sites accounts for the recurrent missense variants. Strategies to increase the expression of the wild-type SLC6A1 allele are likely to be beneficial across neurodevelopmental disorders, though the developmental stage and extent of required rescue remain unknown.",
+      "status": "indexed_publication_not_independent_validation"
+    },
+    {
+      "source_id": "pmid-33241211",
+      "title": "Current knowledge of SLC6A1-related neurodevelopmental disorders.",
+      "abstract": "Advances in gene discovery have identified genetic variants in the solute carrier family 6 member 1 gene as a monogenic cause of neurodevelopmental disorders, including epilepsy with myoclonic atonic seizures, autism spectrum disorder and intellectual disability. The solute carrier family 6 member 1 gene encodes for the GABA transporter protein type 1, which is responsible for the reuptake of the neurotransmitter GABA, the primary inhibitory neurotransmitter in the central nervous system, from the extracellular space. GABAergic inhibition is essential to counterbalance neuronal excitation, and when significantly disrupted, it negatively impacts brain development leading to developmental differences and seizures. Aggregation of patient variants and observed clinical manifestations expand understanding of the genotypic and phenotypic spectrum of this disorder. Here, we assess genetic and phenotypic features in 116 individuals with solute carrier family 6 member 1 variants, the vast majority of which are likely to lead to GABA transporter protein type 1 loss-of-function. The knowledge acquired will guide therapeutic decisions and the development of targeted therapies that selectively enhance transporter function and may improve symptoms. We analysed the longitudinal and cell type-specific expression of solute carrier family 6 member 1 in humans and localization of patient and control missense variants in a novel GABA transporter protein type 1 protein structure model. In this update, we discuss the progress made in understanding and treating solute carrier family 6 member 1-related disorders thus far, through the concerted efforts of clinicians, scientists and family support groups.",
+      "status": "indexed_publication_not_independent_validation"
+    },
+    {
+      "source_id": "ctg-trial",
+      "scope": {
+        "conditions": [
+          "STXBP1 Encephalopathy With Epilepsy, SLC6A1 Neurodevelopmental Disorder",
+          "Developmental and Epileptic Encephalopathy"
+        ],
+        "keywords": [
+          "phenylbutyrate, developmental and epileptic encephalopathy"
+        ]
+      },
+      "status": {
+        "statusVerifiedDate": "2026-01",
+        "overallStatus": "ACTIVE_NOT_RECRUITING",
+        "expandedAccessInfo": {
+          "hasExpandedAccess": false
+        },
+        "startDateStruct": {
+          "date": "2021-03-01",
+          "type": "ACTUAL"
+        },
+        "primaryCompletionDateStruct": {
+          "date": "2026-12-01",
+          "type": "ESTIMATED"
+        },
+        "completionDateStruct": {
+          "date": "2026-12-31",
+          "type": "ESTIMATED"
+        },
+        "studyFirstSubmitDate": "2021-06-10",
+        "studyFirstSubmitQcDate": "2021-06-21",
+        "studyFirstPostDateStruct": {
+          "date": "2021-06-23",
+          "type": "ACTUAL"
+        },
+        "lastUpdateSubmitDate": "2026-01-20",
+        "lastUpdatePostDateStruct": {
+          "date": "2026-01-22",
+          "type": "ACTUAL"
+        }
+      },
+      "design": {
+        "studyType": "INTERVENTIONAL",
+        "phases": [
+          "EARLY_PHASE1"
+        ],
+        "designInfo": {
+          "allocation": "NON_RANDOMIZED",
+          "interventionModel": "SINGLE_GROUP",
+          "interventionModelDescription": "This is a pilot, single treatment, multiple-dose, open label, study to be conducted in up to 10 children with STXBP1-E, and 10 with SLC6A1-NDD, and 30 children with monogenetic developmental and epileptic encephalopathy.",
+          "primaryPurpose": "TREATMENT",
+          "maskingInfo": {
+            "masking": "NONE"
+          }
+        },
+        "enrollmentInfo": {
+          "count": 50,
+          "type": "ESTIMATED"
+        }
+      },
+      "collaborators": {
+        "responsibleParty": {
+          "type": "SPONSOR"
+        },
+        "leadSponsor": {
+          "name": "Weill Medical College of Cornell University",
+          "class": "OTHER"
+        },
+        "collaborators": [
+          {
+            "name": "Children's Hospital Colorado",
+            "class": "OTHER"
+          },
+          {
+            "name": "SLC6A1 Connect",
+            "class": "UNKNOWN"
+          },
+          {
+            "name": "STXBP1 Foundation",
+            "class": "UNKNOWN"
+          },
+          {
+            "name": "Clara Inspired",
+            "class": "UNKNOWN"
+          },
+          {
+            "name": "University of Pennsylvania Orphan Disease Center",
+            "class": "UNKNOWN"
+          },
+          {
+            "name": "Horizon Therapeutics",
+            "class": "UNKNOWN"
+          }
+        ]
+      },
+      "outcomes": {
+        "primaryOutcomes": [
+          {
+            "measure": "Short Term Adverse events (i.e., safety)",
+            "description": "The qualitative safety endpoint will describe any adverse events. It will include a description of the incidence, frequency, and severity of adverse events (including known side effects of the medication, changes in vital signs, EKG changes, EEG changes, increase in seizures, changes in clinical laboratory results, and/or changes in physical examination). We will monitor for these adverse events throughout the study, and measure them definitely at the time of the second admission.",
+            "timeFrame": "20 weeks"
+          },
+          {
+            "measure": "Long Term Adverse events (i.e., safety)",
+            "description": "The long term qualitative safety endpoint will describe any adverse events. It will include a description of the incidence, frequency, and severity of adverse events (including known side effects of the medication, changes in vital signs, EKG changes, EEG changes, increase in seizures, changes in clinical laboratory results, and/or changes in physical examination). We will monitor for these adverse events throughout the study, and measure them yearly until December 2025.",
+            "timeFrame": "through December 2025 (1 - 5 years, depending on participant)"
+          },
+          {
+            "measure": "Percentage of doses taken by participants (i.e., tolerability)",
+            "description": "The tolerability endpoint is quantitative and will measure medication compliance (i.e. what percentage of the doses are taken).",
+            "timeFrame": "20 weeks"
+          }
+        ],
+        "secondaryOutcomes": [
+          {
+            "measure": "Plasma concentration of phenylbutyrate",
+            "description": "We will measure the plasma concentration of phenylbutyrate at the second inpatient admission.",
+            "timeFrame": "20 weeks"
+          }
+        ]
+      },
+      "results_posted": false,
+      "summary": "This study is to evaluate the use of glycerol phenylbutyrate for monogenetic developmental epileptic encephalopathies (DEEs). DEEs are characterized by epilepsy and developmental delay in early life.\n\nTwo examples of DEEs are STXBP1 and SLC6A1, though there are dozens of others.\n\nSTXBP1 Encephalopathy is a severe disease that can cause seizures and developmental delays in infants and children. SLC6A1 neurodevelopmental disorder is characterized by developmental delay and often epilepsy. Both STXBP1 encephalopathy and SLC6A1 neurodevelopmental disorder cause symptoms because there are not enough working proteins made by these genes.\n\nIt is possible that a medication called phenylbutyrate may help the the remaining proteins work better for STXBP1, SLC6A1, and/or other similar DEEs caused by single genes (i.e. \"monogenetic\"). This study is to test if glycerol phenylbutyrate is safe and well tolerated in children with monogenetic DEE.",
+      "eligibility": "\\###### STXBP1 / SLC6A1 ARM\n\nInclusion Criteria:\n\n* Diagnosed with STXBP1-E or SLC6A1-NDD; confirmed by laboratory report (i.e., a genetic test with a pathogenic or likely pathogenic mutation of STXBP1 or SLC6A1-NDD and a clinical picture consistent with the disorder, as determined by the Investigator). Patients with the appropriate clinical picture, a de novo variant of uncertain significance in STXBP1 or SLC6A1-NDD will also be eligible for enrollment, at the discretion of the Investigator.\n* Is between 2 months and 17 years of age, inclusive.\n* For children with STXBP1-E, the child must have had at least one seizure in the past 30 days prior to enrollment. If there is high demand for the study and we have several subjects to choose, we will prefer to enroll children with a high number of seizures in the past month.\n* For SLC6A1-NDD, seizures occur later in the course (typically middle of 1st decade) and so seizures will not be an entry criteria.\n* Is in general good health, aside from neurological consequences of STXBP1-E or SLC6A1-NDD, as determined by having no concurrent medical illness, in the opinion of the site investigator, that places the subject at increased risk of adverse drug reactions or that will interfere with study follow-up.\n* Has normal laboratory test results (≤ 1.5 × upper limit of normal \\[ULN\\]) for serum aminotransferase (aspartate aminotransferas \\[AST\\] and alanine aminotransferase \\[ALT\\]) concentrations and ammonia at Screening.\n* Has normal renal function, with estimated glomerular filtration rate \\> 90 mL/minute/1.73 m2 at Screening (using the Chronic Kidney Disease Epidemiology Collaboration equation).\n* Has a platelet count \\> 150 × 103/μL at Screening.\n* Has a QT interval corrected with Fridericia's formula (QTcF) \\< 450 msec on the Screening EKG.\n* Parent or guardian is able to comprehend and willing to sign an informed consent form (ICF).\n\nExclusion Criteria:\n\n* Has participated in another investigational study within 30 days or 5 half-lives of the test drug's biologic activity (whichever is longer) before the first study drug dose.\n* Has a QT interval corrected with Fridericia's formula (QTcF) ≥ 450 msec on the Screening EKG.\n* Has an active medical illness that would preclude participation in the study (as determined by the Investigator).\n* Has a clinical laboratory evaluation outside of the test laboratory reference range, unless deemed not clinically significant by the Investigator and the Sponsor.\n* Is unable to comply with the study protocol.\n* Has poor venous access and/or cannot tolerate venipuncture.\n* Is pregnant\n* Is a female of child-bearing age (12 years old or older) and known to be sexually active (for example, as determined through a confidential HEADDSSS history), and not taking medication for contraception. This will be assessed confidentially as per good general pediatrics practice\n* Known hypersensitivity to phenylbutyrate. Signs of hypersensitivity include wheezing, dyspnea, coughing, hypotension, flushing, nausea, and rash.\n* Taking alfentanil, quinidine, cyclosporine, or probenecid (known interactions with phenylbutyrate). For subjects who had taken any of these medications in the past, the last dose must have been taken at least 1 week prior to enrollment into the study.\n* Inborn errors of beta oxidation.\n* Pancreatic insufficiency or intestinal malabsorption\n\n  \\###### MONOGENETIC DEE ARM Inclusion Criteria\n* Diagnosed with a monogenic developmental and epileptic encephalopathy; confirmed by laboratory report (i.e., a genetic test with a pathogenic or likely pathogenic mutation of a monogenic developmental and epileptic encephalopathy and a clinical picture consistent with the disorder, as determined by the Investigator). Children with the appropriate clinical picture, a de novo variant of uncertain significance in a monogenic developmental and epileptic encephalopathy will also be eligible for enrollment, at the discretion of the Investigator. If the mutant is classified as definitively non-pathogenic, we would not enroll the child. \"Appropriate clinical picture\" is at the discretion of the Investigator.\n* Is between 0 months and 15 years of age, inclusive.\n* The child must have had at least one seizure in the past 30 days prior to enrollment. (If there is high demand for the study and we have several subjects to choose, we will prefer to enroll children with a high number of seizures in the past month.)\n* Is in general good health, aside from neurological consequences of their monogenic developmental and epileptic encephalopathy, as determined by having no concurrent medical illness, in the opinion of the site investigator, that places the subject at increased risk of adverse drug reactions or that will interfere with study follow-up.\n* Has normal laboratory test results (≤ 1.5 × upper limit of normal \\[ULN\\]) for serum aminotransferase (aspartate aminotransferas \\[AST\\] and alanine aminotransferase \\[ALT\\]) concentrations and ammonia.\n* Has normal renal function, with estimated glomerular filtration rate \\> 90 mL/minute/1.73 m2 at Screening (using the Chronic Kidney Disease Epidemiology Collaboration equation).\n* Has a platelet count \\> 150 × 103/μL at Screening.\n* Has a QT interval corrected with Fridericia's formula (QTcF) \\< 450 msec on the Screening EKG.\n* Parent or guardian is able to comprehend and willing to sign an informed consent form (ICF).\n\nExclusion Criteria:\n\n* Has participated in another investigational study within 30 days or 5 half-lives of the test drug's biologic activity (whichever is longer) before the first study drug dose.\n* Has a QT interval corrected with Fridericia's formula (QTcF) ≥ 450 msec on the Screening EKG.\n* Has an active medical illness that would preclude participation in the study (as determined by the Investigator).\n* Has a clinical laboratory evaluation outside of the test laboratory reference range, unless deemed not clinically significant by the Investigator and the Sponsor.\n* Is unable to comply with the study protocol.\n* Has poor venous access and/or cannot tolerate venipuncture.\n* Is pregnant\n* Is a female of child-bearing age (12 years old or older) and known to be sexually active (for example, as determined through a confidential HEADDSSS history), and not taking medication for contraception. This will be assessed confidentially as per good general pediatrics practice\n* Known hypersensitivity to phenylbutyrate. Signs of hypersensitivity include wheezing, dyspnea, coughing, hypotension, flushing, nausea, and rash.\n* Taking alfentanil, quinidine, cyclosporine, or probenecid (known interactions with phenylbutyrate). For subjects who had taken any of these medications in the past, the last dose must have been taken at least 1 week prior to enrollment into the study.\n* Inborn errors of beta oxidation.\n* Pancreatic insufficiency or intestinal malabsorption"
+    }
+  ],
+  "community_candidates": [],
+  "extract_limitations": "GeneReviews and community links were manually curated; their full text is not in this packet. Expert source review is required where original extracts are absent."
+}

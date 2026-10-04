@@ -121,6 +121,28 @@ class EvidenceTests(unittest.TestCase):
         self.assertIn('https://', text)
         self.assertIn('No outreach has been sent', text)
 
+    def test_audience_and_language_reach_both_passes_and_export(self):
+        review = {'summary': 'Adapted review', 'findings': [{'statement': 'Evidence lead', 'status': 'hypothesis', 'citation_ids': ['gr-stx'], 'limitations': 'Uncertain'}], 'actions': [], 'missing_evidence': ['Functional evidence']}
+        graph = self.graph()
+        for role, phrase in (('maria', 'Explain every necessary technical term'), ('researcher', 'variant-specific mechanisms'), ('clinician', 'phenotype specificity'), ('industry', 'evidence maturity')):
+            with patch.dict(os.environ, {'ATLAS_AGENT_PROVIDER': 'openai', 'OPENAI_API_KEY': 'test'}), patch('atlas.agent.model_call', return_value=review) as call:
+                report = analyze(graph, use_openai=True, role=role, language='zh-CN')
+            self.assertEqual(report['role'], role)
+            self.assertEqual(report['language'], 'zh-CN')
+            for invocation in call.call_args_list:
+                self.assertIn(phrase, invocation.args[1])
+                self.assertIn('Simplified Chinese', invocation.args[1])
+                self.assertIn('never evidence strength', invocation.args[1])
+            exported = proposal_markdown(report, graph)
+            self.assertIn('Adapted review', exported)
+            self.assertIn('Evidence lead', exported)
+            self.assertIn('https://', exported)
+
+    def test_unknown_audience_and_language_are_rejected(self):
+        for args in ({'role': 'unknown'}, {'language': 'unknown'}, {'role': []}):
+            with self.assertRaises(ValueError):
+                analyze(self.graph(), **args)
+
 
 class ProviderTests(unittest.TestCase):
     def test_deduplication_preprint_and_retraction_filters(self):

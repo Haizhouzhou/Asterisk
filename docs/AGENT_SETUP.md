@@ -1,4 +1,25 @@
-# Connect Bright Data and a Lovable agent
+# Connect Gemini, Bright Data and a Lovable agent
+
+## Gemini API
+
+Create a key in [Google AI Studio](https://aistudio.google.com/apikey). Check your project's free-tier availability and quotas against [Google's pricing](https://ai.google.dev/gemini-api/docs/pricing). The default model is `gemini-3.1-flash-lite`; override `GEMINI_MODEL` with a supported structured-output model available to your project.
+
+Stop the running server. In PowerShell from the repository directory, run:
+
+```powershell
+$env:ATLAS_AGENT_PROVIDER = 'gemini'
+$env:GEMINI_MODEL = 'gemini-3.1-flash-lite'
+$secret = Read-Host 'Gemini API key' -AsSecureString
+$env:GEMINI_API_KEY = [System.Net.NetworkCredential]::new('', $secret).Password
+Remove-Variable secret
+python -m atlas.server --port 8001
+```
+
+Open http://127.0.0.1:8001, search a disease, enable **Agent review**, then click **Review evidence**. Each review normally makes two requests: extraction and critique. No additional Python packages are needed. Configuration is inherited from the terminal starting the server; `.env` is not automatically loaded.
+
+The key is sent only in the backend `x-goog-api-key` header to Google's fixed HTTPS host; redirects are rejected. Structured JSON is checked using the existing citation validator. Blocked, incomplete or invalid responses preserve ordinary evidence checks. Free-tier requests have quotas and data-use terms; use public research evidence, and do not submit private patient data. The adapter is tested with mocked responses; a real authenticated call requires your key.
+
+If HTTP 429 occurs, check the project's available quota before retrying. If HTTP 404 occurs, check model availability. Do not paste keys into chat, Git, screenshots or frontend configuration.
 
 All integrations run in the Python backend. The live graph works without paid providers. The integration code is in `atlas/integrations.py`; agents receive a filtered evidence packet and cannot silently promote graph edges or send outreach.
 
@@ -49,6 +70,8 @@ Example response (replace example citation IDs with IDs actually supplied in the
 
 Lovable/Supabase stores backend secrets outside app code. [Official secrets guidance](https://docs.lovable.dev/integrations/supabase).
 
+For a Lovable application server route, use its published URL (for example, `https://YOUR-PUBLISHED-DOMAIN/api/public/atlas-review`), not the login-protected preview URL. Set `ATLAS_AGENT_ALLOWED_HOSTS` to that published hostname and retain shared-token authentication in the route. Supabase `verify_jwt` settings apply only to Supabase Edge Functions. Integration requests identify themselves as `atlas-backend/1.0`; this avoids the observed Cloudflare 1010 rejection of the default Python urllib client identifier. Restart the Python server after changing configuration or code.
+
 ## Option 2: Bright Data as the retrieval tool
 
 Bright Data's Web Unlocker retrieves source pages; it is not itself the reasoning/validation model. Create an appropriate Web Unlocker zone in your account and supply:
@@ -86,3 +109,7 @@ Use a specific, verified community page relevant to the disease. The source host
 - Revoke and rotate any key accidentally committed or shared; deleting the visible copy does not revoke it.
 
 Paid integrations are wired and tested with mock services; no real Bright Data or Lovable paid request is made until you configure and invoke them.
+
+## Audience-adapted reviews
+
+Select Maria (plain language), biomedical researcher, clinical professional, or research development professional in the page header. The selected interface language (`en` or `zh-CN`) controls AI review language. The backend sends trusted audience instructions in both extraction and critique tasks, using the existing webhook contract and response schema. No Lovable redeployment is needed if the endpoint follows the supplied task. All readers receive the same evidence and citation checks. Rule-based fallback text is not AI-adapted. Downloaded proposals include the adapted model review when successful. Restart the Python server and reload the page after updating this code.

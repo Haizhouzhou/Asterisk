@@ -1,0 +1,10 @@
+{
+  "producer": "OpenAI Codex coding session",
+  "method": "Precomputed structured review authored in this Codex session from the committed public evidence; not a separate CLI execution",
+  "prompt": "prompts/codex_review.md",
+  "audience": "maria",
+  "language": "en",
+  "evidence_sha256": "99ecbcd2998bbde4fd9d33301671c6ba6808440d285cd5daf41c4070e3722866",
+  "review_sha256": "bddf15d1b002f003da27cb1819451b4c42d46ffb68c99aba561fb236651ed0f1",
+  "verification": "Structure, citation membership and checksum checks; not independent scientific validation"
+}

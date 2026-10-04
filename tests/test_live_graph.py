@@ -3,11 +3,12 @@ import json
 import os
 import tempfile
 import unittest
+from urllib.error import HTTPError
 from pathlib import Path
 from unittest.mock import patch
 
 from atlas.live_graph import build_live_view, view_graph
-from atlas.integrations import configuration, external_agent, secure_request, brightdata_page
+from atlas.integrations import configuration, external_agent, secure_request, brightdata_page, review_error, gemini_agent
 from atlas.agent import analyze
 from atlas.store import Store
 
@@ -74,6 +75,36 @@ class LiveGraphTests(unittest.TestCase):
 
 
 class IntegrationSecurityTests(unittest.TestCase):
+    def test_gemini_configuration_and_key_in_header_only(self):
+        review = {'summary': 'Public evidence'}
+        response = {'candidates': [{'finishReason': 'STOP', 'content': {'parts': [{'text': json.dumps(review)}]}}]}
+        with patch.dict(os.environ, {'ATLAS_AGENT_PROVIDER': 'gemini', 'GEMINI_API_KEY': 'secret-value'}, clear=True), patch('atlas.integrations.secure_request', return_value=response) as send:
+            self.assertTrue(configuration()['configured'])
+            self.assertNotIn('secret-value', json.dumps(configuration()))
+            self.assertEqual(gemini_agent({'sources': []}, 'Review', {}), review)
+            args = send.call_args.args
+            self.assertNotIn('secret-value', args[0] + json.dumps(args[1]))
+            self.assertEqual(args[2], {'x-goog-api-key': 'secret-value'})
+
+    def test_gemini_rejects_incomplete_and_reflected_secret(self):
+        responses = [
+            {'candidates': [{'finishReason': 'MAX_TOKENS'}]},
+            {'candidates': [{'finishReason': 'STOP', 'content': {'parts': [{'text': '{"summary":"secret-value"}'}]}}]},
+            {'promptFeedback': {'blockReason': 'SAFETY'}},
+        ]
+        for response in responses:
+            with patch.dict(os.environ, {'GEMINI_API_KEY': 'secret-value'}, clear=True), patch('atlas.integrations.secure_request', return_value=response):
+                with self.assertRaises(ValueError):
+                    gemini_agent({}, 'Review', {})
+
+    def test_http_diagnostics_expose_status_without_upstream_secrets(self):
+        for status in (302, 401, 403, 404, 413, 415, 429, 500, 503):
+            error = HTTPError('https://secret.example/token', status, 'secret-value', {'Authorization': 'secret-value'}, None)
+            message = review_error(error)
+            self.assertIn(f'HTTP {status}', message)
+            self.assertNotIn('secret', message.replace('shared secret', 'configuration'))
+            self.assertIn('Evidence checks remain available', message)
+
     def test_health_configuration_contains_no_secrets(self):
         with patch.dict(os.environ,{'ATLAS_AGENT_PROVIDER':'webhook','ATLAS_AGENT_ENDPOINT':'https://trusted.example/review','ATLAS_AGENT_TOKEN':'secret-value','ATLAS_AGENT_ALLOWED_HOSTS':'trusted.example'},clear=True):
             config=configuration()
