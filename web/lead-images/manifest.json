@@ -1,0 +1,32 @@
+[
+  {
+    "id": "atlas:org:slc",
+    "page": "https://slc6a1connect.org/",
+    "image_source": "https://slc6a1connect.org/wp-content/uploads/2026/05/supporting-research-to-unlock-a-cure.jpg",
+    "file": "atlas-org-slc.png"
+  },
+  {
+    "id": "atlas:asset:simons",
+    "page": "https://www.simonssearchlight.org/",
+    "image_source": "https://cdn.simonssearchlight.org/wp-content/uploads/2022/03/31115841/900x504-general-16.png",
+    "file": "atlas-asset-simons.png"
+  },
+  {
+    "id": "community:gaucher:ngf",
+    "page": "https://www.gaucherdisease.org/",
+    "image_source": "https://www.gaucherdisease.org/wp-content/uploads/2022/07/NGF-OG-Share.jpg",
+    "file": "community-gaucher-ngf.png"
+  },
+  {
+    "id": "community:fabry:fin",
+    "page": "https://www.fabrynetwork.org/",
+    "image_source": "https://www.fabrynetwork.org/new/wp-content/uploads/2022/09/fin-1x.png",
+    "file": "community-fabry-fin.png"
+  },
+  {
+    "id": "community:fabry:fsig",
+    "page": "https://www.fabry.org/",
+    "image_source": "https://irp.cdn-website.com/337ca4fe/dms3rep/multi/opt/Logo-FSIG-Full_A-1920w.jpg",
+    "file": "community-fabry-fsig.png"
+  }
+]

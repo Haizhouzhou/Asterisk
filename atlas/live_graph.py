@@ -8,6 +8,7 @@ from urllib.parse import quote
 from atlas.graph import filtered_graph, coverage
 from atlas.providers import pubtator_annotations
 from atlas.store import normalize
+from atlas.communities import matching_communities
 
 
 def build_live_view(live, identity_id=None, annotate=True):
@@ -66,7 +67,9 @@ def build_live_view(live, identity_id=None, annotate=True):
             if not author:
                 continue
             author_id = 'atlas:author:' + id + ':' + str(index)
-            add_node(author_id, 'researcher', author, identity_note='Publication-scoped identity. Not disambiguated; current role and contact information must be verified.')
+            profile = next((x for x in paper.get('author_profiles', []) if x['name'] == author), {})
+            add_node(author_id, 'researcher', author, url=paper['url'], affiliation=profile.get('affiliation'), email=profile.get('email'),
+                     identity_note='Publication-scoped identity and affiliation contact. Not disambiguated; current role and contact information must be verified.')
             edge(id, author_id, 'authored_by', 'This person is listed as an author in the indexed publication.', src, 'Author list')
     for trial in live['studies'][:8]:
         id = 'NCT:' + trial['id'][3:]
@@ -76,6 +79,25 @@ def build_live_view(live, identity_id=None, annotate=True):
         source(src, 'ClinicalTrials.gov · ' + trial['id'], trial['url'], 'Study search, conditions, status and eligibility')
         edge(root, id, 'returned_by_study_search', 'This study was returned for "' + query + '"; listed conditions: ' + '; '.join(trial['conditions']) + '.', src, 'query.term=' + query,
              caveat='Search relevance, biological applicability, and personal eligibility require review. Status: ' + trial['status'].replace('_', ' ').lower() + '.')
+        for index, person in enumerate(trial.get('contacts', []) + trial.get('officials', [])):
+            if not person.get('name'):
+                continue
+            person_id = 'study-contact:' + trial['id'] + ':' + str(index)
+            add_node(person_id, 'researcher', person['name'], email=person.get('email'), phone=person.get('phone'),
+                     contact_url=trial['url'], url=trial['url'], affiliation=person.get('affiliation'))
+            edge(id, person_id, 'listed_study_contact', 'The registry lists this person as a study contact or official.', src, 'contactsLocationsModule')
+        if trial.get('sponsor'):
+            sponsor_id = 'study-sponsor:' + hashlib.sha256(trial['sponsor'].encode()).hexdigest()[:16]
+            add_node(sponsor_id, 'institution', trial['sponsor'], url=trial['url'], contact_url=trial['url'], description='Lead sponsor in the retrieved study record. The registry is a source link, not the institution website.')
+            edge(id, sponsor_id, 'sponsored_by', 'Listed lead study sponsor.', src, 'sponsorCollaboratorsModule.leadSponsor')
+    for community in matching_communities(query, selected):
+        cid = community['id']
+        add_node(cid, 'asset' if cid == 'atlas:asset:simons' else 'organization', community['name'],
+                 **{k: v for k, v in community.items() if k not in ('id', 'name', 'terms')}, url=community['website'])
+        src = 'community:' + cid
+        source(src, community['name'] + ' public profile', community['source'], 'Reviewed community directory; exact disease/gene match')
+        edge(root, cid, 'has_patient_community', 'The reviewed directory links this disease or gene query to this community.', src,
+             'Exact directory term match: ' + query, caveat='Directory coverage is limited. Confirm current services and suitability with the organization.')
     annotations = []
     if annotate:
         try:

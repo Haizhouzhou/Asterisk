@@ -37,28 +37,42 @@
       <p class="home-try"><span>Try</span> <button class="text-button home-q" data-query="STXBP1">STXBP1</button> · <button class="text-button home-q" data-query="SLC6A1">SLC6A1</button> · <button class="text-button home-q" data-query="seizures">seizures</button> · <button class="text-button home-q" data-query="low muscle tone">low muscle tone</button></p>
       <p class="home-foot">Research navigation · expert review required for clinical decisions</p>
     </section>
-    <section class="search-section" aria-label="Search the atlas"><div><span class="eyebrow">FIND YOUR NEXT CONNECTION</span><h1>Where could your research go next?</h1></div>
+    <section class="search-section" aria-label="Search the atlas"><div><span class="eyebrow">YOU DO NOT HAVE TO NAVIGATE THIS ALONE</span><h1>Find support and people who understand.</h1><a class="ai-jump" href="#ai-guide">Understand your condition &amp; treatment research with AI ↓</a></div>
       <form id="search-form"><label class="sr-only" for="search">Search a disease, gene, or symptom</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" autocomplete="off" maxlength="160" placeholder="Search a disease, gene, or symptom…" value="STXBP1"><button type="submit">Explore <span aria-hidden="true">→</span></button></div></form>
       <div class="search-meta"><span>Try <button class="text-button example" data-query="SLC6A1">SLC6A1</button>, <button class="text-button example" data-query="seizures">seizures</button>, or <button class="text-button example" data-query="low muscle tone">low muscle tone</button></span><span id="identity">Loading the evidence map…</span></div>
       <div id="search-results" hidden></div>
     </section>
+    <section class="people-hub" aria-label="Community and research connections">
+      <div class="hub-heading"><div><span class="eyebrow">START WITH PEOPLE</span><h2>Find a community. Start a conversation.</h2><p>Existing support networks and research contacts connected to your search.</p></div></div>
+      <details class="result-options"><summary>More options</summary><div class="hub-filters"><label class="check"><input id="show-communities" type="checkbox" checked> Communities</label><label class="check"><input id="show-research" type="checkbox" checked> Researchers & institutions</label><label class="check"><input id="show-indirect" type="checkbox" checked> Indirect connections</label><label class="check"><input id="show-no-contact" type="checkbox" checked> Leads without direct contact</label><label class="check"><input id="show-criteria" type="checkbox" checked> Ranking criteria</label></div>
+      </details>
+      <div id="community-results"></div><div id="research-results"></div>
+
+    </section>
+    <details class="graph-optional" id="graph-optional"><summary>More for researchers <span>Graph &amp; technical details</span></summary>
+    <div class="graph-expand-bar"><button id="expand-graph" class="secondary" aria-pressed="false">Enlarge graph workspace</button><label class="check"><input id="graph-science" type="checkbox" checked> Show papers, genes & mechanisms</label></div>
     <div class="workspace">
       <aside class="sidebar"><div class="sidebar-top"><span class="eyebrow">YOUR RESEARCH MAP</span><h2>Research connections</h2><p>Start with what is known. Explore what could be shared.</p></div><div id="cluster-list"></div>
-        <div class="filter-block"><label for="confidence">Evidence confidence</label><select id="confidence"><option value="moderate">Moderate & high</option><option value="high">High only</option><option value="low">All confidence levels</option></select><label class="check"><input type="checkbox" id="hypotheses" checked> Show research hypotheses</label><p class="small">Confidence is a curator assessment of the evidence, not a probability of benefit.</p></div>
-        <div class="map-key"><div><span class="key-line"></span>Documented relationship</div><div><span class="key-line dashed"></span>Proposed connection</div><div><span class="key-line disputed"></span>Limitation / counterexample</div><p>Node area is proportional to documented connections in this map. Select a line to see why it exists.</p></div>
+        <div class="filter-block"><label for="confidence">Evidence confidence</label><select id="confidence"><option value="moderate">Moderate & high</option><option value="high">High only</option><option value="low">All confidence levels</option></select><label class="check"><input type="checkbox" id="hypotheses" checked> Show research hypotheses</label></div>
+        <div class="map-key"><div><span class="key-line"></span>Documented relationship</div><div><span class="key-line dashed"></span>Proposed connection</div><div><span class="key-line disputed"></span>Limitation / counterexample</div></div>
         <div class="scope-note"><span class="status-dot"></span><div>A focused first chapter<small>STXBP1 + SLC6A1<br>Reviewed 4 October 2026</small></div></div>
       </aside>
       <section class="map-panel" aria-label="Research network"><div class="map-toolbar"><div class="segmented" role="group" aria-label="Map view"><button id="network-tab" class="active">Network</button><button id="papers-tab">Related papers</button></div><div class="map-controls"><button class="quiet" id="fit" title="Reset graph view">Fit map ⊞</button></div></div>
-        <div id="network-view"><div class="map-caption"><span class="eyebrow">CONNECTED BY EVIDENCE</span><span id="graph-count"></span></div><svg id="graph" viewBox="0 0 800 680" role="group" aria-label="Interactive evidence graph"></svg><div class="map-footer"><span id="map-status">Loading…</span><span>Scroll to zoom · Drag to pan · Select to inspect</span></div></div>
+        <div id="network-view"><div class="map-caption"><span class="eyebrow">CONNECTED BY EVIDENCE</span><span id="graph-count"></span></div><svg id="graph" viewBox="0 0 800 680" role="group" aria-label="Interactive evidence graph"></svg><div class="map-footer"><span id="map-status">Loading…</span><span>Scroll to zoom &middot; Drag to pan &middot; Select to inspect</span></div></div>
         <div id="papers-view" hidden><div class="paper-header"><h2>Follow the published evidence</h2><p>Reading leads are separated from confirmed claims.</p><button id="live-papers" class="secondary">Search public sources ↗</button></div><div id="paper-list"></div><div id="live-results"></div></div>
-        <div class="research-bar"><div><span class="agent-mark" aria-hidden="true">✧</span><span><strong>From connections to a next step</strong><small>Filter evidence → check sources → review a research proposal</small></span></div><button id="review" class="primary">Review evidence <span aria-hidden="true">→</span></button></div>
+      </section>
+
+    </div>
+      <details id="technical-details" class="technical-details"><summary>Connection details &amp; source evidence</summary>      <aside class="detail-panel"><div class="detail-tabs" role="group" aria-label="Details"><button data-detail="connection" class="active">Connection</button><button data-detail="evidence">Evidence</button></div><div id="details" aria-live="polite"></div></aside></details>
+    </details>
+    <section id="ai-guide" class="ai-review-panel" tabindex="-1" aria-label="AI guide for patients and families">        <div class="research-bar"><div><span class="agent-mark" aria-hidden="true">✧</span><span><strong>Understand your condition and possible treatments</strong><small>An AI guide for patients and families — explained simply, with sources</small></span></div><button id="review" class="primary">Help me understand <span aria-hidden="true">→</span></button></div>
         <div class="review-options"><label class="check"><input id="use-live" type="checkbox"> Refresh papers & studies for the review</label><label class="check"><input id="use-openai" type="checkbox" disabled> Agent review <span id="agent-status">(checking configuration)</span></label></div>
         <p id="progress" class="progress" role="status" aria-live="polite"></p>
-      </section>
-      <aside class="detail-panel"><div class="detail-tabs" role="group" aria-label="Details"><button data-detail="connection" class="active">Connection</button><button data-detail="evidence">Evidence</button><button data-detail="actions">Next steps</button></div><div id="details" aria-live="polite"></div></aside>
-    </div>
+<div id="review-output"></div></section>
     <footer class="page-footer"><span>One disease is a starting point. Evidence shows the way forward.</span><span>Research navigation · expert review required for clinical decisions</span></footer>
+    <div class="page-help"><details class="graph-help"><summary>About confidence</summary><p>Confidence is a curator assessment of the evidence, not a probability of benefit.</p></details><details class="graph-help"><summary>About node size</summary><p>Node area is proportional to documented connections in this map. Select a line to see why it exists.</p></details></div>
   </main>
   <dialog id="coverage-dialog" class="glass-dialog" aria-labelledby="coverage-title"><div class="dialog-top"><span class="eyebrow">KNOW WHAT THIS MAP CAN TELL YOU</span><button type="button" id="coverage-close" class="dialog-close" aria-label="Close sources and coverage"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 3l6 6M9 3 3 9"/></svg></button></div><h2 id="coverage-title">Sources, scope & missing evidence</h2><div id="coverage-content"></div></dialog>
+<dialog id="research-dialog" aria-labelledby="research-dialog-title"><div class="dialog-top"><h2 id="research-dialog-title">Researchers &amp; institutions</h2><button id="research-close" class="quiet" aria-label="Close researcher list">✕</button></div><div id="research-list"></div></dialog>
 </body>
 </html>

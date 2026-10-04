@@ -82,6 +82,10 @@ def pubmed(query):
                        'url': 'https://pubmed.ncbi.nlm.nih.gov/' + pmid + '/', 'source': 'PubMed', 'lineage': 'publication:' + pmid,
                        'publication_types': types, 'preprint': 'Preprint' in types, 'retracted': any('Retract' in t for t in types),
                        'authors': [((x.findtext('ForeName') or '') + ' ' + (x.findtext('LastName') or '')).strip() for x in med.findall('Article/AuthorList/Author')],
+                       'author_profiles': [{'name': ((x.findtext('ForeName') or '') + ' ' + (x.findtext('LastName') or '')).strip(),
+                                            'affiliation': ' '.join(a.itertext()).strip(),
+                                            'email': (re.findall(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', ' '.join(a.itertext())) or [None])[0]}
+                                           for x in med.findall('Article/AuthorList/Author') for a in x.findall('AffiliationInfo/Affiliation')[:1]],
                        'year': med.findtext('Article/Journal/JournalIssue/PubDate/Year') or med.findtext('Article/Journal/JournalIssue/PubDate/MedlineDate'),
                        'claim_status': 'unreviewed_candidate'})
     return papers
@@ -129,6 +133,10 @@ def trials(query):
                        'last_updated': p['statusModule'].get('lastUpdatePostDateStruct', {}).get('date'),
                        'conditions': p.get('conditionsModule', {}).get('conditions', []), 'url': 'https://clinicaltrials.gov/study/' + id,
                        'eligibility': p.get('eligibilityModule', {}).get('eligibilityCriteria', ''), 'results_posted': bool(t.get('hasResults')),
+                       'sponsor': p.get('sponsorCollaboratorsModule', {}).get('leadSponsor', {}).get('name'),
+                       'collaborators': p.get('sponsorCollaboratorsModule', {}).get('collaborators', []),
+                       'contacts': p.get('contactsLocationsModule', {}).get('centralContacts', []),
+                       'officials': p.get('contactsLocationsModule', {}).get('overallOfficials', []),
                        'claim_status': 'unreviewed_candidate', 'eligibility_assessed': False})
     return result
 

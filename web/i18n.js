@@ -32,6 +32,15 @@
     'A clinician and both patient groups review the proposal.':'一名临床医生和两个患者组织共同审阅提案。',
     'No new registry or ethics approval is needed for the initial feasibility decision.':'初步可行性决策无需新建登记库，也无需新的伦理审批。',
     'Measure actual time to a documented reuse decision against comparable prior efforts.':'对照以往可比的工作，测量实际作出有记录的复用决策所用的时间。',
+    'About this community':'社群简介来源',
+    'About this community — official website':'社群简介 — 官方网站',
+    'A parent-led foundation supporting families affected by STXBP1-related disorders. It funds research and helps families understand the condition and get involved.':'由家长发起的基金会，为受 STXBP1 相关疾病影响的家庭提供支持，资助研究，并帮助家庭了解疾病和参与相关活动。',
+    'Supports families affected by SLC6A1-related disorders and funds research into new treatments. Offers guidance after diagnosis and connections to specialists and research opportunities.':'支持受 SLC6A1 相关疾病影响的家庭，资助新疗法研究，提供确诊后的指导，并帮助家庭联系专科医生和了解研究参与机会。',
+    'An international research program connecting families with rare genetic neurodevelopmental disorders and scientists. Collects medical histories, surveys and optional blood samples to support research.':'连接罕见遗传性神经发育障碍家庭与科学家的国际研究项目，通过收集病史、问卷和自愿提供的血液样本支持研究。',
+    'Supports U.S. patients with Gaucher disease and their families through education, patient services and financial assistance. Helps families find specialists and connect with others.':'为美国戈谢病患者及家庭提供科普、患者服务和经济援助，帮助家庭寻找专科医生并与其他家庭建立联系。',
+    'Provides education and support for people with Fabry disease and their families. Offers family events, assistance programs and a directory of Fabry specialists.':'为法布雷病患者及家庭提供科普与支持，包括家庭活动、援助项目和专科医生名录。',
+    'Connects Fabry patient organizations around the world. Shares information and supports collaboration to improve the lives of people affected by Fabry disease.':'连接世界各地的法布雷病患者组织，通过信息分享与合作，帮助改善患者的生活。',
+    'Offers education, advocacy and a supportive community for people affected by Fabry disease. Provides resources, programs and events for patients and families.':'为受法布雷病影响的人群提供科普、权益倡导和社群支持，为患者及家庭提供资源、项目和交流活动。',
     'RARE DISEASE ATLAS':'罕见病知识图谱', 'Sources & coverage ↗':'来源与覆盖范围 ↗',
     'Rare, but never alone.':'罕见，但从不孤单。',
     'Open the example map':'打开示例图谱', 'Scroll to zoom · Drag to pan · Select to inspect':'滚轮缩放 · 拖动平移 · 点击查看',
@@ -93,7 +102,59 @@
     'disease':'疾病', 'gene':'基因', 'phenotype':'表型', 'paper':'论文', 'study':'研究', 'researcher':'研究人员', 'variant':'变异', 'search':'检索', 'institution':'机构', 'asset':'资源', 'mechanism':'机制', 'organization':'组织',
     'high confidence':'高可信度', 'moderate confidence':'中等可信度', 'low confidence':'低可信度'
   };
+  Object.assign(zh, {'About confidence':'关于证据可信度', 'About node size':'关于节点大小', 'Node area is proportional to documented connections in this map. Select a line to see why it exists.':'节点面积代表此图中有记录的关联数量。选择连线可查看关联依据。'});
   const records = new WeakMap();
+  Object.assign(zh, {
+    'YOU DO NOT HAVE TO NAVIGATE THIS ALONE':'你不必独自面对',
+    'Find support and people who understand.':'找到支持，也找到理解你的人。',
+    'More options':'更多选项', 'More for researchers':'研究者可查看更多',
+    'Graph & technical details':'图谱与专业细节',
+    'Connection details & source evidence':'关联详情与来源证据',
+    'Understand the papers and what comes next':'读懂论文，了解下一步',
+    'Paper summaries, feasibility and risks — with sources':'论文总结、可行性与风险提醒，附来源引用',
+    'Summarize papers & review feasibility':'总结论文并分析可行性',
+    'PAPERS, FEASIBILITY & RISKS':'论文、可行性与风险',
+    'What the evidence means for you':'这些证据对你意味着什么',
+    'What the papers say & risks to consider':'论文结论与需要注意的风险',
+    'Feasibility & next steps':'可行性与下一步'
+  });
+  Object.assign(zh, {
+    'START WITH PEOPLE':'先找到同行的人',
+    'Find a community. Start a conversation.':'找到相关社群，开始交流。',
+    'Existing support networks and research contacts connected to your search.':'与你的搜索相关的已有支持社群和研究联系人。',
+    'Communities':'患者社群', 'Researchers & institutions':'研究人员与机构',
+    'Indirect connections':'间接关联', 'Leads without direct contact':'暂无直接联系方式的线索',
+    'Ranking criteria':'排序依据', 'Photos & logos':'图片与标识',
+    'Communities to connect with':'可以联系的患者社群',
+    'Researchers & institutions to reach out to':'可以进一步联系的研究人员与机构',
+    'How results are ranked & coverage':'排序方法与覆盖范围',
+    'Explore the evidence graph & research details':'查看证据图谱和研究细节',
+    'Optional':'可选', 'Enlarge graph workspace':'放大图谱工作区', 'Restore workspace size':'恢复工作区大小',
+    'Show papers, genes & mechanisms':'显示论文、基因和机制',
+    'Website / source record':'网站／来源记录', 'Contact page / study contact':'联系页面／研究联系信息',
+    'Sources & connection':'来源与关联', 'View in graph':'在图谱中查看',
+    'OUTREACH RANK':'联系线索评分', 'Search connection':'搜索关联', 'Source support':'来源支持',
+    'Contact route':'联系渠道', 'Profile details':'资料完整度'
+  });
+  Object.assign(zh, {
+    'Symptoms in common':'共同症状',
+    'How nerve cells send signals':'神经细胞如何发送信号',
+    'How nerve cells clear signals':'神经细胞如何清除信号',
+    'Patient registries & research resources':'患者登记与研究资源',
+    'Published research':'已发表的研究', 'Symptoms & traits':'症状与特征',
+    'Researchers':'研究人员', 'Genetic changes':'基因变异', 'Your search':'你的搜索',
+    'Understand your condition & treatment research with AI ↓':'用 AI 了解疾病与治疗研究 ↓',
+    'Understand your condition and possible treatments':'了解疾病与可能的治疗方向',
+    'An AI guide for patients and families — explained simply, with sources':'面向患者及家属的 AI 指南：通俗解释，附原始来源',
+    'Help me understand':'帮我读懂', 'Find out more':'查看更多', 'View details':'查看详情',
+    'Photo unavailable':'暂无照片', 'Logo unavailable':'暂无机构标识',
+    'Close researcher list':'关闭研究者列表',
+    'For patients, families and advocates like Maria: understand the condition, what research has found, and how far possible treatments have progressed. Explore what may be feasible, what is still uncertain, and questions to discuss with your care team — with links to the sources.':'帮助 Maria 这样的患者、家属及患者组织代表了解疾病、研究发现，以及潜在治疗目前进展到哪一步。解释哪些方向可能可行、哪些仍不确定，并整理可与医疗团队讨论的问题，附来源链接。',
+    'Related through shared research or resources; may focus on a different condition.':'通过共同研究或资源找到，关注的疾病可能不同。',
+    'The sources link this person or organization to your search.':'来源资料显示此人或机构与你的搜索有关。',
+    'Use the listed contact details to ask about their work or support.':'可通过所列联系方式咨询研究或支持服务。',
+    'Contact details are not listed. Visit the source or official website to find them.':'暂无联系方式，可前往来源页面或官方网站查找。'
+  });
   let language;
   try { language = localStorage.getItem('raraction-language'); } catch {}
   if (!['en','zh-CN'].includes(language)) language = navigator.language.startsWith('zh') ? 'zh-CN' : 'en';
@@ -101,9 +162,6 @@
   select.id = 'language'; select.setAttribute('aria-label', 'Language / 语言');
   select.innerHTML = '<option value="en">English</option><option value="zh-CN">简体中文</option>';
   document.querySelector('.header-right').prepend(select);
-  const notice = document.createElement('p');
-  notice.className = 'locale-note';
-  document.querySelector('.search-section').append(notice);
   function translate(text) {
     const trimmed = text.trim();
     let value = zh[trimmed] || zh[trimmed.toLowerCase()];
@@ -128,7 +186,6 @@
     document.documentElement.lang = language;
     select.value = language;
     document.title = language === 'zh-CN' ? 'Asterisk · 罕见病知识图谱' : 'Asterisk · Rare Disease Atlas';
-    notice.textContent = language === 'zh-CN' ? 'AI 审阅按所选身份和语言生成；原始证据及规则检查保留来源语言。搜索建议使用英文名称或标准标识符。' : 'AI reviews use the selected audience and language. Source evidence and rule checks retain their original language. Search using English names or standard identifiers.';
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) {
       const node = walker.currentNode;
